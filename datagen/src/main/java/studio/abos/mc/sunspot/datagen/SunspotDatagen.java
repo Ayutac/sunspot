@@ -2,8 +2,11 @@ package studio.abos.mc.sunspot.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
+import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.datagen.providers.assets.SPModelProvider;
 import studio.abos.mc.sunspot.datagen.providers.data.SPAdvancementProvider;
 import studio.abos.mc.sunspot.datagen.providers.data.SPBiomeProvider;
@@ -21,6 +24,17 @@ public class SunspotDatagen implements DataGeneratorEntrypoint {
         pack.addProvider(SPAdvancementProvider::new);
         pack.addProvider(SPLootTableProviders.BlockLoot::new);
         pack.addProvider(SPRecipeProvider::new);
+        pack.addProvider((o, r) -> new FabricDynamicRegistryProvider(o, r) {
+            @Override
+            public @NotNull String getName() {
+                return "Biome Provider";
+            }
+
+            @Override
+            protected void configure(HolderLookup.Provider registries, Entries entries) {
+                entries.addAll(registries.lookupOrThrow(Registries.BIOME));
+            }
+        });
     }
 
     @Override
