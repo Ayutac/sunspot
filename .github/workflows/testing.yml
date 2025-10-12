@@ -1,0 +1,17 @@
+name: Testing
+
+on:
+  push:
+    branches:
+      - "1.21.1"
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  testing:
+    uses: JensenJ-Modding/Mod-Resources/.github/workflows/testing-neoforge-fabric.yml@main
+    with:
+      gradle-version: "8.14"
+      java-version: 21
+      fabric-mods: "https://edge.forgecdn.net/files/5786/326/architectury-13.0.8-fabric.jar https://edge.forgecdn.net/files/5982/384/ForgeConfigAPIPort-v21.1.3-1.21.1-Fabric.jar"
+      neoforge-mods: "https://edge.forgecdn.net/files/5786/327/architectury-13.0.8-neoforge.jar"

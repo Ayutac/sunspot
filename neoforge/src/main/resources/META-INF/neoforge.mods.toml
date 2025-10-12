@@ -1,0 +1,40 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+issueTrackerURL = "https://github.com/JensenJ-Modding/Architectury-Template/issues"
+license = "MIT License"
+
+[[mods]]
+modId = "architecturymod"
+version = "${version}"
+displayName = "Architectury Mod"
+authors = "JensenJ - Developer"
+description = '''
+Mod Description
+'''
+
+[[dependencies.architecturymod]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.architecturymod]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.architecturymod]]
+modId = "architectury"
+type = "required"
+versionRange = "[13.0.8,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[mixins]]
+config = "architecturymod-neoforge.mixins.json"
+
+[[mixins]]
+config = "architecturymod-common.mixins.json"

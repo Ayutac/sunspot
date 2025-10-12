@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "architecturymod",
+  "version": "${version}",
+  "name": "Architectury Mod",
+  "description": "Mod Description",
+  "authors": [
+    "JensenJ - Developer"
+  ],
+  "contact": {
+    "sources": "https://github.com/JensenJ-Modding/Architectury-Template",
+    "issues": "https://github.com/JensenJ-Modding/Architectury-Template/issues"
+  },
+  "license": "MIT License",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.architecturymod.fabric.ArchitecturyModFabric"
+    ]
+  },
+  "mixins": [
+    "architecturymod-common.mixins.json",
+    "architecturymod-fabric.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.21.1",
+    "architectury": ">=13.0.8",
+    "forgeconfigapiport": ">=21.1.3"
+  }
+}
