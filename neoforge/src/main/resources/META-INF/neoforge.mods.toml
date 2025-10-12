@@ -4,7 +4,7 @@ issueTrackerURL = "https://github.com/Ayutac/sunspot/issues"
 license = "All Rights Reserved"
 
 [[mods]]
-modId = "architecturymod"
+modId = "sunspot"
 version = "${version}"
 displayName = "Sunspot Mod"
 authors = "A Breeze Of Science"
