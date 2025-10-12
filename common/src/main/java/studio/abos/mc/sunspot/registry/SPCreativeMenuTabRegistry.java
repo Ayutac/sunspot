@@ -1,0 +1,30 @@
+package studio.abos.mc.sunspot.registry;
+
+import dev.architectury.registry.registries.DeferredRegister;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.CreativeModeTab;
+import studio.abos.mc.sunspot.Sunspot;
+
+public interface SPCreativeMenuTabRegistry {
+
+    DeferredRegister<CreativeModeTab> CREATIVE_TAB_REGISTRY = DeferredRegister.create(Sunspot.MOD_ID, Registries.CREATIVE_MODE_TAB);
+
+    static void register() {
+        CREATIVE_TAB_REGISTRY.register("general", SPCreativeMenuTabRegistry::createSunspotItemGroup);
+        CREATIVE_TAB_REGISTRY.register();
+    }
+
+    static CreativeModeTab createSunspotItemGroup() {
+        return CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
+                .title(Component.translatable("itemGroup.sunspot.general"))
+                .icon(() -> SPItemRegistry.SUBSTRATE_2.get().getDefaultInstance())
+                .displayItems((displayContext, entries) -> {
+                    entries.accept(SPItemRegistry.SUBSTRATE_2.get());
+                    entries.accept(SPItemRegistry.SUBSTRATE_3.get());
+                    entries.accept(SPItemRegistry.SUBSTRATE_4.get());
+                })
+                .build();
+    }
+
+}

@@ -4,7 +4,10 @@ import net.minecraft.resources.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import studio.abos.mc.sunspot.registry.SPBiomeRegistry;
+import studio.abos.mc.sunspot.registry.SPBlockRegistry;
+import studio.abos.mc.sunspot.registry.SPCreativeMenuTabRegistry;
 import studio.abos.mc.sunspot.registry.SPDimensionRegistry;
+import studio.abos.mc.sunspot.registry.SPItemRegistry;
 import studio.abos.mc.sunspot.registry.SPTagRegistry;
 
 public class Sunspot {
@@ -12,7 +15,10 @@ public class Sunspot {
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
     public static void init() {
+        SPBlockRegistry.BLOCK_REGISTRY.register();
+        SPItemRegistry.ITEM_REGISTRY.register();
         SPTagRegistry.init();
+        SPCreativeMenuTabRegistry.register();
         SPBiomeRegistry.init();
         SPDimensionRegistry.init();
     }

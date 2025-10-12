@@ -10,9 +10,9 @@ import java.util.concurrent.CompletableFuture;
 
 public class SPTagProviders {
 
-    public static class JItemTags extends FabricTagProvider.ItemTagProvider {
+    public static class SPItemTags extends FabricTagProvider.ItemTagProvider {
 
-        public JItemTags(final FabricDataOutput output, final CompletableFuture<HolderLookup.Provider> registriesFuture) {
+        public SPItemTags(final FabricDataOutput output, final CompletableFuture<HolderLookup.Provider> registriesFuture) {
             super(output, registriesFuture);
         }
 
