@@ -1,0 +1,13 @@
+{
+  "type": "sunspot:fourspace",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "sunspot:fourspace",
+      "lakes": false,
+      "features": false,
+      "layers": [],
+      "structure_overrides": []
+    }
+  }
+}
