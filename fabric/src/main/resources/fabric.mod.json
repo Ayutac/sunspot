@@ -16,6 +16,9 @@
   "entrypoints": {
     "main": [
       "studio.abos.mc.sunspot.fabric.SunspotFabric"
+    ],
+    "fabric-datagen": [
+      "studio.abos.mc.sunspot.datagen.SunspotDatagen"
     ]
   },
   "mixins": [
