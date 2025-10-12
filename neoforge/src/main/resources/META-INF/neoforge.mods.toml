@@ -1,15 +1,15 @@
 modLoader = "javafml"
 loaderVersion = "[4,)"
-issueTrackerURL = "https://github.com/JensenJ-Modding/Architectury-Template/issues"
-license = "MIT License"
+issueTrackerURL = "https://github.com/Ayutac/sunspot/issues"
+license = "All Rights Reserved"
 
 [[mods]]
 modId = "architecturymod"
 version = "${version}"
-displayName = "Architectury Mod"
-authors = "JensenJ - Developer"
+displayName = "Sunspot Mod"
+authors = "A Breeze Of Science"
 description = '''
-Mod Description
+A Sunspot Mod. Check out the story at sunspot.gay
 '''
 
 [[dependencies.architecturymod]]
@@ -34,7 +34,7 @@ ordering = "AFTER"
 side = "BOTH"
 
 [[mixins]]
-config = "architecturymod-neoforge.mixins.json"
+config = "sunspot-neoforge.mixins.json"
 
 [[mixins]]
-config = "architecturymod-common.mixins.json"
+config = "sunspot-common.mixins.json"

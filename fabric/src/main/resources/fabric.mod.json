@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "id": "architecturymod",
+  "id": "sunspot",
   "version": "${version}",
-  "name": "Architectury Mod",
-  "description": "Mod Description",
+  "name": "Sunspot Mod",
+  "description": "A Sunspot Mod. Check out the story at sunspot.gay",
   "authors": [
-    "JensenJ - Developer"
+    "A Breeze Of Science"
   ],
   "contact": {
-    "sources": "https://github.com/JensenJ-Modding/Architectury-Template",
-    "issues": "https://github.com/JensenJ-Modding/Architectury-Template/issues"
+    "sources": "https://github.com/Ayutac/sunspot",
+    "issues": "https://github.com/Ayutac/sunspot/issues"
   },
-  "license": "MIT License",
+  "license": "All Rights Reserved",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.architecturymod.fabric.ArchitecturyModFabric"
+      "studio.abos.mc.sunspot.fabric.SunspotFabric"
     ]
   },
   "mixins": [
-    "architecturymod-common.mixins.json",
-    "architecturymod-fabric.mixins.json"
+    "sunspot-common.mixins.json",
+    "sunspot-fabric.mixins.json"
   ],
   "depends": {
     "fabric": "*",
