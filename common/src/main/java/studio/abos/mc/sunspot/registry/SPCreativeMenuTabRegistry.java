@@ -10,6 +10,8 @@ public interface SPCreativeMenuTabRegistry {
 
     DeferredRegister<CreativeModeTab> CREATIVE_TAB_REGISTRY = DeferredRegister.create(Sunspot.MOD_ID, Registries.CREATIVE_MODE_TAB);
 
+    String GENERAL_TAB_KEY = "itemGroup.sunspot.general";
+
     static void register() {
         CREATIVE_TAB_REGISTRY.register("general", SPCreativeMenuTabRegistry::createSunspotItemGroup);
         CREATIVE_TAB_REGISTRY.register();
@@ -17,7 +19,7 @@ public interface SPCreativeMenuTabRegistry {
 
     static CreativeModeTab createSunspotItemGroup() {
         return CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
-                .title(Component.translatable("itemGroup.sunspot.general"))
+                .title(Component.translatable(GENERAL_TAB_KEY))
                 .icon(() -> SPItemRegistry.SUBSTRATE_2.get().getDefaultInstance())
                 .displayItems((displayContext, entries) -> {
                     entries.accept(SPItemRegistry.SUBSTRATE_2.get());
