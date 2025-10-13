@@ -29,5 +29,9 @@ public class SPLangProvider extends FabricLanguageProvider {
         builder.add(SPTagRegistry.SUBSTRATE_MATERIAL, "Substrate Material");
 
         builder.add(SPCreativeMenuTabRegistry.GENERAL_TAB_KEY, "Sunspot");
+
+        builder.add("death.attack.flamefall.item", "%1$s went inferno while fighting %2$s using %3$s");
+        builder.add("death.attack.flamefall.player", "%1$s went inferno while fighting %2$s");
+        builder.add("death.attack.flamefall", "%1$s went inferno");
     }
 }

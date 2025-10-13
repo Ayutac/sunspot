@@ -11,6 +11,7 @@ import studio.abos.mc.sunspot.datagen.providers.assets.SPLangProvider;
 import studio.abos.mc.sunspot.datagen.providers.assets.SPModelProvider;
 import studio.abos.mc.sunspot.datagen.providers.data.SPAdvancementProvider;
 import studio.abos.mc.sunspot.datagen.providers.data.SPBiomeProvider;
+import studio.abos.mc.sunspot.datagen.providers.data.SPDamageTypeProvider;
 import studio.abos.mc.sunspot.datagen.providers.data.SPLootTableProviders;
 import studio.abos.mc.sunspot.datagen.providers.data.SPRecipeProvider;
 import studio.abos.mc.sunspot.datagen.providers.data.SPTagProviders;
@@ -26,6 +27,7 @@ public class SunspotDatagen implements DataGeneratorEntrypoint {
         pack.addProvider(SPLootTableProviders.BlockLoot::new);
         pack.addProvider(SPRecipeProvider::new);
         pack.addProvider(SPLangProvider::new);
+        pack.addProvider(SPDamageTypeProvider::new);
         pack.addProvider((o, r) -> new FabricDynamicRegistryProvider(o, r) {
             @Override
             public @NotNull String getName() {
@@ -41,6 +43,7 @@ public class SunspotDatagen implements DataGeneratorEntrypoint {
 
     @Override
     public void buildRegistry(final RegistrySetBuilder registryBuilder) {
+        registryBuilder.add(Registries.DAMAGE_TYPE, SPDamageTypeProvider::bootstrap);
         registryBuilder.add(Registries.BIOME, SPBiomeProvider::bootstrap);
     }
 }
