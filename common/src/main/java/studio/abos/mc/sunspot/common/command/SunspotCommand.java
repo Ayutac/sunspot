@@ -119,7 +119,7 @@ public class SunspotCommand {
 
     public static int runSet(final CommandContext<CommandSourceStack> ctx) {
         // this clamp is unneeded because the command already takes care of it
-        final int amount = Mth.clamp(0, ctx.getArgument("amount", Integer.class), CommonFlameComponent.FLAME_MAX);
+        final int amount = Mth.clamp(ctx.getArgument("amount", Integer.class), 0, CommonFlameComponent.FLAME_MAX);
         return run(ctx, mob -> {
                     final CommonFlameComponent flame = SPComponentPlatformUtils.getFlameData(mob);
                     if (flame.getFlame() == amount) {

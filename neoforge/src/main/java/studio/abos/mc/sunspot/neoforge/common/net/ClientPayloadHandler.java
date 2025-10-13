@@ -16,7 +16,7 @@ public class ClientPayloadHandler {
         }
         final CommonFlameComponent flame = SPComponentPlatformUtilsImpl.getFlameData(player);
         flame.setFlametouched(data.flametouched());
-        flame.setFlame(Mth.clamp(0, data.flame(), CommonFlameComponent.FLAME_MAX));
+        flame.setFlame(Mth.clamp(data.flame(), 0, CommonFlameComponent.FLAME_MAX));
     }
 
 }

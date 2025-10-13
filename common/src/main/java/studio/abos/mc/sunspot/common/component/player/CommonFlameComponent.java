@@ -63,7 +63,7 @@ public abstract class CommonFlameComponent {
     public void readNbt(final CompoundTag nbt) {
         setFlametouched(nbt.getBoolean(FLAMETOUCHED_KEY));
         if (isFlametouched()) {
-            setFlame(Mth.clamp(0, nbt.getInt(FLAME_KEY), FLAME_MAX));
+            setFlame(Mth.clamp(nbt.getInt(FLAME_KEY), 0, FLAME_MAX));
         }
     }
 }
