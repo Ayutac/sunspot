@@ -4,7 +4,7 @@ import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import studio.abos.mc.sunspot.Sunspot;
-import studio.abos.mc.sunspot.neoforge.common.capability.player.FlameCapability;
+import studio.abos.mc.sunspot.neoforge.common.capability.entity.FlameCapability;
 import studio.abos.mc.sunspot.neoforge.common.capability.player.FourspaceShifterOriginCapability;
 
 import java.util.function.Supplier;

@@ -1,5 +1,6 @@
 package studio.abos.mc.sunspot.platform.neoforge;
 
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import studio.abos.mc.sunspot.common.component.player.CommonFlameComponent;
 import studio.abos.mc.sunspot.common.component.player.CommonFourspaceShifterOriginComponent;
@@ -11,8 +12,8 @@ public class SPComponentPlatformUtilsImpl {
         return player.getData(SPCapabilities.FOURSPACE_SHIFTER_ORIGIN);
     }
 
-    public static CommonFlameComponent getFlameData(final Player player) {
-        return player.getData(SPCapabilities.FLAME);
+    public static CommonFlameComponent getFlameData(final Entity entity) {
+        return entity.getData(SPCapabilities.FLAME);
     }
 
 }

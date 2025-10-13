@@ -1,20 +1,20 @@
-package studio.abos.mc.sunspot.fabric.common.component.player;
+package studio.abos.mc.sunspot.fabric.common.component.entity;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.Entity;
 import org.jetbrains.annotations.NotNull;
 import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
 import studio.abos.mc.sunspot.common.component.player.CommonFlameComponent;
 
 public class FlameComponent extends CommonFlameComponent implements AutoSyncedComponent {
 
-    protected final Player player;
+    protected final Entity entity;
 
-    public FlameComponent(final @NotNull Player player) {
+    public FlameComponent(final @NotNull Entity entity) {
         super();
-        this.player = player;
+        this.entity = entity;
     }
 
     @Override
@@ -29,6 +29,6 @@ public class FlameComponent extends CommonFlameComponent implements AutoSyncedCo
 
     @Override
     public boolean shouldSyncWith(final ServerPlayer player) {
-        return this.player == player;
+        return entity == player;
     }
 }

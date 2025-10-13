@@ -1,4 +1,4 @@
-package studio.abos.mc.sunspot.neoforge.common.capability.player;
+package studio.abos.mc.sunspot.neoforge.common.capability.entity;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
