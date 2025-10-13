@@ -7,6 +7,13 @@ architectury {
     fabric()
 }
 
+repositories {
+    maven {
+        name = 'Ladysnake Mods'
+        url = 'https://maven.ladysnake.org/releases'
+    }
+}
+
 configurations {
     common {
         canBeResolved = true
@@ -30,6 +37,10 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:$rootProject.fabric_api_version"
 
     modImplementation "dev.architectury:architectury-fabric:$rootProject.architectury_api_version"
+
+    //CCA
+    include modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-base:6.1.2")
+    include modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:6.1.2")
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive false }
     shadowBundle project(path: ':common', configuration: 'transformProductionFabric')

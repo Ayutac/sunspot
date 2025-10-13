@@ -19,6 +19,14 @@
     ],
     "fabric-datagen": [
       "studio.abos.mc.sunspot.datagen.SunspotDatagen"
+    ],
+    "cardinal-components": [
+      "studio.abos.mc.sunspot.fabric.common.component.SPComponents"
+    ]
+  },
+  "custom": {
+    "cardinal-components": [
+      "sunspot:fourspace_shifter_origin"
     ]
   },
   "mixins": [
