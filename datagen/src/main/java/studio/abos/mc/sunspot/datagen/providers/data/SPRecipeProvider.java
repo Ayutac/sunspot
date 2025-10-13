@@ -45,5 +45,35 @@ public class SPRecipeProvider extends FabricRecipeProvider {
                 .define('S', SPItemRegistry.SUBSTRATE_3.get())
                 .unlockedBy("has_substrate_3", InventoryChangeTrigger.TriggerInstance.hasItems(SPItemRegistry.SUBSTRATE_3.get()))
                 .save(out);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SPItemRegistry.MANTLE_BASE_HELMET.get())
+                .pattern("STS")
+                .pattern("T T")
+                .define('S', SPItemRegistry.SUBSTRATE_4.get())
+                .define('T', SPItemRegistry.SUBSTRATE_3.get())
+                .unlockedBy("has_substrate_4", InventoryChangeTrigger.TriggerInstance.hasItems(SPItemRegistry.SUBSTRATE_4.get()))
+                .save(out);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SPItemRegistry.MANTLE_BASE_CHESTPLATE.get())
+                .pattern("T T")
+                .pattern("SSS")
+                .pattern("TST")
+                .define('S', SPItemRegistry.SUBSTRATE_4.get())
+                .define('T', SPItemRegistry.SUBSTRATE_3.get())
+                .unlockedBy("has_substrate_4", InventoryChangeTrigger.TriggerInstance.hasItems(SPItemRegistry.SUBSTRATE_4.get()))
+                .save(out);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SPItemRegistry.MANTLE_BASE_LEGGINGS.get())
+                .pattern("SSS")
+                .pattern("T T")
+                .pattern("T T")
+                .define('S', SPItemRegistry.SUBSTRATE_4.get())
+                .define('T', SPItemRegistry.SUBSTRATE_3.get())
+                .unlockedBy("has_substrate_4", InventoryChangeTrigger.TriggerInstance.hasItems(SPItemRegistry.SUBSTRATE_4.get()))
+                .save(out);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SPItemRegistry.MANTLE_BASE_BOOTS.get())
+                .pattern("S S")
+                .pattern("T T")
+                .define('S', SPItemRegistry.SUBSTRATE_4.get())
+                .define('T', SPItemRegistry.SUBSTRATE_3.get())
+                .unlockedBy("has_substrate_4", InventoryChangeTrigger.TriggerInstance.hasItems(SPItemRegistry.SUBSTRATE_4.get()))
+                .save(out);
     }
 }

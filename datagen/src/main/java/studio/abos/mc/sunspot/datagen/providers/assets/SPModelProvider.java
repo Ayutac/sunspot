@@ -23,5 +23,9 @@ public class SPModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(final ItemModelGenerators gen) {
         gen.generateFlatItem(SPItemRegistry.SUBSTRATE_2.get(), ModelTemplates.FLAT_ITEM);
+        gen.generateFlatItem(SPItemRegistry.MANTLE_BASE_HELMET.get(), ModelTemplates.FLAT_ITEM);
+        gen.generateFlatItem(SPItemRegistry.MANTLE_BASE_CHESTPLATE.get(), ModelTemplates.FLAT_ITEM);
+        gen.generateFlatItem(SPItemRegistry.MANTLE_BASE_LEGGINGS.get(), ModelTemplates.FLAT_ITEM);
+        gen.generateFlatItem(SPItemRegistry.MANTLE_BASE_BOOTS.get(), ModelTemplates.FLAT_ITEM);
     }
 }
