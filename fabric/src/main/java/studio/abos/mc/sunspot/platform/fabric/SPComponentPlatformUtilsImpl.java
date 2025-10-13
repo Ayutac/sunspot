@@ -2,7 +2,7 @@ package studio.abos.mc.sunspot.platform.fabric;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import studio.abos.mc.sunspot.common.component.player.CommonFlameComponent;
+import studio.abos.mc.sunspot.common.component.entity.CommonFlameComponent;
 import studio.abos.mc.sunspot.common.component.player.CommonFourspaceShifterOriginComponent;
 import studio.abos.mc.sunspot.fabric.common.component.SPComponents;
 

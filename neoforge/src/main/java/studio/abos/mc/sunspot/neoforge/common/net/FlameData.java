@@ -6,7 +6,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.Sunspot;
-import studio.abos.mc.sunspot.common.component.player.CommonFlameComponent;
+import studio.abos.mc.sunspot.common.component.entity.CommonFlameComponent;
 
 public record FlameData(boolean flametouched, int flame) implements CustomPacketPayload {
 

@@ -6,7 +6,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.common.util.INBTSerializable;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
-import studio.abos.mc.sunspot.common.component.player.CommonFlameComponent;
+import studio.abos.mc.sunspot.common.component.entity.CommonFlameComponent;
 import studio.abos.mc.sunspot.neoforge.common.net.FlameData;
 
 public class FlameCapability extends CommonFlameComponent implements INBTSerializable<CompoundTag> {

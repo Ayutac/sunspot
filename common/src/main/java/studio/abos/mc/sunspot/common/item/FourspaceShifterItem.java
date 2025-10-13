@@ -13,7 +13,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.Sunspot;
-import studio.abos.mc.sunspot.common.component.player.CommonFlameComponent;
+import studio.abos.mc.sunspot.common.component.entity.CommonFlameComponent;
 import studio.abos.mc.sunspot.common.component.player.CommonFourspaceShifterOriginComponent;
 import studio.abos.mc.sunspot.common.registry.SPDimensionRegistry;
 import studio.abos.mc.sunspot.platform.SPComponentPlatformUtils;

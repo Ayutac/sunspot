@@ -3,7 +3,7 @@ package studio.abos.mc.sunspot.platform;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import studio.abos.mc.sunspot.common.component.player.CommonFlameComponent;
+import studio.abos.mc.sunspot.common.component.entity.CommonFlameComponent;
 import studio.abos.mc.sunspot.common.component.player.CommonFourspaceShifterOriginComponent;
 
 public class SPComponentPlatformUtils {

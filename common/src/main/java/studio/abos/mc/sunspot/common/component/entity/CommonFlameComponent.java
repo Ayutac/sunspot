@@ -1,4 +1,4 @@
-package studio.abos.mc.sunspot.common.component.player;
+package studio.abos.mc.sunspot.common.component.entity;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;

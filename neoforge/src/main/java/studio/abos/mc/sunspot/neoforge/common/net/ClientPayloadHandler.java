@@ -3,7 +3,7 @@ package studio.abos.mc.sunspot.neoforge.common.net;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
-import studio.abos.mc.sunspot.common.component.player.CommonFlameComponent;
+import studio.abos.mc.sunspot.common.component.entity.CommonFlameComponent;
 import studio.abos.mc.sunspot.platform.neoforge.SPComponentPlatformUtilsImpl;
 
 public class ClientPayloadHandler {
