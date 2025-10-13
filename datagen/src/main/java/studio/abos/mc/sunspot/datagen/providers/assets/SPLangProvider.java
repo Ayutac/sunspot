@@ -3,10 +3,10 @@ package studio.abos.mc.sunspot.datagen.providers.assets;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
-import studio.abos.mc.sunspot.registry.SPBlockRegistry;
-import studio.abos.mc.sunspot.registry.SPCreativeMenuTabRegistry;
-import studio.abos.mc.sunspot.registry.SPItemRegistry;
-import studio.abos.mc.sunspot.registry.SPTagRegistry;
+import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
+import studio.abos.mc.sunspot.common.registry.SPCreativeMenuTabRegistry;
+import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
+import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 
 import java.util.concurrent.CompletableFuture;
 

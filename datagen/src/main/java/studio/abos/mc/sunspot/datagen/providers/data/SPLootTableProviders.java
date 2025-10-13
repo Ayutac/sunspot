@@ -3,7 +3,7 @@ package studio.abos.mc.sunspot.datagen.providers.data;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.core.HolderLookup;
-import studio.abos.mc.sunspot.registry.SPBlockRegistry;
+import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
 
 import java.util.concurrent.CompletableFuture;
 

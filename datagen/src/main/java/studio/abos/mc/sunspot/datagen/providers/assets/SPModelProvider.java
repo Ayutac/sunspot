@@ -5,8 +5,8 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.data.models.model.ModelTemplates;
-import studio.abos.mc.sunspot.registry.SPBlockRegistry;
-import studio.abos.mc.sunspot.registry.SPItemRegistry;
+import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
+import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
 
 public class SPModelProvider extends FabricModelProvider {
 

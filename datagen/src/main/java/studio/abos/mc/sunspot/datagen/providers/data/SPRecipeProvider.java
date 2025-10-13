@@ -9,8 +9,8 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.world.item.Items;
-import studio.abos.mc.sunspot.registry.SPItemRegistry;
-import studio.abos.mc.sunspot.registry.SPTagRegistry;
+import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
+import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 
 import java.util.concurrent.CompletableFuture;
 

@@ -1,4 +1,4 @@
-package studio.abos.mc.sunspot.registry;
+package studio.abos.mc.sunspot.common.registry;
 
 import dev.architectury.registry.registries.DeferredRegister;
 import net.minecraft.core.registries.Registries;

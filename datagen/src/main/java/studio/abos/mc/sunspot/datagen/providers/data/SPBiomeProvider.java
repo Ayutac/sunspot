@@ -6,7 +6,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.biome.BiomeSpecialEffects;
 import net.minecraft.world.level.biome.MobSpawnSettings;
-import studio.abos.mc.sunspot.registry.SPBiomeRegistry;
+import studio.abos.mc.sunspot.common.registry.SPBiomeRegistry;
 
 public class SPBiomeProvider {
 

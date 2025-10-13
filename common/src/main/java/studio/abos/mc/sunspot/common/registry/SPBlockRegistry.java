@@ -1,4 +1,4 @@
-package studio.abos.mc.sunspot.registry;
+package studio.abos.mc.sunspot.common.registry;
 
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -6,7 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import studio.abos.mc.sunspot.Sunspot;
-import studio.abos.mc.sunspot.block.SubstrateBlock;
+import studio.abos.mc.sunspot.common.block.SubstrateBlock;
 
 public interface SPBlockRegistry {
 

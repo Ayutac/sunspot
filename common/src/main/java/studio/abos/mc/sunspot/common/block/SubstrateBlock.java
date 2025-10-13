@@ -1,4 +1,4 @@
-package studio.abos.mc.sunspot.block;
+package studio.abos.mc.sunspot.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
