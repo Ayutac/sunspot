@@ -1,6 +1,7 @@
 package studio.abos.mc.sunspot.common.component.player;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import org.jetbrains.annotations.NotNull;
@@ -69,5 +70,9 @@ public abstract class CommonFlameComponent {
         if (isFlametouched()) {
             setFlame(clamp(nbt.getInt(FLAME_KEY)));
         }
+    }
+
+    public static void sendNotEnoughFlameMsg(final @NotNull ServerPlayer player) {
+        player.sendSystemMessage(Component.literal("Not enough Flame!"));
     }
 }
