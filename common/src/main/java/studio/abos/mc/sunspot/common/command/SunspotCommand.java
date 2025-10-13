@@ -72,10 +72,10 @@ public class SunspotCommand {
             final Collection<? extends Entity> targets = EntityArgument.getEntities(ctx, "entities");
             int count = 0;
             for (final Entity entity : targets) {
-                if (entity instanceof Mob mob && mobAction.test(mob)) {
+                if (entity instanceof final Mob mob && mobAction.test(mob)) {
                     count++;
                 }
-                else if (entity instanceof ServerPlayer player && playerAction.test(player)) {
+                else if (entity instanceof final ServerPlayer player && playerAction.test(player)) {
                     count++;
                 }
             }

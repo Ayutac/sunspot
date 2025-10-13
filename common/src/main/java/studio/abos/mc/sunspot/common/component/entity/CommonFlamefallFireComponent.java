@@ -48,7 +48,7 @@ public abstract class CommonFlamefallFireComponent {
         if (flamefallFire == null) {
             return;
         }
-        if (entity instanceof LivingEntity living && living.isAlive() && flamefallFire.getRemainingFireTicks() % TICKS_FOR_DAMAGE == 1) {
+        if (entity instanceof final LivingEntity living && living.isAlive() && flamefallFire.getRemainingFireTicks() % TICKS_FOR_DAMAGE == 1) {
             living.hurt(new DamageSource(damageTypes.getHolderOrThrow(SPDamageTypeRegistry.FLAMEFALL_FIRE)), DAMAGE);
         }
         flamefallFire.decreaseRemainingFireTicks();
