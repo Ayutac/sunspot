@@ -24,11 +24,15 @@ public abstract class LivingEntityMixin {
             final int flameAmount = (int)Math.floor(health - realAmount);
             if (entity instanceof Mob mob) {
                 final CommonFlameComponent flame = SPComponentPlatformUtils.getFlameData(mob);
-                flame.setFlame(CommonFlameComponent.clamp(flame.getFlame() + flameAmount));
+                if (flame != null && flame.isFlametouched()) {
+                    flame.setFlame(CommonFlameComponent.clamp(flame.getFlame() + flameAmount));
+                }
             }
             else if (entity instanceof ServerPlayer player) {
                 final CommonFlameComponent flame = SPComponentPlatformUtils.getFlameData(player);
-                flame.setFlame(CommonFlameComponent.clamp(flame.getFlame() + flameAmount), player);
+                if (flame != null && flame.isFlametouched()) {
+                    flame.setFlame(CommonFlameComponent.clamp(flame.getFlame() + flameAmount), player);
+                }
             }
         }
     }
