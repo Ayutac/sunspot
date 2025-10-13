@@ -1,17 +1,37 @@
 package studio.abos.mc.sunspot.datagen.providers.data;
 
+import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.biome.BiomeSpecialEffects;
 import net.minecraft.world.level.biome.MobSpawnSettings;
+import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.common.registry.SPBiomeRegistry;
 
-public class SPBiomeProvider {
+import java.util.concurrent.CompletableFuture;
+
+public class SPBiomeProvider extends FabricDynamicRegistryProvider {
+
+    public SPBiomeProvider(final FabricDataOutput output, final CompletableFuture<HolderLookup.Provider> registriesFuture) {
+        super(output, registriesFuture);
+    }
 
     public static void bootstrap(final BootstrapContext<Biome> context) {
         context.register(SPBiomeRegistry.FOURSPACE, fourspace(context));
+    }
+
+    @Override
+    protected void configure(final HolderLookup.Provider registries, final Entries entries) {
+        entries.addAll(registries.lookupOrThrow(Registries.BIOME));
+    }
+
+    @Override
+    public @NotNull String getName() {
+        return "Biome Provider";
     }
 
     private static Biome fourspace(final BootstrapContext<Biome> context) {

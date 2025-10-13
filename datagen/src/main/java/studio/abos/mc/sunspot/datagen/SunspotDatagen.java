@@ -28,17 +28,7 @@ public class SunspotDatagen implements DataGeneratorEntrypoint {
         pack.addProvider(SPRecipeProvider::new);
         pack.addProvider(SPLangProvider::new);
         pack.addProvider(SPDamageTypeProvider::new);
-        pack.addProvider((o, r) -> new FabricDynamicRegistryProvider(o, r) {
-            @Override
-            public @NotNull String getName() {
-                return "Biome Provider";
-            }
-
-            @Override
-            protected void configure(HolderLookup.Provider registries, Entries entries) {
-                entries.addAll(registries.lookupOrThrow(Registries.BIOME));
-            }
-        });
+        pack.addProvider(SPBiomeProvider::new);
     }
 
     @Override
