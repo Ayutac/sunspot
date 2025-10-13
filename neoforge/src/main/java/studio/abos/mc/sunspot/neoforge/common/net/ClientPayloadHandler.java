@@ -2,7 +2,6 @@ package studio.abos.mc.sunspot.neoforge.common.net;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.util.Mth;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import studio.abos.mc.sunspot.common.component.player.CommonFlameComponent;
 import studio.abos.mc.sunspot.platform.neoforge.SPComponentPlatformUtilsImpl;
@@ -16,7 +15,7 @@ public class ClientPayloadHandler {
         }
         final CommonFlameComponent flame = SPComponentPlatformUtilsImpl.getFlameData(player);
         flame.setFlametouched(data.flametouched());
-        flame.setFlame(Mth.clamp(data.flame(), 0, CommonFlameComponent.FLAME_MAX));
+        flame.setFlame(CommonFlameComponent.clamp(data.flame()));
     }
 
 }

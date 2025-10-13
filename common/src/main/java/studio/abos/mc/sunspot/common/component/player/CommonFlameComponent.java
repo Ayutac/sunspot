@@ -53,6 +53,10 @@ public abstract class CommonFlameComponent {
         setFlametouched(flametouched);
     }
 
+    public static int clamp(final int value) {
+        return Mth.clamp(value, 0, FLAME_MAX);
+    }
+
     public void writeNbt(final CompoundTag nbt) {
         nbt.putBoolean(FLAMETOUCHED_KEY, isFlametouched());
         if (isFlametouched()) {
@@ -63,7 +67,7 @@ public abstract class CommonFlameComponent {
     public void readNbt(final CompoundTag nbt) {
         setFlametouched(nbt.getBoolean(FLAMETOUCHED_KEY));
         if (isFlametouched()) {
-            setFlame(Mth.clamp(nbt.getInt(FLAME_KEY), 0, FLAME_MAX));
+            setFlame(clamp(nbt.getInt(FLAME_KEY)));
         }
     }
 }

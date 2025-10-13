@@ -8,7 +8,6 @@ import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import org.jetbrains.annotations.NotNull;
@@ -119,7 +118,7 @@ public class SunspotCommand {
 
     public static int runSet(final CommandContext<CommandSourceStack> ctx) {
         // this clamp is unneeded because the command already takes care of it
-        final int amount = Mth.clamp(ctx.getArgument("amount", Integer.class), 0, CommonFlameComponent.FLAME_MAX);
+        final int amount = CommonFlameComponent.clamp(ctx.getArgument("amount", Integer.class));
         return run(ctx, mob -> {
                     final CommonFlameComponent flame = SPComponentPlatformUtils.getFlameData(mob);
                     if (flame.getFlame() == amount) {
