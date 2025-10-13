@@ -2,7 +2,6 @@ package studio.abos.mc.sunspot.neoforge.common.capability.entity;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.common.util.INBTSerializable;
 import net.neoforged.neoforge.network.PacketDistributor;
@@ -14,13 +13,17 @@ public class FlameCapability extends CommonFlameComponent implements INBTSeriali
 
     public void setFlame(final int flame, final @NotNull ServerPlayer player) {
         super.setFlame(flame, player);
-        PacketDistributor.sendToPlayer(player, new FlameData(isFlametouched(), getFlame()));
+        if (player.connection != null) {
+            PacketDistributor.sendToPlayer(player, new FlameData(isFlametouched(), getFlame()));
+        }
     }
 
     @Override
     public void setFlametouched(final boolean flametouched, final @NotNull ServerPlayer player) {
         super.setFlametouched(flametouched, player);
-        PacketDistributor.sendToPlayer(player, new FlameData(isFlametouched(), getFlame()));
+        if (player.connection != null) {
+            PacketDistributor.sendToPlayer(player, new FlameData(isFlametouched(), getFlame()));
+        }
     }
 
     @Override
