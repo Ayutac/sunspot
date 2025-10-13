@@ -38,7 +38,7 @@ public abstract class CommonFlamefallFireComponent {
         if (remainingFireTicks < 0) {
             remainingFireTicks = 0;
         }
-        else {
+        else if (remainingFireTicks > 0) {
             remainingFireTicks--;
         }
     }
