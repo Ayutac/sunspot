@@ -29,6 +29,9 @@ public abstract class CommonFlameComponent {
             throw new IllegalArgumentException("Flame amount cannot be that big!");
         }
         this.flame = flame;
+        if (flame != 0 && !flametouched) {
+            flametouched = true; // do NOT call #setFlametouched(...) here, as it is dangerously close to an SO waiting to happen
+        }
     }
 
     public void setFlame(final int flame, final @NotNull ServerPlayer player) {

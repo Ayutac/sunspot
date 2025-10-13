@@ -1,10 +1,12 @@
 package studio.abos.mc.sunspot;
 
+import dev.architectury.event.events.common.CommandRegistrationEvent;
 import net.minecraft.resources.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import studio.abos.mc.sunspot.common.registry.SPBiomeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
+import studio.abos.mc.sunspot.common.registry.SPCommandRegistry;
 import studio.abos.mc.sunspot.common.registry.SPCreativeMenuTabRegistry;
 import studio.abos.mc.sunspot.common.registry.SPDimensionRegistry;
 import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
@@ -21,6 +23,7 @@ public class Sunspot {
         SPCreativeMenuTabRegistry.register();
         SPBiomeRegistry.init();
         SPDimensionRegistry.init();
+        CommandRegistrationEvent.EVENT.register(SPCommandRegistry::register);
     }
 
     public static ResourceLocation id(final String name) {
