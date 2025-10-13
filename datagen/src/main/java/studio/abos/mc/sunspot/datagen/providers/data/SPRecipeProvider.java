@@ -75,5 +75,14 @@ public class SPRecipeProvider extends FabricRecipeProvider {
                 .define('T', SPItemRegistry.SUBSTRATE_3.get())
                 .unlockedBy("has_substrate_4", InventoryChangeTrigger.TriggerInstance.hasItems(SPItemRegistry.SUBSTRATE_4.get()))
                 .save(out);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SPItemRegistry.FOURSPACE_SHIFTER.get())
+                .pattern("ETE")
+                .pattern("TST")
+                .pattern("ETE")
+                .define('E', Items.ENDER_PEARL)
+                .define('S', SPItemRegistry.SUBSTRATE_4.get())
+                .define('T', SPItemRegistry.SUBSTRATE_3.get())
+                .unlockedBy("has_substrate_4", InventoryChangeTrigger.TriggerInstance.hasItems(SPItemRegistry.SUBSTRATE_4.get()))
+                .save(out);
     }
 }

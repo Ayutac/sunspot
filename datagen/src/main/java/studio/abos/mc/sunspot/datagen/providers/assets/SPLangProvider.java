@@ -24,7 +24,10 @@ public class SPLangProvider extends FabricLanguageProvider {
         builder.add(SPItemRegistry.MANTLE_BASE_CHESTPLATE.get(), "Mantle Base Chestplate");
         builder.add(SPItemRegistry.MANTLE_BASE_LEGGINGS.get(), "Mantle Base Leggings");
         builder.add(SPItemRegistry.MANTLE_BASE_BOOTS.get(), "Mantle Base Boots");
+        builder.add(SPItemRegistry.FOURSPACE_SHIFTER.get(), "Fourspace Shifter");
+
         builder.add(SPTagRegistry.SUBSTRATE_MATERIAL, "Substrate Material");
+
         builder.add(SPCreativeMenuTabRegistry.GENERAL_TAB_KEY, "Sunspot");
     }
 }
