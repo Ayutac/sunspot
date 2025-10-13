@@ -9,14 +9,14 @@ import studio.abos.mc.sunspot.common.component.player.CommonFourspaceShifterOrig
 public class FourspaceShifterOriginCapability extends CommonFourspaceShifterOriginComponent implements INBTSerializable<CompoundTag> {
 
     @Override
-    public @NotNull CompoundTag serializeNBT(final HolderLookup.@NotNull Provider lookup) {
+    public @NotNull CompoundTag serializeNBT(final @NotNull HolderLookup.Provider lookup) {
         final CompoundTag nbt = new CompoundTag();
         writeNbt(nbt);
         return nbt;
     }
 
     @Override
-    public void deserializeNBT(final HolderLookup.@NotNull Provider lookup, final @NotNull CompoundTag nbt) {
+    public void deserializeNBT(final @NotNull HolderLookup.Provider lookup, final @NotNull CompoundTag nbt) {
         readNbt(nbt);
     }
 }
