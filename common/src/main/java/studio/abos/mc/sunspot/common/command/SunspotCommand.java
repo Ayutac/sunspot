@@ -137,9 +137,9 @@ public class SunspotCommand {
                 },
                 count -> {
                     if (count == 1) {
-                        return Component.literal("Set Flame to %d for 1 entity".formatted(amount));
+                        return Component.literal("Set Flame to %d mVn for 1 entity".formatted(amount));
                     }
-                    return Component.literal("Set Flame to %d for %d entities".formatted(amount, count));
+                    return Component.literal("Set Flame to %d mVn for %d entities".formatted(amount, count));
                 });
     }
 
@@ -156,9 +156,9 @@ public class SunspotCommand {
         return run(ctx, measure::test, measure::test,
                 count -> {
                     if (count == 1) {
-                        return Component.literal("Measured Flame of 1 entity: %d".formatted(amount[0]));
+                        return Component.literal("Measured Flame of 1 entity: %d mVn".formatted(amount[0]));
                     }
-                    return Component.literal("Measured Flame of %d entities: %d".formatted(count, amount[0]));
+                    return Component.literal("Measured Flame of %d entities: %d mVn".formatted(count, amount[0]));
                 });
     }
 }
