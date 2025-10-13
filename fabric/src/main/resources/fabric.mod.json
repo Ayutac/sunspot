@@ -27,7 +27,8 @@
   "custom": {
     "cardinal-components": [
       "sunspot:fourspace_shifter_origin",
-      "sunspot:flame"
+      "sunspot:flame",
+      "sunspot:flamefall_fire"
     ]
   },
   "mixins": [

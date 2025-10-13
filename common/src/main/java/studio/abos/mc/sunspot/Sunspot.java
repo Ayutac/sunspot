@@ -9,6 +9,7 @@ import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
 import studio.abos.mc.sunspot.common.registry.SPCommandRegistry;
 import studio.abos.mc.sunspot.common.registry.SPCreativeMenuTabRegistry;
 import studio.abos.mc.sunspot.common.registry.SPDimensionRegistry;
+import studio.abos.mc.sunspot.common.registry.SPEventRegistry;
 import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
 import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 
@@ -23,6 +24,7 @@ public class Sunspot {
         SPCreativeMenuTabRegistry.register();
         SPBiomeRegistry.init();
         SPDimensionRegistry.init();
+        SPEventRegistry.register();
         CommandRegistrationEvent.EVENT.register(SPCommandRegistry::register);
     }
 

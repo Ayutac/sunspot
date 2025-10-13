@@ -13,6 +13,7 @@ import net.minecraft.world.entity.Mob;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlameComponent;
+import studio.abos.mc.sunspot.common.component.entity.CommonFlamefallFireComponent;
 import studio.abos.mc.sunspot.platform.SPComponentPlatformUtils;
 
 import java.util.Collection;
@@ -42,7 +43,28 @@ public class SunspotCommand {
                                         )
                                 )
                         )
+                        .then(Commands.literal("ignite")
+                                .then(Commands.argument("entities", EntityArgument.entities())
+                                        .executes(SunspotCommand::runIgnite)))
         );
+    }
+
+    public static int run(final CommandContext<CommandSourceStack> ctx, final @NotNull Predicate<Entity> entityAction, final @Nullable Function<Integer, Component> result) {
+        try {
+            final Collection<? extends Entity> targets = EntityArgument.getEntities(ctx, "entities");
+            int count = 0;
+            for (final Entity entity : targets) {
+                if (entityAction.test(entity)) {
+                    count++;
+                }
+            }
+            if (result != null && ctx.getSource().isPlayer()) {
+                ctx.getSource().getPlayerOrException().sendSystemMessage(result.apply(count));
+            }
+            return 1;
+        } catch (final Exception e) {
+            return 0;
+        }
     }
 
     public static int run(final CommandContext<CommandSourceStack> ctx, final @NotNull Predicate<Mob> mobAction, final @NotNull Predicate<ServerPlayer> playerAction, final @Nullable Function<Integer, Component> result) {
@@ -159,6 +181,21 @@ public class SunspotCommand {
                         return Component.literal("Measured Flame of 1 entity: %d mVn".formatted(amount[0]));
                     }
                     return Component.literal("Measured Flame of %d entities: %d mVn".formatted(count, amount[0]));
+                });
+    }
+
+    public static int runIgnite(final CommandContext<CommandSourceStack> ctx) {
+        return run(ctx,
+                entity -> {
+                    final CommonFlamefallFireComponent flamefallFire = SPComponentPlatformUtils.getFlamefallFireData(entity);
+                    flamefallFire.setRemainingFireTicks(CommonFlamefallFireComponent.DEFAULT_DURATION);
+                    return true;
+                },
+                count -> {
+                    if (count == 1) {
+                        return Component.literal("Ignited 1 entity");
+                    }
+                    return Component.literal("Ignited %d entities".formatted(count));
                 });
     }
 }
