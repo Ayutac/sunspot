@@ -16,8 +16,8 @@ public class SPModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(final BlockModelGenerators gen) {
-        gen.createTrivialCube(SPBlockRegistry.SUBSTRATE_3.get());
-        gen.createTrivialCube(SPBlockRegistry.SUBSTRATE_4.get());
+        gen.createNonTemplateModelBlock(SPBlockRegistry.SUBSTRATE_3.get());
+        gen.createNonTemplateModelBlock(SPBlockRegistry.SUBSTRATE_4.get());
     }
 
     @Override
