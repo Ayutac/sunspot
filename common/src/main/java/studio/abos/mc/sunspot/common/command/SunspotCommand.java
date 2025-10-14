@@ -12,8 +12,10 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.abos.mc.sunspot.Sunspot;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlameComponent;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlamefallFireComponent;
+import studio.abos.mc.sunspot.common.event.SPServerEvents;
 import studio.abos.mc.sunspot.platform.SPComponentPlatformUtils;
 
 import java.util.Collection;
@@ -45,7 +47,14 @@ public class SunspotCommand {
                         )
                         .then(Commands.literal("ignite")
                                 .then(Commands.argument("entities", EntityArgument.entities())
-                                        .executes(SunspotCommand::runIgnite)))
+                                        .executes(SunspotCommand::runIgnite)
+                                )
+                        )
+                        .then(Commands.literal("flamefall")
+                                .then(Commands.argument("target", EntityArgument.player())
+                                        .executes(SunspotCommand::runFlamefall)
+                                )
+                        )
         );
     }
 
@@ -62,7 +71,8 @@ public class SunspotCommand {
                 ctx.getSource().getPlayerOrException().sendSystemMessage(result.apply(count));
             }
             return 1;
-        } catch (final Exception e) {
+        } catch (final Exception ex) {
+            Sunspot.LOGGER.warn(ex);
             return 0;
         }
     }
@@ -83,7 +93,8 @@ public class SunspotCommand {
                 ctx.getSource().getPlayerOrException().sendSystemMessage(result.apply(count));
             }
             return 1;
-        } catch (final Exception e) {
+        } catch (final Exception ex) {
+            Sunspot.LOGGER.warn(ex);
             return 0;
         }
     }
@@ -197,5 +208,19 @@ public class SunspotCommand {
                     }
                     return Component.literal("Ignited %d entities".formatted(count));
                 });
+    }
+
+    private static int runFlamefall(final CommandContext<CommandSourceStack> ctx) {
+        try {
+            final ServerPlayer target = EntityArgument.getPlayer(ctx, "target");
+            SPServerEvents.summonFlamefall(target);
+            if (ctx.getSource().isPlayer()) {
+                ctx.getSource().getPlayerOrException().sendSystemMessage(Component.literal("A Flamefall is happening to ").append(target.getName()));
+            }
+            return 1;
+        } catch (final Exception ex) {
+            Sunspot.LOGGER.warn(ex);
+            return 0;
+        }
     }
 }

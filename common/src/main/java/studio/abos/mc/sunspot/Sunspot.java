@@ -9,6 +9,7 @@ import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
 import studio.abos.mc.sunspot.common.registry.SPCommandRegistry;
 import studio.abos.mc.sunspot.common.registry.SPCreativeMenuTabRegistry;
 import studio.abos.mc.sunspot.common.registry.SPDimensionRegistry;
+import studio.abos.mc.sunspot.common.registry.SPEntityTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPEventRegistry;
 import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
 import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
@@ -20,6 +21,7 @@ public class Sunspot {
     public static void init() {
         SPBlockRegistry.BLOCK_REGISTRY.register();
         SPItemRegistry.ITEM_REGISTRY.register();
+        SPEntityTypeRegistry.register();
         SPTagRegistry.init();
         SPCreativeMenuTabRegistry.register();
         SPBiomeRegistry.init();

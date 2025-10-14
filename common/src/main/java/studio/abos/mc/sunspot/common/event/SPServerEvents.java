@@ -19,7 +19,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlameComponent;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlamefallFireComponent;
+import studio.abos.mc.sunspot.common.entity.FlamefallEntity;
 import studio.abos.mc.sunspot.common.registry.SPDamageTypeRegistry;
+import studio.abos.mc.sunspot.common.registry.SPEntityTypeRegistry;
 import studio.abos.mc.sunspot.platform.SPComponentPlatformUtils;
 
 public final class SPServerEvents {
@@ -92,5 +94,11 @@ public final class SPServerEvents {
             }
         }
         return EventResult.pass();
+    }
+
+    public static void summonFlamefall(final @NotNull ServerPlayer player) {
+        final FlamefallEntity flamefall = new FlamefallEntity(SPEntityTypeRegistry.FLAMEFALL.get(), player.level());
+        flamefall.setPos(player.position().x(), player.level().getMaxBuildHeight(), player.position().z());
+        player.level().addFreshEntity(flamefall);
     }
 }

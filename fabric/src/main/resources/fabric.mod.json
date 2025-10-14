@@ -17,6 +17,9 @@
     "main": [
       "studio.abos.mc.sunspot.fabric.SunspotFabric"
     ],
+    "client": [
+      "studio.abos.mc.sunspot.fabric.client.SunspotFabricClient"
+    ],
     "fabric-datagen": [
       "studio.abos.mc.sunspot.datagen.SunspotDatagen"
     ],
