@@ -14,7 +14,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import studio.abos.mc.sunspot.Sunspot;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlameComponent;
-import studio.abos.mc.sunspot.common.component.entity.CommonFlamefallFireComponent;
 import studio.abos.mc.sunspot.common.event.SPServerEvents;
 import studio.abos.mc.sunspot.platform.SPComponentPlatformUtils;
 
@@ -198,8 +197,7 @@ public class SunspotCommand {
     public static int runIgnite(final CommandContext<CommandSourceStack> ctx) {
         return run(ctx,
                 entity -> {
-                    final CommonFlamefallFireComponent flamefallFire = SPComponentPlatformUtils.getFlamefallFireData(entity);
-                    flamefallFire.setRemainingFireTicks(CommonFlamefallFireComponent.DEFAULT_DURATION);
+                    SPServerEvents.ignite(entity);
                     return true;
                 },
                 count -> {

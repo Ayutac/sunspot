@@ -40,6 +40,13 @@ public final class SPServerEvents {
         }
     }
 
+    public static void ignite(final @NotNull Entity entity) {
+        final CommonFlamefallFireComponent flamefallFire = SPComponentPlatformUtils.getFlamefallFireData(entity);
+        if (flamefallFire != null) {
+            flamefallFire.setRemainingFireTicks(CommonFlamefallFireComponent.DEFAULT_DURATION);
+        }
+    }
+
     public static void flamefallFireTick(final @NotNull Entity entity, final @NotNull Registry<DamageType> damageTypes) {
         final CommonFlamefallFireComponent flamefallFire = SPComponentPlatformUtils.getFlamefallFireData(entity);
         if (flamefallFire == null || flamefallFire.getRemainingFireTicks() == 0) {
@@ -99,6 +106,7 @@ public final class SPServerEvents {
     public static void summonFlamefall(final @NotNull ServerPlayer player) {
         final FlamefallEntity flamefall = new FlamefallEntity(SPEntityTypeRegistry.FLAMEFALL.get(), player.level());
         flamefall.setPos(player.position().x(), player.level().getMaxBuildHeight(), player.position().z());
+        flamefall.setTarget(player);
         player.level().addFreshEntity(flamefall);
     }
 }

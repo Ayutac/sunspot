@@ -13,7 +13,7 @@ import studio.abos.mc.sunspot.common.entity.FlamefallEntity;
 @Environment(EnvType.CLIENT)
 public class FlamefallRenderer extends MobRenderer<FlamefallEntity, FlamefallModel<FlamefallEntity>> {
 
-    private static final ResourceLocation TEXTURE = ResourceLocation.withDefaultNamespace("textures/entity/slime.png");
+    private static final ResourceLocation TEXTURE = ResourceLocation.withDefaultNamespace("textures/entity/slime/slime.png");
 
     public FlamefallRenderer(final @NotNull EntityRendererProvider.Context context) {
         super(context, new FlamefallModel<>(context.bakeLayer(ModelLayers.SLIME_OUTER)), 0.5f);
