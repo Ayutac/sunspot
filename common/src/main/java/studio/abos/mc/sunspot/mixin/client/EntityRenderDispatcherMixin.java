@@ -35,7 +35,7 @@ public abstract class EntityRenderDispatcherMixin {
     @Inject(method = "render(Lnet/minecraft/world/entity/Entity;DDDFFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V", at = @At("TAIL"))
     <E extends Entity> void sunspot$renderFlamefallFire(final E entity, final double d, final double e, final double f, final float g, final float h, final PoseStack poseStack, final MultiBufferSource multiBufferSource, final int i, final CallbackInfo ci) {
         final CommonFlamefallFireComponent fire = SPComponentPlatformUtils.getFlamefallFireData(entity);
-        // FIXME the <= 1 is a dirty solution, but I dunno why it doesn't get synchronized to 0 ???
+        // FIXME the <= 1 is a dirty solution, but I dunno why it doesn't get synchronized to 0 on fabric ???
         if (fire == null || fire.getRemainingFireTicks() <= 1 || entity.isSpectator()) {
             return;
         }
