@@ -7,7 +7,6 @@ import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
@@ -19,6 +18,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import studio.abos.mc.sunspot.Sunspot;
+import studio.abos.mc.sunspot.client.registry.SPMaterialRegistry;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlamefallFireComponent;
 import studio.abos.mc.sunspot.platform.SPComponentPlatformUtils;
 
@@ -57,8 +57,8 @@ public abstract class EntityRenderDispatcherMixin {
 
     @Unique
     private <E extends Entity> void sunspot$renderFlamefallFire(final PoseStack poseStack, final MultiBufferSource multiBufferSource, final E entity, final Quaternionf quaternionf) {
-        TextureAtlasSprite textureAtlasSprite = ModelBakery.FIRE_0.sprite();
-        TextureAtlasSprite textureAtlasSprite2 = ModelBakery.FIRE_1.sprite();
+        TextureAtlasSprite textureAtlasSprite = SPMaterialRegistry.FLAMEFALL_FIRE_0.sprite();
+        TextureAtlasSprite textureAtlasSprite2 = SPMaterialRegistry.FLAMEFALL_FIRE_1.sprite();
         poseStack.pushPose();
         float f = entity.getBbWidth() * 1.4F;
         poseStack.scale(f, f, f);
