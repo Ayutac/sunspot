@@ -3,7 +3,9 @@
   "package": "studio.abos.mc.sunspot.mixin",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
-  "client": [],
+  "client": [
+    "client.EntityRenderDispatcherMixin"
+  ],
   "mixins": [
     "EntityMixin",
     "LivingEntityMixin",

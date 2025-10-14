@@ -6,6 +6,7 @@ import net.minecraft.world.entity.Entity;
 import org.jetbrains.annotations.NotNull;
 import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlamefallFireComponent;
+import studio.abos.mc.sunspot.fabric.common.component.SPComponents;
 
 public class FlamefallFireComponent extends CommonFlamefallFireComponent implements AutoSyncedComponent {
 
@@ -17,6 +18,12 @@ public class FlamefallFireComponent extends CommonFlamefallFireComponent impleme
     }
 
     @Override
+    public void setRemainingFireTicks(int remainingFireTicks) {
+        super.setRemainingFireTicks(remainingFireTicks);
+        SPComponents.FLAMEFALL_FIRE.sync(entity);
+    }
+
+    @Override
     public void readFromNbt(final CompoundTag compoundTag, final HolderLookup.Provider lookup) {
         readNbt(compoundTag);
     }
@@ -25,6 +32,5 @@ public class FlamefallFireComponent extends CommonFlamefallFireComponent impleme
     public void writeToNbt(final CompoundTag compoundTag, final HolderLookup.Provider lookup) {
         writeNbt(compoundTag);
     }
-
 
 }

@@ -1,6 +1,7 @@
 package studio.abos.mc.sunspot.common.component.entity;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.Entity;
 
 public abstract class CommonFlamefallFireComponent {
 
@@ -26,12 +27,25 @@ public abstract class CommonFlamefallFireComponent {
         this.remainingFireTicks = remainingFireTicks;
     }
 
+    public void setRemainingFireTicks(final int remainingFireTicks, final Entity entity) {
+        setRemainingFireTicks(remainingFireTicks);
+    }
+
     public void decreaseRemainingFireTicks() {
         if (remainingFireTicks < 0) {
-            remainingFireTicks = 0;
+            setRemainingFireTicks(0);
         }
         else if (remainingFireTicks > 0) {
-            remainingFireTicks--;
+            setRemainingFireTicks(remainingFireTicks - 1);
+        }
+    }
+
+    public void decreaseRemainingFireTicks(final Entity entity) {
+        if (remainingFireTicks < 0) {
+            setRemainingFireTicks(0, entity);
+        }
+        else if (remainingFireTicks > 0) {
+            setRemainingFireTicks(remainingFireTicks - 1, entity);
         }
     }
 
@@ -47,5 +61,4 @@ public abstract class CommonFlamefallFireComponent {
             setRemainingFireTicks(ticks);
         }
     }
-
 }

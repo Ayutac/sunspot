@@ -46,7 +46,7 @@ public final class SPServerEvents {
         if (entity instanceof final LivingEntity living && living.isAlive() && flamefallFire.getRemainingFireTicks() % CommonFlamefallFireComponent.TICKS_FOR_DAMAGE == 0) {
             living.hurt(new DamageSource(damageTypes.getHolderOrThrow(SPDamageTypeRegistry.FLAMEFALL_FIRE)), CommonFlamefallFireComponent.DAMAGE);
         }
-        flamefallFire.decreaseRemainingFireTicks();
+        flamefallFire.decreaseRemainingFireTicks(entity);
         if (flamefallFire.getRemainingFireTicks() == 0 && entity instanceof final LivingEntity living && living.isAlive()) {
             bestowFlame(living);
         }

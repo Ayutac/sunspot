@@ -5,6 +5,7 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import studio.abos.mc.sunspot.neoforge.common.net.ClientPayloadHandler;
 import studio.abos.mc.sunspot.neoforge.common.net.FlameData;
+import studio.abos.mc.sunspot.neoforge.common.net.FlamefallFireData;
 
 public class SetupEvents {
 
@@ -15,6 +16,11 @@ public class SetupEvents {
                 FlameData.TYPE,
                 FlameData.STREAM_CODEC,
                 ClientPayloadHandler::handleFlameDataOnMain
+        );
+        registrar.playToClient(
+                FlamefallFireData.TYPE,
+                FlamefallFireData.STREAM_CODEC,
+                ClientPayloadHandler::handleFlamefallFireDataOnMain
         );
     }
 
