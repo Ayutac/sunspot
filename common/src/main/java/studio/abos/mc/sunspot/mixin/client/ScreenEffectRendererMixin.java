@@ -8,6 +8,8 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.Tesselator;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.math.Axis;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.ScreenEffectRenderer;
@@ -22,6 +24,7 @@ import studio.abos.mc.sunspot.client.registry.SPMaterialRegistry;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlamefallFireComponent;
 import studio.abos.mc.sunspot.platform.SPComponentPlatformUtils;
 
+@Environment(EnvType.CLIENT)
 @Mixin(ScreenEffectRenderer.class)
 public class ScreenEffectRendererMixin {
 

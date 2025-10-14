@@ -2,6 +2,8 @@ package studio.abos.mc.sunspot.mixin.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
@@ -22,6 +24,7 @@ import studio.abos.mc.sunspot.client.registry.SPMaterialRegistry;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlamefallFireComponent;
 import studio.abos.mc.sunspot.platform.SPComponentPlatformUtils;
 
+@Environment(EnvType.CLIENT)
 @Mixin(EntityRenderDispatcher.class)
 public abstract class EntityRenderDispatcherMixin {
 
