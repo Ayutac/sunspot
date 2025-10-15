@@ -84,5 +84,14 @@ public class SPRecipeProvider extends FabricRecipeProvider {
                 .define('T', SPItemRegistry.SUBSTRATE_3.get())
                 .unlockedBy("has_substrate_4", InventoryChangeTrigger.TriggerInstance.hasItems(SPItemRegistry.SUBSTRATE_4.get()))
                 .save(out);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SPItemRegistry.FLAMEFALL_ROD.get())
+                .pattern(" F ")
+                .pattern("PRP")
+                .pattern("PRP")
+                .define('F', Items.ENDER_PEARL)
+                .define('P', Items.BLAZE_POWDER)
+                .define('R', Items.BLAZE_ROD)
+                .unlockedBy("has_blaze_rod", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BLAZE_ROD))
+                .save(out);
     }
 }

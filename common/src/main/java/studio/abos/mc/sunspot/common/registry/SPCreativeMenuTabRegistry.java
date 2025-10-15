@@ -22,6 +22,7 @@ public interface SPCreativeMenuTabRegistry {
                 .title(Component.translatable(GENERAL_TAB_KEY))
                 .icon(() -> SPItemRegistry.SUBSTRATE_2.get().getDefaultInstance())
                 .displayItems((displayContext, entries) -> {
+                    entries.accept(SPItemRegistry.FLAMEFALL_ROD.get());
                     entries.accept(SPItemRegistry.SUBSTRATE_2.get());
                     entries.accept(SPItemRegistry.SUBSTRATE_3.get());
                     entries.accept(SPItemRegistry.SUBSTRATE_4.get());

@@ -6,6 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import studio.abos.mc.sunspot.Sunspot;
+import studio.abos.mc.sunspot.common.item.FlamefallRodItem;
 import studio.abos.mc.sunspot.common.item.FourspaceShifterItem;
 
 public interface SPItemRegistry {
@@ -22,6 +23,8 @@ public interface SPItemRegistry {
     RegistrySupplier<Item> MANTLE_BASE_BOOTS = ITEM_REGISTRY.register(Sunspot.id("mantle_base_boots"), () -> new Item(new Item.Properties()));
 
     RegistrySupplier<Item> FOURSPACE_SHIFTER = ITEM_REGISTRY.register(Sunspot.id("fourspace_shifter"), () -> new FourspaceShifterItem(new Item.Properties()));
+
+    RegistrySupplier<Item> FLAMEFALL_ROD = ITEM_REGISTRY.register(Sunspot.id("flamefall_rod"), () -> new FlamefallRodItem(new Item.Properties()));
 
     static void init() {
         // intentionally left empty

@@ -25,6 +25,7 @@ public class SPLangProvider extends FabricLanguageProvider {
         builder.add(SPItemRegistry.MANTLE_BASE_LEGGINGS.get(), "Mantle Base Leggings");
         builder.add(SPItemRegistry.MANTLE_BASE_BOOTS.get(), "Mantle Base Boots");
         builder.add(SPItemRegistry.FOURSPACE_SHIFTER.get(), "Fourspace Shifter");
+        builder.add(SPItemRegistry.FLAMEFALL_ROD.get(), "Flamefall Rod");
 
         builder.add(SPTagRegistry.SUBSTRATE_MATERIAL, "Substrate Material");
 

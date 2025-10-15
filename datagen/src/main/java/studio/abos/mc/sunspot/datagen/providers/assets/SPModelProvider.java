@@ -28,5 +28,6 @@ public class SPModelProvider extends FabricModelProvider {
         gen.generateFlatItem(SPItemRegistry.MANTLE_BASE_LEGGINGS.get(), ModelTemplates.FLAT_ITEM);
         gen.generateFlatItem(SPItemRegistry.MANTLE_BASE_BOOTS.get(), ModelTemplates.FLAT_ITEM);
         gen.generateFlatItem(SPItemRegistry.FOURSPACE_SHIFTER.get(), ModelTemplates.FLAT_ITEM);
+        gen.generateFlatItem(SPItemRegistry.FLAMEFALL_ROD.get(), ModelTemplates.FLAT_ITEM);
     }
 }
