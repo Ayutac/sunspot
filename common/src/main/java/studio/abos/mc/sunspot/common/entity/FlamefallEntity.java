@@ -16,7 +16,7 @@ public class FlamefallEntity extends Mob {
 
     public static final String TARGET_KEY = "target";
 
-    public static final double SPEED = 5d;
+    public static final double SPEED = 1d;
 
     protected boolean primed;
 

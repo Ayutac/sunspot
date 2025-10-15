@@ -20,7 +20,7 @@ public class FlamefallRodItem extends Item {
     @Override
     public @NotNull InteractionResultHolder<ItemStack> use(final Level level, final Player player, final InteractionHand interactionHand) {
         final ItemStack itemStack = player.getItemInHand(interactionHand);
-        player.getCooldowns().addCooldown(this, 200);
+        player.getCooldowns().addCooldown(this, 600);
         if (!level.isClientSide) {
             SPServerEvents.summonFlamefall((ServerPlayer)player);
         }
