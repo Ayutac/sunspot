@@ -2,6 +2,7 @@ package studio.abos.mc.sunspot.common.entity;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
@@ -69,6 +70,7 @@ public class FlamefallEntity extends Mob {
                 final Vec3 rawDirection = target.position().subtract(position());
                 final double distance = rawDirection.length();
                 if (distance <= SPEED) {
+                    playSound(SoundEvents.GENERIC_EXPLODE.value());
                     if (!target.isSpectator())  {
                         SPServerEvents.ignite(target);
                     }
