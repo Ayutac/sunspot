@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.common.block.LatticeManifestBlock;
 import studio.abos.mc.sunspot.common.block.LmBatteryBlock;
 
-public class LatticeManifestBlockEntity extends BlockEntity {
+public abstract class LatticeManifestBlockEntity extends BlockEntity {
 
     protected static String CURRENT_FLAME_KEY = "current_flame";
 
@@ -29,7 +29,7 @@ public class LatticeManifestBlockEntity extends BlockEntity {
         return currentFlame;
     }
 
-    public void setCurrentFlame(int currentFlame) {
+    public void setCurrentFlame(final int currentFlame) {
         if (currentFlame < 0) {
             throw new IllegalArgumentException("Current Flame cannot be negative!");
         }
@@ -44,7 +44,7 @@ public class LatticeManifestBlockEntity extends BlockEntity {
         return maxFlame;
     }
 
-    public void setMaxFlame(int maxFlame) {
+    public void setMaxFlame(final int maxFlame) {
         if (maxFlame < 0) {
             throw new IllegalArgumentException("Max Flame cannot be negative!");
         }
