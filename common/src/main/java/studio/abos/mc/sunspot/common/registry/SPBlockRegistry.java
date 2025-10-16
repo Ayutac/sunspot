@@ -15,4 +15,8 @@ public interface SPBlockRegistry {
     RegistrySupplier<Block> SUBSTRATE_3 = BLOCK_REGISTRY.register(Sunspot.id("substrate_3"), () -> new SmallSubstrateBlock(BlockBehaviour.Properties.of()));
     RegistrySupplier<Block> SUBSTRATE_4 = BLOCK_REGISTRY.register(Sunspot.id("substrate_4"), () -> new SmallSubstrateBlock(BlockBehaviour.Properties.of()));
 
+    static void register() {
+        BLOCK_REGISTRY.register();
+    }
+
 }

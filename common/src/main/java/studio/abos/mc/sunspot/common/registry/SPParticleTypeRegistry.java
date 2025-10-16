@@ -15,7 +15,7 @@ public interface SPParticleTypeRegistry {
     RegistrySupplier<SimpleParticleType> FLAMEFALL_FLAME = PARTICLE_REGISTRY.register(
             Sunspot.id("flamefall_flame"), () -> SimpleParticleTypeInvoker.ctor(false));
 
-    static void init() {
-        /* Intentionally left empty */
+    static void register() {
+        PARTICLE_REGISTRY.register();
     }
 }

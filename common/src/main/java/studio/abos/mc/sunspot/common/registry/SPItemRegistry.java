@@ -26,8 +26,8 @@ public interface SPItemRegistry {
 
     RegistrySupplier<Item> FLAMEFALL_ROD = ITEM_REGISTRY.register(Sunspot.id("flamefall_rod"), () -> new FlamefallRodItem(new Item.Properties()));
 
-    static void init() {
-        // intentionally left empty
+    static void register() {
+        ITEM_REGISTRY.register();
     }
 
 }

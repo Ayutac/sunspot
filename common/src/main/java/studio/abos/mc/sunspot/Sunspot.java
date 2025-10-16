@@ -20,14 +20,14 @@ public class Sunspot {
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
     public static void init() {
-        SPBlockRegistry.BLOCK_REGISTRY.register();
-        SPItemRegistry.ITEM_REGISTRY.register();
+        SPBlockRegistry.register();
+        SPItemRegistry.register();
         SPEntityTypeRegistry.register();
         SPTagRegistry.init();
         SPCreativeMenuTabRegistry.register();
         SPBiomeRegistry.init();
         SPDimensionRegistry.init();
-        SPParticleTypeRegistry.PARTICLE_REGISTRY.register();
+        SPParticleTypeRegistry.register();
         SPEventRegistry.register();
         CommandRegistrationEvent.EVENT.register(SPCommandRegistry::register);
     }
