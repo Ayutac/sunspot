@@ -17,6 +17,8 @@ public interface SPItemRegistry {
     RegistrySupplier<Item> SUBSTRATE_3 = ITEM_REGISTRY.register(Sunspot.id("substrate_3"), () -> new BlockItem(SPBlockRegistry.SUBSTRATE_3.get(), new Item.Properties()));
     RegistrySupplier<Item> SUBSTRATE_4 = ITEM_REGISTRY.register(Sunspot.id("substrate_4"), () -> new BlockItem(SPBlockRegistry.SUBSTRATE_4.get(), new Item.Properties()));
 
+    RegistrySupplier<Item> LM_BATTERY = ITEM_REGISTRY.register(Sunspot.id("lm_battery"), () -> new BlockItem(SPBlockRegistry.LM_BATTERY.get(), new Item.Properties()));
+
     RegistrySupplier<Item> MANTLE_BASE_HELMET = ITEM_REGISTRY.register(Sunspot.id("mantle_base_helmet"), () -> new Item(new Item.Properties()));
     RegistrySupplier<Item> MANTLE_BASE_CHESTPLATE = ITEM_REGISTRY.register(Sunspot.id("mantle_base_chestplate"), () -> new Item(new Item.Properties()));
     RegistrySupplier<Item> MANTLE_BASE_LEGGINGS = ITEM_REGISTRY.register(Sunspot.id("mantle_base_leggings"), () -> new Item(new Item.Properties()));

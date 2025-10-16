@@ -26,6 +26,7 @@ public interface SPCreativeMenuTabRegistry {
                     entries.accept(SPItemRegistry.SUBSTRATE_2.get());
                     entries.accept(SPItemRegistry.SUBSTRATE_3.get());
                     entries.accept(SPItemRegistry.SUBSTRATE_4.get());
+                    entries.accept(SPItemRegistry.LM_BATTERY.get());
                     entries.accept(SPItemRegistry.FOURSPACE_SHIFTER.get());
                     entries.accept(SPItemRegistry.MANTLE_BASE_HELMET.get());
                     entries.accept(SPItemRegistry.MANTLE_BASE_CHESTPLATE.get());
