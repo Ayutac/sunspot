@@ -6,6 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import studio.abos.mc.sunspot.Sunspot;
+import studio.abos.mc.sunspot.common.block.AffixBlock;
 import studio.abos.mc.sunspot.common.block.LmBatteryBlock;
 import studio.abos.mc.sunspot.common.block.LmBatteryCreativeBlock;
 import studio.abos.mc.sunspot.common.block.SmallSubstrateBlock;
@@ -19,6 +20,7 @@ public interface SPBlockRegistry {
 
     RegistrySupplier<Block> LM_BATTERY = BLOCK_REGISTRY.register(Sunspot.id("lm_battery"), () -> new LmBatteryBlock(BlockBehaviour.Properties.of()));
     RegistrySupplier<Block> LM_BATTERY_CREATIVE = BLOCK_REGISTRY.register(Sunspot.id("lm_battery_creative"), () -> new LmBatteryCreativeBlock(BlockBehaviour.Properties.of()));
+    RegistrySupplier<Block> AFFIX = BLOCK_REGISTRY.register(Sunspot.id("affix"), () -> new AffixBlock(BlockBehaviour.Properties.of()));
 
     static void register() {
         BLOCK_REGISTRY.register();
