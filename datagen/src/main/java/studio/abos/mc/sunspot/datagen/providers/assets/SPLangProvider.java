@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
 import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
 import studio.abos.mc.sunspot.common.registry.SPCreativeMenuTabRegistry;
+import studio.abos.mc.sunspot.common.registry.SPEntityTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
 import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 
@@ -27,6 +28,8 @@ public class SPLangProvider extends FabricLanguageProvider {
         builder.add(SPItemRegistry.MANTLE_BASE_BOOTS.get(), "Mantle Base Boots");
         builder.add(SPItemRegistry.FOURSPACE_SHIFTER.get(), "Fourspace Shifter");
         builder.add(SPItemRegistry.FLAMEFALL_ROD.get(), "Flamefall Rod");
+
+        builder.add(SPEntityTypeRegistry.FLAMEFALL.get(), "Flamefall");
 
         builder.add(SPTagRegistry.SUBSTRATE_MATERIAL, "Substrate Material");
 
