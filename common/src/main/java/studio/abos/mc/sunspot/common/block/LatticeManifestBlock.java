@@ -13,7 +13,7 @@ public abstract class LatticeManifestBlock extends Block implements EntityBlock 
     public static BooleanProperty POWERED = BlockStateProperties.POWERED;
 
     public LatticeManifestBlock(Properties properties) {
-        super(properties);
+        super(properties.lightLevel(state -> state.getValue(POWERED) ? 1 : 0));
         registerDefaultState(getStateDefinition().any().setValue(POWERED, false));
     }
 
