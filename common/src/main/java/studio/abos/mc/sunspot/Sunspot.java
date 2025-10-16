@@ -5,6 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import studio.abos.mc.sunspot.common.registry.SPBiomeRegistry;
+import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
 import studio.abos.mc.sunspot.common.registry.SPCommandRegistry;
 import studio.abos.mc.sunspot.common.registry.SPCreativeMenuTabRegistry;
@@ -22,6 +23,7 @@ public class Sunspot {
     public static void init() {
         SPBlockRegistry.register();
         SPItemRegistry.register();
+        SPBlockEntityTypeRegistry.register();
         SPEntityTypeRegistry.register();
         SPTagRegistry.init();
         SPCreativeMenuTabRegistry.register();
