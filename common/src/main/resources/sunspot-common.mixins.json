@@ -10,7 +10,8 @@
   "mixins": [
     "EntityMixin",
     "LivingEntityMixin",
-    "ServerPlayerMixin"
+    "ServerPlayerMixin",
+    "SimpleParticleTypeInvoker"
   ],
   "injectors": {
     "defaultRequire": 1

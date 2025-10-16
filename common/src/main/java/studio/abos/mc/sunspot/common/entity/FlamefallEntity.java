@@ -10,6 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.Sunspot;
+import studio.abos.mc.sunspot.common.registry.SPParticleTypeRegistry;
 import studio.abos.mc.sunspot.common.event.SPServerEvents;
 
 public class FlamefallEntity extends Mob {
@@ -62,6 +63,9 @@ public class FlamefallEntity extends Mob {
     @Override
     public void tick() {
         super.tick();
+        for (int i = 0; i < 16; i++) {
+            level().addParticle(SPParticleTypeRegistry.FLAMEFALL_FLAME.get(), this.getX() + this.random.nextGaussian(), this.getY() + this.random.nextDouble() * 2 + 2, this.getZ() + this.random.nextGaussian(), 0d, this.random.nextGaussian() + 1, 0d);
+        }
         if (!level().isClientSide()) {
             if (primed && (target == null || target.isSpectator() || ((ServerPlayer)target).hasDisconnected())) {
                 discard();

@@ -12,4 +12,8 @@ public interface SPMaterialRegistry {
     Material FLAMEFALL_FIRE_0 = new Material(TextureAtlas.LOCATION_BLOCKS, Sunspot.id("block/flamefall_fire_0"));
     Material FLAMEFALL_FIRE_1 = new Material(TextureAtlas.LOCATION_BLOCKS, Sunspot.id("block/flamefall_fire_1"));
 
+    static void init() {
+        /* Intentionally left empty */
+    }
+
 }
