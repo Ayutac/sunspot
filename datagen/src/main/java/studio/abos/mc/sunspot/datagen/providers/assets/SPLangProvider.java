@@ -34,6 +34,7 @@ public class SPLangProvider extends FabricLanguageProvider {
         builder.add(SPEntityTypeRegistry.FLAMEFALL.get(), "Flamefall");
 
         builder.add(SPTagRegistry.SUBSTRATE_MATERIAL, "Substrate Material");
+        builder.add(SPTagRegistry.UNAFFECTED_BY_AFFIX, "Unaffected by {AFFIX}");
 
         builder.add(SPCreativeMenuTabRegistry.GENERAL_TAB_KEY, "Sunspot");
 
