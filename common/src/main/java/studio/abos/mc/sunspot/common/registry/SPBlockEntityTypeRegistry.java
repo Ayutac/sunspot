@@ -6,6 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import studio.abos.mc.sunspot.Sunspot;
 import studio.abos.mc.sunspot.common.blockentity.LmBatteryBlockEntity;
+import studio.abos.mc.sunspot.common.blockentity.LmBatteryCreativeBlockEntity;
 
 public interface SPBlockEntityTypeRegistry {
 
@@ -13,6 +14,10 @@ public interface SPBlockEntityTypeRegistry {
 
     RegistrySupplier<BlockEntityType<LmBatteryBlockEntity>> LM_BATTERY = BLOCK_ENTITY_TYPE_REGISTRY.register(
             "lm_battery", () -> BlockEntityType.Builder.of(LmBatteryBlockEntity::new, SPBlockRegistry.LM_BATTERY.get()).build(null)
+    );
+
+    RegistrySupplier<BlockEntityType<LmBatteryCreativeBlockEntity>> LM_BATTERY_CREATIVE = BLOCK_ENTITY_TYPE_REGISTRY.register(
+            "lm_battery_creative", () -> BlockEntityType.Builder.of(LmBatteryCreativeBlockEntity::new, SPBlockRegistry.LM_BATTERY_CREATIVE.get()).build(null)
     );
 
     static void register() {

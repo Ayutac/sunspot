@@ -21,7 +21,7 @@ public class LatticeManifestBlockEntity extends BlockEntity {
 
     protected int maxFlame;
 
-    public LatticeManifestBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
+    public LatticeManifestBlockEntity(final @NotNull BlockEntityType<? extends LatticeManifestBlockEntity> blockEntityType, final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
         super(blockEntityType, blockPos, blockState);
     }
 

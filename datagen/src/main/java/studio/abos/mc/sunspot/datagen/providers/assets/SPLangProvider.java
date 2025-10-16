@@ -22,6 +22,7 @@ public class SPLangProvider extends FabricLanguageProvider {
         builder.add(SPBlockRegistry.SUBSTRATE_3.get(), "3-dimensional Substrate");
         builder.add(SPBlockRegistry.SUBSTRATE_4.get(), "4-dimensional Substrate");
         builder.add(SPBlockRegistry.LM_BATTERY.get(), "LM Battery");
+        builder.add(SPBlockRegistry.LM_BATTERY_CREATIVE.get(), "Creative LM Battery");
         builder.add(SPItemRegistry.MANTLE_BASE_HELMET.get(), "Mantle Base Helmet");
         builder.add(SPItemRegistry.MANTLE_BASE_CHESTPLATE.get(), "Mantle Base Chestplate");
         builder.add(SPItemRegistry.MANTLE_BASE_LEGGINGS.get(), "Mantle Base Leggings");
