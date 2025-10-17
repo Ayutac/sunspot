@@ -3,6 +3,7 @@ package studio.abos.mc.sunspot.datagen.providers.data;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Items;
 import org.jetbrains.annotations.NotNull;
@@ -53,6 +54,11 @@ public class SPTagProviders {
             var unaffectedByOffset = getOrCreateTagBuilder(SPTagRegistry.UNAFFECTED_BY_OFFSET);
             unaffectedByOffset.add(SPEntityTypeRegistry.FLAMEFALL.getId());
             unaffectedByOffset.add(EntityType.VEX);
+
+            var unaffectedByRevitalise = getOrCreateTagBuilder(SPTagRegistry.UNAFFECTED_BY_REVITALISE);
+            unaffectedByRevitalise.add(SPEntityTypeRegistry.FLAMEFALL.getId());
+            unaffectedByRevitalise.add(EntityType.VEX);
+            unaffectedByRevitalise.addTag(EntityTypeTags.UNDEAD);
         }
     }
 }

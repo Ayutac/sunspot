@@ -15,6 +15,7 @@ public interface SPTagRegistry {
     TagKey<EntityType<?>> UNAFFECTED_BY_ASH = TagKey.create(Registries.ENTITY_TYPE, Sunspot.id("unaffected_by_ash"));
     TagKey<EntityType<?>> UNAFFECTED_BY_IMPEL = TagKey.create(Registries.ENTITY_TYPE, Sunspot.id("unaffected_by_impel"));
     TagKey<EntityType<?>> UNAFFECTED_BY_OFFSET = TagKey.create(Registries.ENTITY_TYPE, Sunspot.id("unaffected_by_offset"));
+    TagKey<EntityType<?>> UNAFFECTED_BY_REVITALISE = TagKey.create(Registries.ENTITY_TYPE, Sunspot.id("unaffected_by_revitalise"));
 
     static void init() {
         // intentionally left empty
