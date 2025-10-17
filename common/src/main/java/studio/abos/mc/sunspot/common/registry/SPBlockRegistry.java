@@ -17,9 +17,9 @@ public interface SPBlockRegistry {
 
     RegistrySupplier<Block> SUBSTRATE_3 = BLOCK_REGISTRY.register(Sunspot.id("substrate_3"), () -> new SmallSubstrateBlock(BlockBehaviour.Properties.of()));
     RegistrySupplier<Block> SUBSTRATE_4 = BLOCK_REGISTRY.register(Sunspot.id("substrate_4"), () -> new SmallSubstrateBlock(BlockBehaviour.Properties.of()));
+    RegistrySupplier<Block> ASH_RESIDUE = BLOCK_REGISTRY.register(Sunspot.id("ash_residue"), () -> new Block(BlockBehaviour.Properties.of()));
 
     RegistrySupplier<Block> LM_WORKBENCH = BLOCK_REGISTRY.register(Sunspot.id("lm_workbench"), () -> new Block(BlockBehaviour.Properties.of()));
-
     RegistrySupplier<Block> LM_BATTERY = BLOCK_REGISTRY.register(Sunspot.id("lm_battery"), () -> new LmBatteryBlock(BlockBehaviour.Properties.of()));
     RegistrySupplier<Block> LM_BATTERY_CREATIVE = BLOCK_REGISTRY.register(Sunspot.id("lm_battery_creative"), () -> new LmBatteryCreativeBlock(BlockBehaviour.Properties.of()));
     RegistrySupplier<Block> AFFIX = BLOCK_REGISTRY.register(Sunspot.id("affix"), () -> new AffixBlock(BlockBehaviour.Properties.of()));

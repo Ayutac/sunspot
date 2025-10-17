@@ -8,6 +8,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
@@ -45,6 +46,14 @@ public class SPRecipeProvider extends FabricRecipeProvider {
                 .define('E', Items.ENDER_PEARL)
                 .define('S', SPItemRegistry.SUBSTRATE_3.get())
                 .unlockedBy("has_substrate_3", InventoryChangeTrigger.TriggerInstance.hasItems(SPItemRegistry.SUBSTRATE_3.get()))
+                .save(out);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SPItemRegistry.ASH_BLOCK.get())
+                .requires(SPItemRegistry.ASH_RESIDUE.get(), 9)
+                .unlockedBy("has_ash_residue", InventoryChangeTrigger.TriggerInstance.hasItems(SPItemRegistry.ASH_RESIDUE.get()))
+                .save(out);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, SPItemRegistry.ASH_RESIDUE.get(), 9)
+                .requires(SPItemRegistry.ASH_BLOCK.get())
+                .unlockedBy("has_ash_block", InventoryChangeTrigger.TriggerInstance.hasItems(SPItemRegistry.ASH_BLOCK.get()))
                 .save(out);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SPItemRegistry.LM_WORKBENCH.get())
                 .pattern("SS")
