@@ -117,12 +117,12 @@ public final class SPServerEvents {
 
     public static void sendPlayerUpOnOffsetBlock(final @NotNull ServerPlayer player, final @NotNull BlockPos pos) {
         final BlockEntity blockEntity = player.level().getBlockEntity(pos);
-        if (blockEntity instanceof OffsetBlockEntity) {
+        if (blockEntity instanceof final OffsetBlockEntity offsetBlockEntity) {
             final Optional<BlockPos> target = OffsetBlockEntity.nextUpElevator(pos, player.level());
             if (target.isEmpty()) {
                 return;
             }
-            OffsetBlockEntity.teleport(player, target.get().above());
+            OffsetBlockEntity.teleport(player, target.get().above(), offsetBlockEntity);
         }
     }
 }
