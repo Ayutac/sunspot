@@ -17,6 +17,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
+import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlameComponent;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlamefallFireComponent;
 import studio.abos.mc.sunspot.common.entity.FlamefallEntity;
@@ -80,7 +81,7 @@ public final class SPServerEvents {
 
     public static EventResult inferno(final @NotNull LivingEntity living, final DamageSource damageSource) {
         final Level level = living.level();
-        if (damageSource == null || !damageSource.type().equals(living.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getOrThrow(SPDamageTypeRegistry.FLAMEFALL_FIRE))) {
+        if (damageSource == null || !Util.isOfDamageType(damageSource, SPDamageTypeRegistry.FLAMEFALL_FIRE, living.level())) {
             return EventResult.pass();
         }
         if (level.getGameRules().getBoolean(GameRules.RULE_DOFIRETICK)) {

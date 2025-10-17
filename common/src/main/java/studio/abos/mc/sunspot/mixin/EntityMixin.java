@@ -1,8 +1,10 @@
 package studio.abos.mc.sunspot.mixin;
 
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.RelativeMovement;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
@@ -12,8 +14,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.common.block.LatticeManifestBlock;
 import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
+import studio.abos.mc.sunspot.common.registry.SPDamageTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPDimensionRegistry;
 import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 
@@ -50,6 +54,14 @@ public abstract class EntityMixin {
                 entity.setPos(oldPos.x(), Math.floor(oldPos.y()), oldPos.z());
             }
             ci.cancel();
+        }
+    }
+
+    @Inject(method = "isInvulnerableTo(Lnet/minecraft/world/damagesource/DamageSource;)Z", at = @At("RETURN"), cancellable = true)
+    void sunspot$ashInvulnerability(final @NotNull DamageSource damageSource, final @NotNull CallbackInfoReturnable<Boolean> cir) {
+        final Entity entity = (Entity)(Object)this;
+        if (!cir.getReturnValueZ() && entity instanceof final ItemEntity itemEntity && itemEntity.getItem().is(SPTagRegistry.UNAFFECTED_BY_ASH_TRANSFORMATION) && Util.isOfDamageType(damageSource, SPDamageTypeRegistry.ASH, entity.level())) {
+            cir.setReturnValue(true);
         }
     }
 

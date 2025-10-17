@@ -1,7 +1,6 @@
 package studio.abos.mc.sunspot.common.block;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
@@ -11,6 +10,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.common.blockentity.AshBlockEntity;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPDamageTypeRegistry;
@@ -24,8 +24,8 @@ public class AshBlock extends LatticeManifestBlock {
 
     @Override
     public void stepOn(final @NotNull Level level, final @NotNull BlockPos blockPos, final @NotNull BlockState state, final @NotNull Entity entity) {
-        if (/*state.getValue(LatticeManifestBlock.POWERED) &&*/ !entity.getType().is(SPTagRegistry.UNAFFECTED_BY_ASH)) {
-            entity.hurt(new DamageSource(entity.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(SPDamageTypeRegistry.ASH)), 10f);
+        if (state.getValue(LatticeManifestBlock.POWERED) && !entity.getType().is(SPTagRegistry.UNAFFECTED_BY_ASH)) {
+            entity.hurt(new DamageSource(Util.damageTypeHolder(SPDamageTypeRegistry.ASH, level)), 10f);
         }
         super.stepOn(level, blockPos, state, entity);
     }

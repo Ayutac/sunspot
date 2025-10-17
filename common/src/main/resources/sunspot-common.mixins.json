@@ -9,6 +9,7 @@
   ],
   "mixins": [
     "EntityMixin",
+    "ItemEntityMixin",
     "LivingEntityMixin",
     "ServerPlayerMixin",
     "SimpleParticleTypeInvoker"
