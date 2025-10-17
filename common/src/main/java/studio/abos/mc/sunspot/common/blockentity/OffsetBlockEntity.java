@@ -19,7 +19,7 @@ import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 import java.util.List;
 import java.util.Optional;
 
-public class OffsetBlockEntity extends LatticeManifestBlockEntity {
+public class OffsetBlockEntity extends GlyphBlockEntity {
 
     public static int TELEPORT_USAGE = 5;
 
@@ -34,7 +34,7 @@ public class OffsetBlockEntity extends LatticeManifestBlockEntity {
     }
 
     public static void tick(final @NotNull Level level, final @NotNull BlockPos pos, final @NotNull BlockState state, final @NotNull OffsetBlockEntity blockEntity) {
-        LatticeManifestBlockEntity.tick(level, pos, state, blockEntity);
+        GlyphBlockEntity.tick(level, pos, state, blockEntity);
         final List<Entity> entities = level.getEntitiesOfClass(Entity.class, AABB.ofSize(pos.getCenter(), 1d, 2d, 1d), entity -> !entity.isSpectator());
         if (entities.isEmpty()) {
             return;

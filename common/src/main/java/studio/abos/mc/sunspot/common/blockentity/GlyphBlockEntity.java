@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.common.block.GlyphBlock;
 import studio.abos.mc.sunspot.common.block.LmBatteryBlock;
 
-public abstract class LatticeManifestBlockEntity extends BlockEntity {
+public abstract class GlyphBlockEntity extends BlockEntity {
 
     protected static String CURRENT_FLAME_KEY = "current_flame";
 
@@ -21,7 +21,7 @@ public abstract class LatticeManifestBlockEntity extends BlockEntity {
 
     protected int maxFlame;
 
-    public LatticeManifestBlockEntity(final @NotNull BlockEntityType<? extends LatticeManifestBlockEntity> blockEntityType, final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
+    public GlyphBlockEntity(final @NotNull BlockEntityType<? extends GlyphBlockEntity> blockEntityType, final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
         super(blockEntityType, blockPos, blockState);
     }
 
@@ -55,7 +55,7 @@ public abstract class LatticeManifestBlockEntity extends BlockEntity {
         setChanged();
     }
 
-    public static void tick(final @NotNull Level level, final @NotNull BlockPos pos, final @NotNull BlockState state, final @NotNull LatticeManifestBlockEntity blockEntity) {
+    public static void tick(final @NotNull Level level, final @NotNull BlockPos pos, final @NotNull BlockState state, final @NotNull GlyphBlockEntity blockEntity) {
         final boolean oldState = state.getValue(GlyphBlock.POWERED);
         final boolean newState = blockEntity.currentFlame != 0;
         if (oldState != newState) {

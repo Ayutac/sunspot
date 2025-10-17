@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 
-public class AshBlockEntity extends LatticeManifestBlockEntity {
+public class AshBlockEntity extends GlyphBlockEntity {
 
     public AshBlockEntity(final BlockPos blockPos, final BlockState blockState) {
         this(SPBlockEntityTypeRegistry.ASH.get(), blockPos, blockState);
@@ -20,7 +20,7 @@ public class AshBlockEntity extends LatticeManifestBlockEntity {
     }
 
     public static void tick(final @NotNull Level level, final @NotNull BlockPos pos, final @NotNull BlockState state, final @NotNull AshBlockEntity blockEntity) {
-        LatticeManifestBlockEntity.tick(level, pos, state, blockEntity);
+        GlyphBlockEntity.tick(level, pos, state, blockEntity);
     }
 
 }
