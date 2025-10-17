@@ -122,7 +122,7 @@ public final class SPServerEvents {
             if (target.isEmpty()) {
                 return;
             }
-            OffsetBlockEntity.teleport(player, target.get().above(), offsetBlockEntity);
+            offsetBlockEntity.teleport(player, target.get().above());
         }
     }
 }

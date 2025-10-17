@@ -46,13 +46,13 @@ public class OffsetBlockEntity extends LatticeManifestBlockEntity {
                 continue;
             }
             if (entity.isShiftKeyDown() && downTarget.isPresent()) {
-                if (teleport(entity, downTarget.get(), blockEntity)) {
+                if (blockEntity.teleport(entity, downTarget.get())) {
                     entity.setShiftKeyDown(false);
                 }
             }
             // we move non players always up for now
             else if (!(entity instanceof Player) && upTarget.isPresent()) {
-                teleport(entity, upTarget.get(), blockEntity);
+                blockEntity.teleport(entity, upTarget.get());
             }
         }
     }
@@ -87,13 +87,13 @@ public class OffsetBlockEntity extends LatticeManifestBlockEntity {
         return Optional.empty();
     }
 
-    public static boolean teleport(final @NotNull Entity entity, final @NotNull BlockPos target, final @NotNull OffsetBlockEntity blockEntity) {
-        final int flame = blockEntity.getCurrentFlame();
+    public boolean teleport(final @NotNull Entity entity, final @NotNull BlockPos target) {
+        final int flame = getCurrentFlame();
         if (flame < TELEPORT_USAGE) {
             return false;
         }
         if (!(entity instanceof Player player && player.isCreative())) {
-            blockEntity.setCurrentFlame(flame - TELEPORT_USAGE);
+            setCurrentFlame(flame - TELEPORT_USAGE);
         }
         final Vec3 centeredPos = Vec3.atCenterOf(new Vec3i(target.getX(), target.getY(), target.getZ()));
         entity.teleportTo(centeredPos.x(), target.getY(), centeredPos.z());
