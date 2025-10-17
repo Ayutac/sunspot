@@ -17,7 +17,7 @@ public interface SPItemRegistry {
     RegistrySupplier<Item> SUBSTRATE_3 = ITEM_REGISTRY.register(Sunspot.id("substrate_3"), () -> new BlockItem(SPBlockRegistry.SUBSTRATE_3.get(), new Item.Properties()));
     RegistrySupplier<Item> SUBSTRATE_4 = ITEM_REGISTRY.register(Sunspot.id("substrate_4"), () -> new BlockItem(SPBlockRegistry.SUBSTRATE_4.get(), new Item.Properties()));
     RegistrySupplier<Item> ASH_RESIDUE = ITEM_REGISTRY.register(Sunspot.id("ash_residue"), () -> new Item(new Item.Properties()));
-    RegistrySupplier<Item> ASH_BLOCK = ITEM_REGISTRY.register(Sunspot.id("ash_block"), () -> new BlockItem(SPBlockRegistry.ASH_RESIDUE.get(), new Item.Properties()));
+    RegistrySupplier<Item> ASH_RESIDUE_BLOCK = ITEM_REGISTRY.register(Sunspot.id("ash_residue_block"), () -> new BlockItem(SPBlockRegistry.ASH_RESIDUE.get(), new Item.Properties()));
 
     RegistrySupplier<Item> LM_WORKBENCH = ITEM_REGISTRY.register(Sunspot.id("lm_workbench"), () -> new BlockItem(SPBlockRegistry.LM_WORKBENCH.get(), new Item.Properties()));
     RegistrySupplier<Item> LM_BATTERY = ITEM_REGISTRY.register(Sunspot.id("lm_battery"), () -> new BlockItem(SPBlockRegistry.LM_BATTERY.get(), new Item.Properties()));

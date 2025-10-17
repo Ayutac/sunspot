@@ -22,7 +22,7 @@ public class SPLangProvider extends FabricLanguageProvider {
         builder.add(SPBlockRegistry.SUBSTRATE_3.get(), "3-dimensional Substrate");
         builder.add(SPBlockRegistry.SUBSTRATE_4.get(), "4-dimensional Substrate");
         builder.add(SPItemRegistry.ASH_RESIDUE.get(), "{ASH} Residue");
-        builder.add(SPItemRegistry.ASH_BLOCK.get(), "{ASH} Residue Block");
+        builder.add(SPItemRegistry.ASH_RESIDUE_BLOCK.get(), "{ASH} Residue Block");
         builder.add(SPBlockRegistry.LM_WORKBENCH.get(), "LM Workbench");
         builder.add(SPBlockRegistry.LM_BATTERY.get(), "LM Battery");
         builder.add(SPBlockRegistry.LM_BATTERY_CREATIVE.get(), "Creative LM Battery");
