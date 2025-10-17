@@ -9,12 +9,14 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlameComponent;
 import studio.abos.mc.sunspot.common.registry.SPDamageTypeRegistry;
@@ -48,12 +50,20 @@ public abstract class LivingEntityMixin {
     }
 
     @Inject(method = "dropAllDeathLoot(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/damagesource/DamageSource;)V", at = @At("HEAD"), cancellable = true)
-    void sunspot$transformIntoAsh(final @NotNull ServerLevel serverLevel, final @NotNull DamageSource damageSource, final @NotNull CallbackInfo ci) {
+    void sunspot$doNotDropLootIfAshed(final @NotNull ServerLevel serverLevel, final @NotNull DamageSource damageSource, final @NotNull CallbackInfo ci) {
         final LivingEntity entity = (LivingEntity)(Object)this;
         if (!(entity instanceof Player) && Util.isOfDamageType(damageSource, SPDamageTypeRegistry.ASH, entity.level())) {
-            final Vec3 pos = entity.position();
-            serverLevel.addFreshEntity(new ItemEntity(serverLevel, pos.x(), pos.y(), pos.z(), new ItemStack(SPItemRegistry.ASH_RESIDUE)));
             ci.cancel();
+        }
+    }
+
+    @Inject(method = "Lnet/minecraft/world/entity/LivingEntity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z", at = @At("RETURN"))
+    void sunspot$dropAshOnHurt(final @NotNull DamageSource damageSource, final float f, final @NotNull CallbackInfoReturnable<Boolean> cir) {
+        final LivingEntity entity = (LivingEntity)(Object)this;
+        final Level level = entity.level();
+        if (cir.getReturnValueZ() && !level.isClientSide() && Util.isOfDamageType(damageSource, SPDamageTypeRegistry.ASH, level)) {
+            final Vec3 pos = entity.position();
+            level.addFreshEntity(new ItemEntity(level, pos.x(), pos.y(), pos.z(), new ItemStack(SPItemRegistry.ASH_RESIDUE)));
         }
     }
 
