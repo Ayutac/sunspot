@@ -58,7 +58,7 @@ public class SPTagProviders {
             var unaffectedByRevitalise = getOrCreateTagBuilder(SPTagRegistry.UNAFFECTED_BY_REVITALISE);
             unaffectedByRevitalise.add(SPEntityTypeRegistry.FLAMEFALL.getId());
             unaffectedByRevitalise.add(EntityType.VEX);
-            unaffectedByRevitalise.addTag(EntityTypeTags.UNDEAD);
+            unaffectedByRevitalise.addOptionalTag(EntityTypeTags.UNDEAD);
         }
     }
 }
