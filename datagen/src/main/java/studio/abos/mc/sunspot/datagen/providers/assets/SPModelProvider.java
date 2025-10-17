@@ -34,6 +34,7 @@ public class SPModelProvider extends FabricModelProvider {
         generateCubeAllPowered(gen, SPBlockRegistry.ASH.get());
         generateCubeAllPowered(gen, SPBlockRegistry.IMPEL.get());
         generateCubeAllPowered(gen, SPBlockRegistry.OFFSET.get());
+        generateCubeAllPowered(gen, SPBlockRegistry.REVITALISE.get());
     }
 
     public static void generateCubeAllPowered(final BlockModelGenerators gen, final Block block) {

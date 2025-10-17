@@ -14,6 +14,7 @@ import studio.abos.mc.sunspot.common.block.ImpelBlock;
 import studio.abos.mc.sunspot.common.block.LmBatteryBlock;
 import studio.abos.mc.sunspot.common.block.LmBatteryCreativeBlock;
 import studio.abos.mc.sunspot.common.block.OffsetBlock;
+import studio.abos.mc.sunspot.common.block.RevitaliseBlock;
 import studio.abos.mc.sunspot.common.block.SmallSubstrateBlock;
 
 public interface SPBlockRegistry {
@@ -31,6 +32,7 @@ public interface SPBlockRegistry {
     RegistrySupplier<Block> ASH = BLOCK_REGISTRY.register(Sunspot.id("ash"), () -> new AshBlock(BlockBehaviour.Properties.of()));
     RegistrySupplier<Block> IMPEL = BLOCK_REGISTRY.register(Sunspot.id("impel"), () -> new ImpelBlock(BlockBehaviour.Properties.of()));
     RegistrySupplier<Block> OFFSET = BLOCK_REGISTRY.register(Sunspot.id("offset"), () -> new OffsetBlock(BlockBehaviour.Properties.of()));
+    RegistrySupplier<Block> REVITALISE = BLOCK_REGISTRY.register(Sunspot.id("revitalise"), () -> new RevitaliseBlock(BlockBehaviour.Properties.of()));
 
     static void register() {
         BLOCK_REGISTRY.register();

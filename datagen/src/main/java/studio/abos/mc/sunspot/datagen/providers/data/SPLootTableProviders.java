@@ -27,6 +27,7 @@ public class SPLootTableProviders {
             dropSelf(SPBlockRegistry.ASH.get());
             dropSelf(SPBlockRegistry.IMPEL.get());
             dropSelf(SPBlockRegistry.OFFSET.get());
+            dropSelf(SPBlockRegistry.REVITALISE.get());
         }
     }
 }

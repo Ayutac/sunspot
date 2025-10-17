@@ -26,6 +26,7 @@ public interface SPItemRegistry {
     RegistrySupplier<Item> ASH_BLOCK = ITEM_REGISTRY.register(Sunspot.id("ash_block"), () -> new BlockItem(SPBlockRegistry.ASH.get(), new Item.Properties()));
     RegistrySupplier<Item> IMPEL_BLOCK = ITEM_REGISTRY.register(Sunspot.id("impel_block"), () -> new BlockItem(SPBlockRegistry.IMPEL.get(), new Item.Properties()));
     RegistrySupplier<Item> OFFSET_BLOCK = ITEM_REGISTRY.register(Sunspot.id("offset_block"), () -> new BlockItem(SPBlockRegistry.OFFSET.get(), new Item.Properties()));
+    RegistrySupplier<Item> REVITALISE_BLOCK = ITEM_REGISTRY.register(Sunspot.id("revitalise_block"), () -> new BlockItem(SPBlockRegistry.REVITALISE.get(), new Item.Properties()));
 
     RegistrySupplier<Item> MANTLE_BASE_HELMET = ITEM_REGISTRY.register(Sunspot.id("mantle_base_helmet"), () -> new Item(new Item.Properties()));
     RegistrySupplier<Item> MANTLE_BASE_CHESTPLATE = ITEM_REGISTRY.register(Sunspot.id("mantle_base_chestplate"), () -> new Item(new Item.Properties()));
