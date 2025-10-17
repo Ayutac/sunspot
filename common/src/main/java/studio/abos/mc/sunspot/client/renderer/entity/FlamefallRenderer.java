@@ -1,4 +1,4 @@
-package studio.abos.mc.sunspot.client.renderer;
+package studio.abos.mc.sunspot.client.renderer.entity;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
