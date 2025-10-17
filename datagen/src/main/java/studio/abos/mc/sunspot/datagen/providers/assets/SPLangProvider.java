@@ -46,5 +46,8 @@ public class SPLangProvider extends FabricLanguageProvider {
         builder.add("death.attack.flamefall.item", "%1$s went inferno while fighting %2$s using %3$s");
         builder.add("death.attack.flamefall.player", "%1$s went inferno while fighting %2$s");
         builder.add("death.attack.flamefall", "%1$s went inferno");
+        builder.add("death.attack.ash.item", "%1$s intimately discovered the effects of {ASH} while fighting %2$s using %3$s");
+        builder.add("death.attack.ash.player", "%1$s intimately discovered the effects of {ASH} while fighting %2$s");
+        builder.add("death.attack.ash", "%1$s intimately discovered the effects of {ASH}");
     }
 }

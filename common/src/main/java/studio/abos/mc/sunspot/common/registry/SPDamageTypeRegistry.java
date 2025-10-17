@@ -7,6 +7,7 @@ import studio.abos.mc.sunspot.Sunspot;
 
 public interface SPDamageTypeRegistry {
 
+    ResourceKey<DamageType> ASH = ResourceKey.create(Registries.DAMAGE_TYPE, Sunspot.id("ash"));
     ResourceKey<DamageType> FLAMEFALL_FIRE = ResourceKey.create(Registries.DAMAGE_TYPE, Sunspot.id("flamefall_fire"));
 
 }

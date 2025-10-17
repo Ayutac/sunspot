@@ -19,6 +19,7 @@ public class SPDamageTypeProvider extends FabricDynamicRegistryProvider {
     }
 
     public static void bootstrap(final BootstrapContext<DamageType> bootstrapContext) {
+        bootstrapContext.register(SPDamageTypeRegistry.ASH, new DamageType("ash", 0.1F, DamageEffects.HURT));
         bootstrapContext.register(SPDamageTypeRegistry.FLAMEFALL_FIRE, new DamageType("flamefall", 0.1F, DamageEffects.BURNING));
     }
 
