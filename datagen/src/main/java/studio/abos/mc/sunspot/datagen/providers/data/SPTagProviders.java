@@ -6,6 +6,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.Items;
 import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.common.registry.SPEntityTypeRegistry;
+import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
 import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 
 import java.util.concurrent.CompletableFuture;
@@ -21,6 +22,10 @@ public class SPTagProviders {
         @Override
         protected void addTags(final @NotNull HolderLookup.Provider lookup) {
             getOrCreateTagBuilder(SPTagRegistry.SUBSTRATE_MATERIAL).add(Items.BONE_BLOCK);
+            getOrCreateTagBuilder(SPTagRegistry.UNAFFECTED_BY_ASH_TRANSFORMATION).add(
+                    SPItemRegistry.ASH_RESIDUE.getId(),
+                    SPItemRegistry.ASH_RESIDUE_BLOCK.getId()
+            );
         }
     }
 
