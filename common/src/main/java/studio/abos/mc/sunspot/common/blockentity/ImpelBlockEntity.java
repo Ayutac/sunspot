@@ -9,6 +9,8 @@ import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 
 public class ImpelBlockEntity extends GlyphBlockEntity {
 
+    public static int VELOCITY = 5;
+
     public ImpelBlockEntity(final BlockPos blockPos, final BlockState blockState) {
         this(SPBlockEntityTypeRegistry.IMPEL.get(), blockPos, blockState);
         setMaxFlame(20);

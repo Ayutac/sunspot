@@ -29,6 +29,10 @@ public abstract class GlyphBlockEntity extends BlockEntity {
         return currentFlame;
     }
 
+    public boolean isPowered() {
+        return getCurrentFlame() > 0;
+    }
+
     public void setCurrentFlame(final int currentFlame) {
         if (currentFlame < 0) {
             throw new IllegalArgumentException("Current Flame cannot be negative!");

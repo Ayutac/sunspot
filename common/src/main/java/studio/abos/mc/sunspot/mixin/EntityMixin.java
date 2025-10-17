@@ -16,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.common.block.GlyphBlock;
+import studio.abos.mc.sunspot.common.event.SPServerEvents;
 import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
 import studio.abos.mc.sunspot.common.registry.SPDamageTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPDimensionRegistry;
@@ -63,6 +64,11 @@ public abstract class EntityMixin {
         if (!cir.getReturnValueZ() && entity instanceof final ItemEntity itemEntity && itemEntity.getItem().is(SPTagRegistry.UNAFFECTED_BY_ASH_TRANSFORMATION) && Util.isOfDamageType(damageSource, SPDamageTypeRegistry.ASH, entity.level())) {
             cir.setReturnValue(true);
         }
+    }
+
+    @Inject(method = "tick()V", at = @At("HEAD"))
+    void sunspot$impelTick(final @NotNull CallbackInfo ci) {
+        SPServerEvents.impelTick((Entity)(Object)this);
     }
 
 }

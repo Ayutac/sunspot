@@ -17,8 +17,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.Util;
+import studio.abos.mc.sunspot.common.blockentity.ImpelBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.OffsetBlockEntity;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlameComponent;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlamefallFireComponent;
@@ -36,10 +38,10 @@ public final class SPServerEvents {
     }
 
     public static void serverPostTick(final MinecraftServer server) {
-        // hurt ignited entities
         final var damageTypes = server.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE);
         for (final ServerLevel level : server.getAllLevels()) {
             for (final Entity entity : level.getAllEntities()) {
+                // hurt ignited entities
                 flamefallFireTick(entity, damageTypes);
             }
         }
@@ -123,6 +125,39 @@ public final class SPServerEvents {
                 return;
             }
             offsetBlockEntity.teleport(player, target.get().above());
+        }
+    }
+
+    public static void impelTick(final @NotNull Entity entity) {
+        final BlockPos pos = entity.getOnPos().above();
+        final Level level = entity.level();
+        Vec3 delta = Vec3.ZERO;
+        BlockPos neighbor = pos.east();
+        if (level.getBlockEntity(neighbor) instanceof final ImpelBlockEntity impel && impel.isPowered()) {
+            delta = delta.add(-ImpelBlockEntity.VELOCITY, 0d, 0d);
+        }
+        neighbor = pos.west();
+        if (level.getBlockEntity(neighbor) instanceof final ImpelBlockEntity impel && impel.isPowered()) {
+            delta = delta.add(ImpelBlockEntity.VELOCITY, 0d, 0d);
+        }
+        neighbor = pos.north();
+        if (level.getBlockEntity(neighbor) instanceof final ImpelBlockEntity impel && impel.isPowered()) {
+            delta = delta.add(0d, 0d, ImpelBlockEntity.VELOCITY);
+        }
+        neighbor = pos.south();
+        if (level.getBlockEntity(neighbor) instanceof final ImpelBlockEntity impel && impel.isPowered()) {
+            delta = delta.add(0d, 0d, -ImpelBlockEntity.VELOCITY);
+        }
+        neighbor = pos.above(2);
+        if (level.getBlockEntity(neighbor) instanceof final ImpelBlockEntity impel && impel.isPowered()) {
+            delta = delta.add(0d, -ImpelBlockEntity.VELOCITY, 0d);
+        }
+        neighbor = pos.below();
+        if (level.getBlockEntity(neighbor) instanceof final ImpelBlockEntity impel && impel.isPowered()) {
+            delta = delta.add(0d, ImpelBlockEntity.VELOCITY, 0d);
+        }
+        if (delta != Vec3.ZERO) {
+            entity.setDeltaMovement(delta);
         }
     }
 }
