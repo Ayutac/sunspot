@@ -27,6 +27,7 @@ import studio.abos.mc.sunspot.common.component.entity.CommonFlamefallFireCompone
 import studio.abos.mc.sunspot.common.entity.FlamefallEntity;
 import studio.abos.mc.sunspot.common.registry.SPDamageTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPEntityTypeRegistry;
+import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 import studio.abos.mc.sunspot.platform.SPComponentPlatformUtils;
 
 import java.util.Optional;
@@ -129,6 +130,9 @@ public final class SPServerEvents {
     }
 
     public static void impelTick(final @NotNull Entity entity) {
+        if (entity.getType().is(SPTagRegistry.UNAFFECTED_BY_IMPEL)) {
+            return;
+        }
         final BlockPos pos = entity.getOnPos().above();
         final Level level = entity.level();
         Vec3 delta = Vec3.ZERO;

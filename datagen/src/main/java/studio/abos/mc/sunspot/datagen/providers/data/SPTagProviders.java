@@ -40,6 +40,7 @@ public class SPTagProviders {
         protected void addTags(final @NotNull HolderLookup.Provider lookup) {
             getOrCreateTagBuilder(SPTagRegistry.UNAFFECTED_BY_AFFIX).add(SPEntityTypeRegistry.FLAMEFALL.getId());
             getOrCreateTagBuilder(SPTagRegistry.UNAFFECTED_BY_ASH).add(SPEntityTypeRegistry.FLAMEFALL.getId());
+            getOrCreateTagBuilder(SPTagRegistry.UNAFFECTED_BY_IMPEL).add(SPEntityTypeRegistry.FLAMEFALL.getId());
             getOrCreateTagBuilder(SPTagRegistry.UNAFFECTED_BY_OFFSET).add(SPEntityTypeRegistry.FLAMEFALL.getId());
         }
     }
