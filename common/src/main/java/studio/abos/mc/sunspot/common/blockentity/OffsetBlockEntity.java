@@ -14,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.common.block.LatticeManifestBlock;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
+import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 
 import java.util.List;
 import java.util.Optional;
@@ -41,6 +42,9 @@ public class OffsetBlockEntity extends LatticeManifestBlockEntity {
         final Optional<BlockPos> upTarget = nextUpElevator(pos, level).map(BlockPos::above);
         final Optional<BlockPos> downTarget = nextDownElevator(pos, level).map(BlockPos::above);
         for (final Entity entity : entities) {
+            if (entity.getType().is(SPTagRegistry.UNAFFECTED_BY_OFFSET)) {
+                continue;
+            }
             if (entity.isShiftKeyDown() && downTarget.isPresent()) {
                 if (teleport(entity, downTarget.get(), blockEntity)) {
                     entity.setShiftKeyDown(false);

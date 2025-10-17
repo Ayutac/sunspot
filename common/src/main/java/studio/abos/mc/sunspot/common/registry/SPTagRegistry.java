@@ -13,6 +13,7 @@ public interface SPTagRegistry {
 
     TagKey<EntityType<?>> UNAFFECTED_BY_AFFIX = TagKey.create(Registries.ENTITY_TYPE, Sunspot.id("unaffected_by_affix"));
     TagKey<EntityType<?>> UNAFFECTED_BY_ASH = TagKey.create(Registries.ENTITY_TYPE, Sunspot.id("unaffected_by_ash"));
+    TagKey<EntityType<?>> UNAFFECTED_BY_OFFSET = TagKey.create(Registries.ENTITY_TYPE, Sunspot.id("unaffected_by_offset"));
 
     static void init() {
         // intentionally left empty
