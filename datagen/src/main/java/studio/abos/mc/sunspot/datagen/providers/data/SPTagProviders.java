@@ -34,6 +34,7 @@ public class SPTagProviders {
         @Override
         protected void addTags(final @NotNull HolderLookup.Provider lookup) {
             getOrCreateTagBuilder(SPTagRegistry.UNAFFECTED_BY_AFFIX).add(SPEntityTypeRegistry.FLAMEFALL.getId());
+            getOrCreateTagBuilder(SPTagRegistry.UNAFFECTED_BY_ASH).add(SPEntityTypeRegistry.FLAMEFALL.getId());
         }
     }
 }
