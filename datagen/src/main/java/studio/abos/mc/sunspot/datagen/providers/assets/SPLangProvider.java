@@ -24,8 +24,8 @@ public class SPLangProvider extends FabricLanguageProvider {
         builder.add(SPItemRegistry.ASH_RESIDUE.get(), "{ASH} Residue");
         builder.add(SPItemRegistry.ASH_RESIDUE_BLOCK.get(), "{ASH} Residue Block");
         builder.add(SPBlockRegistry.LM_WORKBENCH.get(), "LM Workbench");
-        builder.add(SPBlockRegistry.LM_BATTERY.get(), "LM Battery");
-        builder.add(SPBlockRegistry.LM_BATTERY_CREATIVE.get(), "Creative LM Battery");
+        builder.add(SPBlockRegistry.COMPOSE.get(), "{COMPOSE} Block");
+        builder.add(SPBlockRegistry.COMPOSE_CREATIVE.get(), "Creative {COMPOSE} Block");
         builder.add(SPBlockRegistry.AFFIX.get(), "{AFFIX} Block");
         builder.add(SPBlockRegistry.ASH.get(), "{ASH} Block");
         builder.add(SPBlockRegistry.IMPEL.get(), "{IMPEL} Block");

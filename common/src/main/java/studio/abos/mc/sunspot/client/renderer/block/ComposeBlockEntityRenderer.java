@@ -4,11 +4,11 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import org.jetbrains.annotations.NotNull;
-import studio.abos.mc.sunspot.common.blockentity.LmBatteryCreativeBlockEntity;
+import studio.abos.mc.sunspot.common.blockentity.ComposeBlockEntity;
 
-public class LmBatteryCreativeBlockEntityRenderer extends GlyphBlockEntityRenderer<LmBatteryCreativeBlockEntity> {
+public class ComposeBlockEntityRenderer extends GlyphBlockEntityRenderer<ComposeBlockEntity> {
 
-    public LmBatteryCreativeBlockEntityRenderer(final @NotNull BlockEntityRendererProvider.Context context) {
+    public ComposeBlockEntityRenderer(final @NotNull BlockEntityRendererProvider.Context context) {
         super(context, new ItemStack(Items.LAPIS_LAZULI));
     }
 

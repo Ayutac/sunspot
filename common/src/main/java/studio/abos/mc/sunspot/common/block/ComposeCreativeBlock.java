@@ -8,12 +8,12 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import studio.abos.mc.sunspot.common.blockentity.LmBatteryCreativeBlockEntity;
+import studio.abos.mc.sunspot.common.blockentity.ComposeCreativeBlockEntity;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 
-public class LmBatteryCreativeBlock extends LmBatteryBlock {
+public class ComposeCreativeBlock extends ComposeBlock {
 
-    public LmBatteryCreativeBlock(final Properties properties) {
+    public ComposeCreativeBlock(final Properties properties) {
         super(properties);
         registerDefaultState(getStateDefinition().any().setValue(POWERED, true));
     }
@@ -25,12 +25,12 @@ public class LmBatteryCreativeBlock extends LmBatteryBlock {
 
     @Override
     public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
-        return new LmBatteryCreativeBlockEntity(blockPos, blockState);
+        return new ComposeCreativeBlockEntity(blockPos, blockState);
     }
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(final @NotNull Level level, final @NotNull BlockState state,  BlockEntityType<T> type) {
-        return !level.isClientSide() && type == SPBlockEntityTypeRegistry.LM_BATTERY_CREATIVE.get() ? (l, p, s, e) ->  LmBatteryCreativeBlockEntity.tick(l, p, s, (LmBatteryCreativeBlockEntity) e) : null;
+        return !level.isClientSide() && type == SPBlockEntityTypeRegistry.COMPOSE_CREATIVE.get() ? (l, p, s, e) ->  ComposeCreativeBlockEntity.tick(l, p, s, (ComposeCreativeBlockEntity) e) : null;
     }
 
 }

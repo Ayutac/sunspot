@@ -28,8 +28,8 @@ public class SPModelProvider extends FabricModelProvider {
         gen.createNonTemplateModelBlock(SPBlockRegistry.SUBSTRATE_4.get());
         gen.createTrivialCube(SPBlockRegistry.ASH_RESIDUE.get());
         gen.createTrivialCube(SPBlockRegistry.LM_WORKBENCH.get());
-        generateCubeAllPowered(gen, SPBlockRegistry.LM_BATTERY.get());
-        generateCubeAllPowered(gen, SPBlockRegistry.LM_BATTERY_CREATIVE.get());
+        generateCubeAllPowered(gen, SPBlockRegistry.COMPOSE.get());
+        generateCubeAllPowered(gen, SPBlockRegistry.COMPOSE_CREATIVE.get());
         generateCubeAllPowered(gen, SPBlockRegistry.AFFIX.get());
         generateCubeAllPowered(gen, SPBlockRegistry.ASH.get());
         generateCubeAllPowered(gen, SPBlockRegistry.IMPEL.get());

@@ -5,10 +5,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 
-public class LmBatteryCreativeBlockEntity extends LmBatteryBlockEntity {
+public class ComposeCreativeBlockEntity extends ComposeBlockEntity {
 
-    public LmBatteryCreativeBlockEntity(final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
-        super(SPBlockEntityTypeRegistry.LM_BATTERY_CREATIVE.get(), blockPos, blockState);
+    public ComposeCreativeBlockEntity(final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
+        super(SPBlockEntityTypeRegistry.COMPOSE_CREATIVE.get(), blockPos, blockState);
         currentFlame = maxFlame = Integer.MAX_VALUE;
     }
 

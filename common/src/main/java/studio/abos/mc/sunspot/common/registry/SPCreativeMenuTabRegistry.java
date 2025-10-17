@@ -29,10 +29,10 @@ public interface SPCreativeMenuTabRegistry {
                     entries.accept(SPItemRegistry.ASH_RESIDUE.get());
                     entries.accept(SPItemRegistry.ASH_RESIDUE_BLOCK.get());
                     entries.accept(SPItemRegistry.LM_WORKBENCH.get());
-                    entries.accept(SPItemRegistry.LM_BATTERY.get());
-                    entries.accept(SPItemRegistry.LM_BATTERY_CREATIVE.get());
                     entries.accept(SPItemRegistry.AFFIX_BLOCK.get());
                     entries.accept(SPItemRegistry.ASH_BLOCK.get());
+                    entries.accept(SPItemRegistry.COMPOSE_BLOCK.get());
+                    entries.accept(SPItemRegistry.COMPOSE_CREATIVE_BLOCK.get());
                     entries.accept(SPItemRegistry.IMPEL_BLOCK.get());
                     entries.accept(SPItemRegistry.OFFSET_BLOCK.get());
                     entries.accept(SPItemRegistry.REVITALISE_BLOCK.get());

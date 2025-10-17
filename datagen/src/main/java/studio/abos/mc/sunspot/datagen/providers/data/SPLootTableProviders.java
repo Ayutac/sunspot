@@ -21,8 +21,8 @@ public class SPLootTableProviders {
             dropSelf(SPBlockRegistry.SUBSTRATE_4.get());
             dropSelf(SPBlockRegistry.ASH_RESIDUE.get());
             dropSelf(SPBlockRegistry.LM_WORKBENCH.get());
-            dropSelf(SPBlockRegistry.LM_BATTERY.get());
-            dropSelf(SPBlockRegistry.LM_BATTERY_CREATIVE.get());
+            dropSelf(SPBlockRegistry.COMPOSE.get());
+            dropSelf(SPBlockRegistry.COMPOSE_CREATIVE.get());
             dropSelf(SPBlockRegistry.AFFIX.get());
             dropSelf(SPBlockRegistry.ASH.get());
             dropSelf(SPBlockRegistry.IMPEL.get());

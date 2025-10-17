@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.common.block.GlyphBlock;
-import studio.abos.mc.sunspot.common.block.LmBatteryBlock;
+import studio.abos.mc.sunspot.common.block.ComposeBlock;
 
 public abstract class GlyphBlockEntity extends BlockEntity {
 
@@ -63,7 +63,7 @@ public abstract class GlyphBlockEntity extends BlockEntity {
         final boolean oldState = state.getValue(GlyphBlock.POWERED);
         final boolean newState = blockEntity.currentFlame != 0;
         if (oldState != newState) {
-            level.setBlockAndUpdate(pos, state.setValue(LmBatteryBlock.POWERED, newState));
+            level.setBlockAndUpdate(pos, state.setValue(ComposeBlock.POWERED, newState));
         }
     }
 

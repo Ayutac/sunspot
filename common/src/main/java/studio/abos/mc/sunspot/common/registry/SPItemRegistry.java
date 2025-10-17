@@ -20,10 +20,10 @@ public interface SPItemRegistry {
     RegistrySupplier<Item> ASH_RESIDUE_BLOCK = ITEM_REGISTRY.register(Sunspot.id("ash_residue_block"), () -> new BlockItem(SPBlockRegistry.ASH_RESIDUE.get(), new Item.Properties().fireResistant()));
 
     RegistrySupplier<BlockItem> LM_WORKBENCH = ITEM_REGISTRY.register(Sunspot.id("lm_workbench"), () -> new BlockItem(SPBlockRegistry.LM_WORKBENCH.get(), new Item.Properties()));
-    RegistrySupplier<BlockItem> LM_BATTERY = ITEM_REGISTRY.register(Sunspot.id("lm_battery"), () -> new BlockItem(SPBlockRegistry.LM_BATTERY.get(), new Item.Properties()));
-    RegistrySupplier<BlockItem> LM_BATTERY_CREATIVE = ITEM_REGISTRY.register(Sunspot.id("lm_battery_creative"), () -> new BlockItem(SPBlockRegistry.LM_BATTERY_CREATIVE.get(), new Item.Properties()));
     RegistrySupplier<BlockItem> AFFIX_BLOCK = ITEM_REGISTRY.register(Sunspot.id("affix_block"), () -> new BlockItem(SPBlockRegistry.AFFIX.get(), new Item.Properties()));
     RegistrySupplier<BlockItem> ASH_BLOCK = ITEM_REGISTRY.register(Sunspot.id("ash_block"), () -> new BlockItem(SPBlockRegistry.ASH.get(), new Item.Properties()));
+    RegistrySupplier<BlockItem> COMPOSE_BLOCK = ITEM_REGISTRY.register(Sunspot.id("compose_block"), () -> new BlockItem(SPBlockRegistry.COMPOSE.get(), new Item.Properties()));
+    RegistrySupplier<BlockItem> COMPOSE_CREATIVE_BLOCK = ITEM_REGISTRY.register(Sunspot.id("compose_creative_block"), () -> new BlockItem(SPBlockRegistry.COMPOSE_CREATIVE.get(), new Item.Properties()));
     RegistrySupplier<BlockItem> IMPEL_BLOCK = ITEM_REGISTRY.register(Sunspot.id("impel_block"), () -> new BlockItem(SPBlockRegistry.IMPEL.get(), new Item.Properties()));
     RegistrySupplier<BlockItem> OFFSET_BLOCK = ITEM_REGISTRY.register(Sunspot.id("offset_block"), () -> new BlockItem(SPBlockRegistry.OFFSET.get(), new Item.Properties()));
     RegistrySupplier<BlockItem> REVITALISE_BLOCK = ITEM_REGISTRY.register(Sunspot.id("revitalise_block"), () -> new BlockItem(SPBlockRegistry.REVITALISE.get(), new Item.Properties()));

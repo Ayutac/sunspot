@@ -13,8 +13,8 @@ import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.client.renderer.block.AffixBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.block.AshBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.block.ImpelBlockEntityRenderer;
-import studio.abos.mc.sunspot.client.renderer.block.LmBatteryBlockEntityRenderer;
-import studio.abos.mc.sunspot.client.renderer.block.LmBatteryCreativeBlockEntityRenderer;
+import studio.abos.mc.sunspot.client.renderer.block.ComposeBlockEntityRenderer;
+import studio.abos.mc.sunspot.client.renderer.block.ComposeCreativeBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.block.OffsetBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.block.RevitaliseBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.entity.FlamefallRenderer;
@@ -32,8 +32,8 @@ public class ClientSetupEvent {
         event.registerEntityRenderer(SPEntityTypeRegistry.FLAMEFALL.get(), FlamefallRenderer::new);
         event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.AFFIX.get(), AffixBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.ASH.get(), AshBlockEntityRenderer::new);
-        event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.LM_BATTERY.get(), LmBatteryBlockEntityRenderer::new);
-        event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.LM_BATTERY_CREATIVE.get(), LmBatteryCreativeBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.COMPOSE.get(), ComposeBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.COMPOSE_CREATIVE.get(), ComposeCreativeBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.IMPEL.get(), ImpelBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.OFFSET.get(), OffsetBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.REVITALISE.get(), RevitaliseBlockEntityRenderer::new);
@@ -43,8 +43,8 @@ public class ClientSetupEvent {
     public static void onBlockColorHandlerRegistration(final @NotNull RegisterColorHandlersEvent.Block event) {
         registerGlyphBlockTint(event, SPItemRegistry.AFFIX_BLOCK);
         registerGlyphBlockTint(event, SPItemRegistry.ASH_BLOCK);
-        registerGlyphBlockTint(event, SPItemRegistry.LM_BATTERY);
-        registerGlyphBlockTint(event, SPItemRegistry.LM_BATTERY_CREATIVE);
+        registerGlyphBlockTint(event, SPItemRegistry.COMPOSE_BLOCK);
+        registerGlyphBlockTint(event, SPItemRegistry.COMPOSE_CREATIVE_BLOCK);
         registerGlyphBlockTint(event, SPItemRegistry.IMPEL_BLOCK);
         registerGlyphBlockTint(event, SPItemRegistry.OFFSET_BLOCK);
         registerGlyphBlockTint(event, SPItemRegistry.REVITALISE_BLOCK);
@@ -58,8 +58,8 @@ public class ClientSetupEvent {
     public static void onBlockItemColorHandlerRegistration(final @NotNull RegisterColorHandlersEvent.Item event) {
         registerGlyphBlockItemTint(event, SPItemRegistry.AFFIX_BLOCK);
         registerGlyphBlockItemTint(event, SPItemRegistry.ASH_BLOCK);
-        registerGlyphBlockItemTint(event, SPItemRegistry.LM_BATTERY);
-        registerGlyphBlockItemTint(event, SPItemRegistry.LM_BATTERY_CREATIVE);
+        registerGlyphBlockItemTint(event, SPItemRegistry.COMPOSE_BLOCK);
+        registerGlyphBlockItemTint(event, SPItemRegistry.COMPOSE_CREATIVE_BLOCK);
         registerGlyphBlockItemTint(event, SPItemRegistry.IMPEL_BLOCK);
         registerGlyphBlockItemTint(event, SPItemRegistry.OFFSET_BLOCK);
         registerGlyphBlockItemTint(event, SPItemRegistry.REVITALISE_BLOCK);
