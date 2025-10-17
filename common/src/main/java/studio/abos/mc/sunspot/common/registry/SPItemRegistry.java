@@ -24,6 +24,7 @@ public interface SPItemRegistry {
     RegistrySupplier<Item> LM_BATTERY_CREATIVE = ITEM_REGISTRY.register(Sunspot.id("lm_battery_creative"), () -> new BlockItem(SPBlockRegistry.LM_BATTERY_CREATIVE.get(), new Item.Properties()));
     RegistrySupplier<Item> AFFIX_BLOCK = ITEM_REGISTRY.register(Sunspot.id("affix_block"), () -> new BlockItem(SPBlockRegistry.AFFIX.get(), new Item.Properties()));
     RegistrySupplier<Item> ASH_BLOCK = ITEM_REGISTRY.register(Sunspot.id("ash_block"), () -> new BlockItem(SPBlockRegistry.ASH.get(), new Item.Properties()));
+    RegistrySupplier<Item> OFFSET_BLOCK = ITEM_REGISTRY.register(Sunspot.id("offset_block"), () -> new BlockItem(SPBlockRegistry.OFFSET.get(), new Item.Properties()));
 
     RegistrySupplier<Item> MANTLE_BASE_HELMET = ITEM_REGISTRY.register(Sunspot.id("mantle_base_helmet"), () -> new Item(new Item.Properties()));
     RegistrySupplier<Item> MANTLE_BASE_CHESTPLATE = ITEM_REGISTRY.register(Sunspot.id("mantle_base_chestplate"), () -> new Item(new Item.Properties()));

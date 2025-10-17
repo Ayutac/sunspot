@@ -25,6 +25,7 @@ public class SPLootTableProviders {
             dropSelf(SPBlockRegistry.LM_BATTERY_CREATIVE.get());
             dropSelf(SPBlockRegistry.AFFIX.get());
             dropSelf(SPBlockRegistry.ASH.get());
+            dropSelf(SPBlockRegistry.OFFSET.get());
         }
     }
 }

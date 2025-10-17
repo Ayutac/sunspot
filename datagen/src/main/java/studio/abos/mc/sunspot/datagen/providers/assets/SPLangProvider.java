@@ -28,6 +28,7 @@ public class SPLangProvider extends FabricLanguageProvider {
         builder.add(SPBlockRegistry.LM_BATTERY_CREATIVE.get(), "Creative LM Battery");
         builder.add(SPBlockRegistry.AFFIX.get(), "{AFFIX} Block");
         builder.add(SPBlockRegistry.ASH.get(), "{ASH} Block");
+        builder.add(SPBlockRegistry.OFFSET.get(), "{OFFSET} Block");
         builder.add(SPItemRegistry.MANTLE_BASE_HELMET.get(), "Mantle Base Helmet");
         builder.add(SPItemRegistry.MANTLE_BASE_CHESTPLATE.get(), "Mantle Base Chestplate");
         builder.add(SPItemRegistry.MANTLE_BASE_LEGGINGS.get(), "Mantle Base Leggings");
