@@ -18,6 +18,11 @@ public class ImpelBlock extends GlyphBlock {
     }
 
     @Override
+    public int getTint() {
+        return 0x65b7db;
+    }
+
+    @Override
     public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
         return new ImpelBlockEntity(blockPos, blockState);
     }

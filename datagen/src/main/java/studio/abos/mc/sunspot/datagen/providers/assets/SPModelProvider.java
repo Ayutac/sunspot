@@ -10,7 +10,7 @@ import net.minecraft.data.models.blockstates.Variant;
 import net.minecraft.data.models.blockstates.VariantProperties;
 import net.minecraft.data.models.model.ModelTemplates;
 import net.minecraft.data.models.model.TextureMapping;
-import net.minecraft.data.models.model.TexturedModel;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
@@ -39,8 +39,10 @@ public class SPModelProvider extends FabricModelProvider {
 
     public static void generateCubeAllPowered(final BlockModelGenerators gen, final Block block) {
         gen.blockStateOutput.accept(MultiVariantGenerator.multiVariant(block).with(PropertyDispatch.property(BlockStateProperties.POWERED)
-                .select(true, Variant.variant().with(VariantProperties.MODEL, gen.createSuffixedVariant(block, "_on", ModelTemplates.CUBE_ALL, TextureMapping::cube)))
-                .select(false, Variant.variant().with(VariantProperties.MODEL, TexturedModel.CUBE.create(block, gen.modelOutput)))));
+                .select(true, Variant.variant().with(VariantProperties.MODEL, gen.createSuffixedVariant(block, "_on", ModelTemplates.LEAVES,
+                        rl -> TextureMapping.cube(ResourceLocation.parse("sunspot:block/glyph_block_base_on")))))
+                .select(false, Variant.variant().with(VariantProperties.MODEL, gen.createSuffixedVariant(block, "", ModelTemplates.LEAVES,
+                        rl -> TextureMapping.cube(ResourceLocation.parse("sunspot:block/glyph_block_base")))))));
     }
 
     @Override

@@ -18,6 +18,11 @@ public class OffsetBlock extends GlyphBlock {
     }
 
     @Override
+    public int getTint() {
+        return 0xd8f2f1;
+    }
+
+    @Override
     public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
         return new OffsetBlockEntity(blockPos, blockState);
     }

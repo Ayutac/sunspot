@@ -18,6 +18,11 @@ public class AffixBlock extends GlyphBlock {
     }
 
     @Override
+    public int getTint() {
+        return 0x2b6f3a;
+    }
+
+    @Override
     public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
         return new AffixBlockEntity(blockPos, blockState);
     }

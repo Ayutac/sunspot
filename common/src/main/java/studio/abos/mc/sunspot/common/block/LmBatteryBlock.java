@@ -18,6 +18,11 @@ public class LmBatteryBlock extends GlyphBlock {
     }
 
     @Override
+    public int getTint() {
+        return 0x1412ae;
+    }
+
+    @Override
     public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
         return new LmBatteryBlockEntity(blockPos, blockState);
     }

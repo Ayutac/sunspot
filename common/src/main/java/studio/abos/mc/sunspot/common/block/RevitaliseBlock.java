@@ -18,6 +18,11 @@ public class RevitaliseBlock extends GlyphBlock {
     }
 
     @Override
+    public int getTint() {
+        return 0x58e125;
+    }
+
+    @Override
     public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
         return new RevitaliseBlockEntity(blockPos, blockState);
     }

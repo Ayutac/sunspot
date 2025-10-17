@@ -31,6 +31,11 @@ public class AshBlock extends GlyphBlock {
     }
 
     @Override
+    public int getTint() {
+        return 0x551b1b;
+    }
+
+    @Override
     public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
         return new AshBlockEntity(blockPos, blockState);
     }

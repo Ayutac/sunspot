@@ -17,6 +17,8 @@ public abstract class GlyphBlock extends Block implements EntityBlock {
         registerDefaultState(getStateDefinition().any().setValue(POWERED, false));
     }
 
+    public abstract int getTint();
+
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(POWERED);

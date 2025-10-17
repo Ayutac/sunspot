@@ -19,6 +19,11 @@ public class LmBatteryCreativeBlock extends LmBatteryBlock {
     }
 
     @Override
+    public int getTint() {
+        return 0xa02493;
+    }
+
+    @Override
     public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
         return new LmBatteryCreativeBlockEntity(blockPos, blockState);
     }

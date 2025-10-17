@@ -16,7 +16,7 @@ import studio.abos.mc.sunspot.common.blockentity.GlyphBlockEntity;
 
 public abstract class GlyphBlockEntityRenderer<T extends GlyphBlockEntity> implements BlockEntityRenderer<T> {
 
-    final ItemStack topDisplay;
+    protected final ItemStack topDisplay;
 
     protected GlyphBlockEntityRenderer(final @NotNull BlockEntityRendererProvider.Context context, final @Nullable ItemStack topDisplay) {
         this.topDisplay = topDisplay;
