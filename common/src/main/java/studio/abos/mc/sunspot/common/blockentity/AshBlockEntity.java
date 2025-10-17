@@ -16,7 +16,6 @@ public class AshBlockEntity extends GlyphBlockEntity {
 
     protected AshBlockEntity(final @NotNull BlockEntityType<? extends AshBlockEntity> blockEntityType, final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
         super(blockEntityType, blockPos, blockState);
-        setMaxFlame(100);
     }
 
     public static void tick(final @NotNull Level level, final @NotNull BlockPos pos, final @NotNull BlockState state, final @NotNull AshBlockEntity blockEntity) {
