@@ -2,6 +2,7 @@ package studio.abos.mc.sunspot.common.blockentity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -76,10 +77,11 @@ public class OffsetBlockEntity extends LatticeManifestBlockEntity {
         return Optional.empty();
     }
 
-    private static boolean teleport(final @NotNull Player player, final @NotNull BlockPos target) {
+    public static boolean teleport(final @NotNull Player player, final @NotNull BlockPos target) {
         // TODO: actually use energy
         final Vec3 centeredPos = Vec3.atCenterOf(new Vec3i(target.getX(), target.getY(), target.getZ()));
         player.teleportTo(centeredPos.x(), target.getY(), centeredPos.z());
+        player.playSound(SoundEvents.ENDERMAN_TELEPORT);
         return true;
     }
 

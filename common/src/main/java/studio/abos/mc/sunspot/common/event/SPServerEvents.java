@@ -15,15 +15,19 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseFireBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.Util;
+import studio.abos.mc.sunspot.common.blockentity.OffsetBlockEntity;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlameComponent;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlamefallFireComponent;
 import studio.abos.mc.sunspot.common.entity.FlamefallEntity;
 import studio.abos.mc.sunspot.common.registry.SPDamageTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPEntityTypeRegistry;
 import studio.abos.mc.sunspot.platform.SPComponentPlatformUtils;
+
+import java.util.Optional;
 
 public final class SPServerEvents {
 
@@ -109,5 +113,16 @@ public final class SPServerEvents {
         flamefall.setPos(player.position().x(), player.level().getMaxBuildHeight(), player.position().z());
         flamefall.setTarget(player);
         player.level().addFreshEntity(flamefall);
+    }
+
+    public static void sendPlayerUpOnOffsetBlock(final @NotNull ServerPlayer player, final @NotNull BlockPos pos) {
+        final BlockEntity blockEntity = player.level().getBlockEntity(pos);
+        if (blockEntity instanceof OffsetBlockEntity) {
+            final Optional<BlockPos> target = OffsetBlockEntity.nextUpElevator(pos, player.level());
+            if (target.isEmpty()) {
+                return;
+            }
+            OffsetBlockEntity.teleport(player, target.get().above());
+        }
     }
 }

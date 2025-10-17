@@ -1,10 +1,12 @@
 package studio.abos.mc.sunspot.neoforge;
 
+import net.neoforged.neoforge.common.NeoForge;
 import studio.abos.mc.sunspot.Sunspot;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import studio.abos.mc.sunspot.neoforge.common.capability.SPCapabilities;
+import studio.abos.mc.sunspot.neoforge.common.event.ServerEvents;
 import studio.abos.mc.sunspot.neoforge.common.event.SetupEvents;
 
 @Mod(Sunspot.MOD_ID)
@@ -13,5 +15,6 @@ public class SunspotNeoForge {
         Sunspot.init();
         SPCapabilities.ATTACHMENT_TYPES.register(bus);
         bus.register(SetupEvents.class);
+        NeoForge.EVENT_BUS.addListener(ServerEvents::onPlayerJump);
     }
 }
