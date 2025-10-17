@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import studio.abos.mc.sunspot.Sunspot;
 import studio.abos.mc.sunspot.common.blockentity.AffixBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.AshBlockEntity;
+import studio.abos.mc.sunspot.common.blockentity.ImpelBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.LmBatteryBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.LmBatteryCreativeBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.OffsetBlockEntity;
@@ -26,6 +27,9 @@ public interface SPBlockEntityTypeRegistry {
     );
     RegistrySupplier<BlockEntityType<AshBlockEntity>> ASH = BLOCK_ENTITY_TYPE_REGISTRY.register(
             "ash", () -> BlockEntityType.Builder.of(AshBlockEntity::new, SPBlockRegistry.ASH.get()).build(null)
+    );
+    RegistrySupplier<BlockEntityType<ImpelBlockEntity>> IMPEL = BLOCK_ENTITY_TYPE_REGISTRY.register(
+            "impel", () -> BlockEntityType.Builder.of(ImpelBlockEntity::new, SPBlockRegistry.IMPEL.get()).build(null)
     );
     RegistrySupplier<BlockEntityType<OffsetBlockEntity>> OFFSET = BLOCK_ENTITY_TYPE_REGISTRY.register(
             "offset", () -> BlockEntityType.Builder.of(OffsetBlockEntity::new, SPBlockRegistry.OFFSET.get()).build(null)

@@ -33,6 +33,7 @@ public interface SPCreativeMenuTabRegistry {
                     entries.accept(SPItemRegistry.LM_BATTERY_CREATIVE.get());
                     entries.accept(SPItemRegistry.AFFIX_BLOCK.get());
                     entries.accept(SPItemRegistry.ASH_BLOCK.get());
+                    entries.accept(SPItemRegistry.IMPEL_BLOCK.get());
                     entries.accept(SPItemRegistry.OFFSET_BLOCK.get());
                     entries.accept(SPItemRegistry.FOURSPACE_SHIFTER.get());
                     entries.accept(SPItemRegistry.MANTLE_BASE_HELMET.get());

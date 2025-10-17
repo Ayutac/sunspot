@@ -32,6 +32,7 @@ public class SPModelProvider extends FabricModelProvider {
         generateCubeAllPowered(gen, SPBlockRegistry.LM_BATTERY_CREATIVE.get());
         generateCubeAllPowered(gen, SPBlockRegistry.AFFIX.get());
         generateCubeAllPowered(gen, SPBlockRegistry.ASH.get());
+        generateCubeAllPowered(gen, SPBlockRegistry.IMPEL.get());
         generateCubeAllPowered(gen, SPBlockRegistry.OFFSET.get());
     }
 
