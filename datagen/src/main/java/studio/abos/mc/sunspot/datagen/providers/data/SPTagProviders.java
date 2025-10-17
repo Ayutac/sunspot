@@ -32,7 +32,6 @@ public class SPTagProviders {
 
     public static class SPEntityTypeTags extends FabricTagProvider.EntityTypeTagProvider {
 
-
         public SPEntityTypeTags(final @NotNull FabricDataOutput output, final @NotNull CompletableFuture<HolderLookup.Provider> registriesFuture) {
             super(output, registriesFuture);
         }
