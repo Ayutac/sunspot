@@ -80,7 +80,7 @@ public final class SPServerEvents {
 
     public static EventResult inferno(final @NotNull LivingEntity living, final DamageSource damageSource) {
         final Level level = living.level();
-        if (damageSource == null || !damageSource.type().equals(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getOrThrow(SPDamageTypeRegistry.FLAMEFALL_FIRE))) {
+        if (damageSource == null || !damageSource.type().equals(living.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getOrThrow(SPDamageTypeRegistry.FLAMEFALL_FIRE))) {
             return EventResult.pass();
         }
         if (level.getGameRules().getBoolean(GameRules.RULE_DOFIRETICK)) {

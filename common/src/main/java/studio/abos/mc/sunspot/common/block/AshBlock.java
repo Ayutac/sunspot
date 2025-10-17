@@ -25,7 +25,7 @@ public class AshBlock extends LatticeManifestBlock {
     @Override
     public void stepOn(final @NotNull Level level, final @NotNull BlockPos blockPos, final @NotNull BlockState state, final @NotNull Entity entity) {
         if (/*state.getValue(LatticeManifestBlock.POWERED) &&*/ !entity.getType().is(SPTagRegistry.UNAFFECTED_BY_ASH)) {
-            entity.hurt(new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(SPDamageTypeRegistry.ASH)), 10f);
+            entity.hurt(new DamageSource(entity.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(SPDamageTypeRegistry.ASH)), 10f);
         }
         super.stepOn(level, blockPos, state, entity);
     }
