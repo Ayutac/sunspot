@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import studio.abos.mc.sunspot.Util;
-import studio.abos.mc.sunspot.common.block.LatticeManifestBlock;
+import studio.abos.mc.sunspot.common.block.GlyphBlock;
 import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
 import studio.abos.mc.sunspot.common.registry.SPDamageTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPDimensionRegistry;
@@ -47,7 +47,7 @@ public abstract class EntityMixin {
     void sunspot$affix(final Vec3 vec3, final @NotNull CallbackInfo ci) {
         final Entity entity = (Entity)(Object)this;
         final BlockState blockBelow = entity.level().getBlockState(entity.blockPosition().below());
-        if (!entity.getType().is(SPTagRegistry.UNAFFECTED_BY_AFFIX) && blockBelow.is(SPBlockRegistry.AFFIX) && blockBelow.getValue(LatticeManifestBlock.POWERED)) {
+        if (!entity.getType().is(SPTagRegistry.UNAFFECTED_BY_AFFIX) && blockBelow.is(SPBlockRegistry.AFFIX) && blockBelow.getValue(GlyphBlock.POWERED)) {
             deltaMovement = Vec3.ZERO;
             final Vec3 oldPos = entity.position();
             if (oldPos.y() != Math.floor(oldPos.y())) {

@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 import studio.abos.mc.sunspot.common.blockentity.OffsetBlockEntity;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 
-public class OffsetBlock extends LatticeManifestBlock {
+public class OffsetBlock extends GlyphBlock {
 
     public OffsetBlock(final Properties properties) {
         super(properties);

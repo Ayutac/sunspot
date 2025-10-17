@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
-import studio.abos.mc.sunspot.common.block.LatticeManifestBlock;
+import studio.abos.mc.sunspot.common.block.GlyphBlock;
 import studio.abos.mc.sunspot.common.block.LmBatteryBlock;
 
 public abstract class LatticeManifestBlockEntity extends BlockEntity {
@@ -56,7 +56,7 @@ public abstract class LatticeManifestBlockEntity extends BlockEntity {
     }
 
     public static void tick(final @NotNull Level level, final @NotNull BlockPos pos, final @NotNull BlockState state, final @NotNull LatticeManifestBlockEntity blockEntity) {
-        final boolean oldState = state.getValue(LatticeManifestBlock.POWERED);
+        final boolean oldState = state.getValue(GlyphBlock.POWERED);
         final boolean newState = blockEntity.currentFlame != 0;
         if (oldState != newState) {
             level.setBlockAndUpdate(pos, state.setValue(LmBatteryBlock.POWERED, newState));

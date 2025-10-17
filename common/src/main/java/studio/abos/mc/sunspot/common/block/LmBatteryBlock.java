@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 import studio.abos.mc.sunspot.common.blockentity.LmBatteryBlockEntity;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 
-public class LmBatteryBlock extends LatticeManifestBlock {
+public class LmBatteryBlock extends GlyphBlock {
 
     public LmBatteryBlock(final Properties properties) {
         super(properties);

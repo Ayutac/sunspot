@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 import studio.abos.mc.sunspot.common.blockentity.ImpelBlockEntity;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 
-public class ImpelBlock extends LatticeManifestBlock {
+public class ImpelBlock extends GlyphBlock {
 
     public ImpelBlock(final Properties properties) {
         super(properties);

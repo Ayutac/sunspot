@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 import studio.abos.mc.sunspot.common.blockentity.AffixBlockEntity;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 
-public class AffixBlock extends LatticeManifestBlock {
+public class AffixBlock extends GlyphBlock {
 
     public AffixBlock(final Properties properties) {
         super(properties);

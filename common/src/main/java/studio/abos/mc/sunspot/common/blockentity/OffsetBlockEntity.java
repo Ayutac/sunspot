@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
-import studio.abos.mc.sunspot.common.block.LatticeManifestBlock;
+import studio.abos.mc.sunspot.common.block.GlyphBlock;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
 import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
@@ -60,7 +60,7 @@ public class OffsetBlockEntity extends LatticeManifestBlockEntity {
     private static boolean isValidTarget(final @NotNull BlockPos pos, final @NotNull Level level) {
         final BlockState target = level.getBlockState(pos);
         return level.getBlockState(pos.above()).isAir() && level.getBlockState(pos.above(2)).isAir() &&
-                target.is(SPBlockRegistry.OFFSET) && target.getValue(LatticeManifestBlock.POWERED);
+                target.is(SPBlockRegistry.OFFSET) && target.getValue(GlyphBlock.POWERED);
     }
 
     public static @NotNull Optional<BlockPos> nextUpElevator(final @NotNull BlockPos pos, final @NotNull Level level) {
