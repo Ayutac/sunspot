@@ -26,6 +26,7 @@ public interface SPCreativeMenuTabRegistry {
                     entries.accept(SPItemRegistry.SUBSTRATE_2.get());
                     entries.accept(SPItemRegistry.SUBSTRATE_3.get());
                     entries.accept(SPItemRegistry.SUBSTRATE_4.get());
+                    entries.accept(SPItemRegistry.LM_WORKBENCH.get());
                     entries.accept(SPItemRegistry.LM_BATTERY.get());
                     entries.accept(SPItemRegistry.LM_BATTERY_CREATIVE.get());
                     entries.accept(SPItemRegistry.AFFIX_BLOCK.get());

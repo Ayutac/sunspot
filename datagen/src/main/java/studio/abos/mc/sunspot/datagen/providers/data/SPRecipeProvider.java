@@ -8,6 +8,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
 import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
@@ -44,6 +45,14 @@ public class SPRecipeProvider extends FabricRecipeProvider {
                 .define('E', Items.ENDER_PEARL)
                 .define('S', SPItemRegistry.SUBSTRATE_3.get())
                 .unlockedBy("has_substrate_3", InventoryChangeTrigger.TriggerInstance.hasItems(SPItemRegistry.SUBSTRATE_3.get()))
+                .save(out);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SPItemRegistry.LM_WORKBENCH.get())
+                .pattern("SS")
+                .pattern("PP")
+                .pattern("PP")
+                .define('P', ItemTags.PLANKS)
+                .define('S', SPItemRegistry.SUBSTRATE_2.get())
+                .unlockedBy("has_substrate_2", InventoryChangeTrigger.TriggerInstance.hasItems(SPItemRegistry.SUBSTRATE_2.get()))
                 .save(out);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SPItemRegistry.MANTLE_BASE_HELMET.get())
                 .pattern("STS")

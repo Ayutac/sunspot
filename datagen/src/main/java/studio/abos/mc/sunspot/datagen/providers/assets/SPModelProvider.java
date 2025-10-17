@@ -26,6 +26,7 @@ public class SPModelProvider extends FabricModelProvider {
     public void generateBlockStateModels(final BlockModelGenerators gen) {
         gen.createNonTemplateModelBlock(SPBlockRegistry.SUBSTRATE_3.get());
         gen.createNonTemplateModelBlock(SPBlockRegistry.SUBSTRATE_4.get());
+        gen.createTrivialCube(SPBlockRegistry.LM_WORKBENCH.get());
         generateCubeAllPowered(gen, SPBlockRegistry.LM_BATTERY.get());
         generateCubeAllPowered(gen, SPBlockRegistry.LM_BATTERY_CREATIVE.get());
         generateCubeAllPowered(gen, SPBlockRegistry.AFFIX.get());

@@ -19,6 +19,7 @@ public class SPLootTableProviders {
         public void generate() {
             dropSelf(SPBlockRegistry.SUBSTRATE_3.get());
             dropSelf(SPBlockRegistry.SUBSTRATE_4.get());
+            dropSelf(SPBlockRegistry.LM_WORKBENCH.get());
             dropSelf(SPBlockRegistry.LM_BATTERY.get());
             dropSelf(SPBlockRegistry.LM_BATTERY_CREATIVE.get());
             dropSelf(SPBlockRegistry.AFFIX.get());

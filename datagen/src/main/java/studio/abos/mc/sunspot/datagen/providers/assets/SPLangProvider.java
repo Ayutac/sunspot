@@ -21,6 +21,7 @@ public class SPLangProvider extends FabricLanguageProvider {
         builder.add(SPItemRegistry.SUBSTRATE_2.get(), "2-dimensional Substrate");
         builder.add(SPBlockRegistry.SUBSTRATE_3.get(), "3-dimensional Substrate");
         builder.add(SPBlockRegistry.SUBSTRATE_4.get(), "4-dimensional Substrate");
+        builder.add(SPBlockRegistry.LM_WORKBENCH.get(), "LM Workbench");
         builder.add(SPBlockRegistry.LM_BATTERY.get(), "LM Battery");
         builder.add(SPBlockRegistry.LM_BATTERY_CREATIVE.get(), "Creative LM Battery");
         builder.add(SPBlockRegistry.AFFIX.get(), "{AFFIX} Block");
