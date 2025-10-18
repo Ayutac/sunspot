@@ -225,7 +225,9 @@ public final class Util {
         if (!(getter.getBlockEntity(pos) instanceof FlameBlockEntity)) {
             return;
         }
-        cache.add(pos);
+        if (!cache.add(pos)) {
+            return; // we already visited this position
+        }
         // TODO: make this method non-recursive for more network depth
         if (depth >= MAX_NETWORK_DEPTH) { // to avoid SO
             return;
