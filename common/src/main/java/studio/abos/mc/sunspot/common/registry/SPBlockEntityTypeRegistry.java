@@ -3,8 +3,13 @@ package studio.abos.mc.sunspot.common.registry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import org.jetbrains.annotations.NotNull;
+import studio.abos.mc.sunspot.Identifiers;
 import studio.abos.mc.sunspot.Sunspot;
+import studio.abos.mc.sunspot.common.GlyphType;
 import studio.abos.mc.sunspot.common.blockentity.AffixBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.AshBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.ComposeBlockEntity;
@@ -14,36 +19,43 @@ import studio.abos.mc.sunspot.common.blockentity.OffsetBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.RevitaliseBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.SustainBlockEntity;
 
-public interface SPBlockEntityTypeRegistry {
+import java.util.HashMap;
+import java.util.Map;
 
-    DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPE_REGISTRY = DeferredRegister.create(Sunspot.MOD_ID, Registries.BLOCK_ENTITY_TYPE);
+public final class SPBlockEntityTypeRegistry {
 
-    RegistrySupplier<BlockEntityType<AffixBlockEntity>> AFFIX = BLOCK_ENTITY_TYPE_REGISTRY.register(
-            "affix", () -> BlockEntityType.Builder.of(AffixBlockEntity::new, SPBlockRegistry.AFFIX.get()).build(null)
-    );
-    RegistrySupplier<BlockEntityType<AshBlockEntity>> ASH = BLOCK_ENTITY_TYPE_REGISTRY.register(
-            "ash", () -> BlockEntityType.Builder.of(AshBlockEntity::new, SPBlockRegistry.ASH.get()).build(null)
-    );
-    RegistrySupplier<BlockEntityType<ComposeBlockEntity>> COMPOSE = BLOCK_ENTITY_TYPE_REGISTRY.register(
-            "compose_battery", () -> BlockEntityType.Builder.of(ComposeBlockEntity::new, SPBlockRegistry.COMPOSE.get()).build(null)
-    );
-    RegistrySupplier<BlockEntityType<ComposeCreativeBlockEntity>> COMPOSE_CREATIVE = BLOCK_ENTITY_TYPE_REGISTRY.register(
+    private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPE_REGISTRY = DeferredRegister.create(Sunspot.MOD_ID, Registries.BLOCK_ENTITY_TYPE);
+
+    public static final RegistrySupplier<BlockEntityType<ComposeCreativeBlockEntity>> COMPOSE_CREATIVE = BLOCK_ENTITY_TYPE_REGISTRY.register(
             "compose_creative", () -> BlockEntityType.Builder.of(ComposeCreativeBlockEntity::new, SPBlockRegistry.COMPOSE_CREATIVE.get()).build(null)
     );
-    RegistrySupplier<BlockEntityType<ImpelBlockEntity>> IMPEL = BLOCK_ENTITY_TYPE_REGISTRY.register(
-            "impel", () -> BlockEntityType.Builder.of(ImpelBlockEntity::new, SPBlockRegistry.IMPEL.get()).build(null)
-    );
-    RegistrySupplier<BlockEntityType<OffsetBlockEntity>> OFFSET = BLOCK_ENTITY_TYPE_REGISTRY.register(
-            "offset", () -> BlockEntityType.Builder.of(OffsetBlockEntity::new, SPBlockRegistry.OFFSET.get()).build(null)
-    );
-    RegistrySupplier<BlockEntityType<RevitaliseBlockEntity>> REVITALISE = BLOCK_ENTITY_TYPE_REGISTRY.register(
-            "revitalise", () -> BlockEntityType.Builder.of(RevitaliseBlockEntity::new, SPBlockRegistry.REVITALISE.get()).build(null)
-    );
-    RegistrySupplier<BlockEntityType<SustainBlockEntity>> SUSTAIN = BLOCK_ENTITY_TYPE_REGISTRY.register(
-            "sustain", () -> BlockEntityType.Builder.of(SustainBlockEntity::new, SPBlockRegistry.SUSTAIN.get()).build(null)
-    );
 
-    static void register() {
+    public static final Map<RegistrySupplier<GlyphType>, RegistrySupplier<BlockEntityType<?>>> GLYPH_MAP = new HashMap<>();
+
+    static {
+        registerGlyphBlockEntity(Identifiers.AFFIX, SPGlyphTypeRegistry.AFFIX, AffixBlockEntity::new);
+        registerGlyphBlockEntity(Identifiers.ASH, SPGlyphTypeRegistry.ASH, AshBlockEntity::new);
+        registerGlyphBlockEntity(Identifiers.COMPOSE, SPGlyphTypeRegistry.COMPOSE, ComposeBlockEntity::new);
+        registerGlyphBlockEntity(Identifiers.IMPEL, SPGlyphTypeRegistry.IMPEL, ImpelBlockEntity::new);
+        registerGlyphBlockEntity(Identifiers.OFFSET, SPGlyphTypeRegistry.OFFSET, OffsetBlockEntity::new);
+        registerGlyphBlockEntity(Identifiers.REVITALISE, SPGlyphTypeRegistry.REVITALISE, RevitaliseBlockEntity::new);
+        registerGlyphBlockEntity(Identifiers.SUSTAIN, SPGlyphTypeRegistry.SUSTAIN, SustainBlockEntity::new);
+    }
+
+    private static <T extends BlockEntity> void registerGlyphBlockEntity(final @NotNull ResourceLocation id, final @NotNull RegistrySupplier<GlyphType> glyphType, final @NotNull BlockEntityType.BlockEntitySupplier<T> blockEntitySupplier) {
+        GLYPH_MAP.put(glyphType,
+            BLOCK_ENTITY_TYPE_REGISTRY.register(
+                    id,
+                    () -> BlockEntityType.Builder.of(blockEntitySupplier, SPBlockRegistry.GLYPH_MAP.get(glyphType).get()).build(null)
+            )
+        );
+    }
+
+    public static void register() {
         BLOCK_ENTITY_TYPE_REGISTRY.register();
+    }
+
+    private SPBlockEntityTypeRegistry() {
+        /* No instantiation */
     }
 }

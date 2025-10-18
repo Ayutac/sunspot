@@ -21,14 +21,10 @@ public class SPLootTableProviders {
             dropSelf(SPBlockRegistry.SUBSTRATE_4.get());
             dropSelf(SPBlockRegistry.ASH_RESIDUE.get());
             dropSelf(SPBlockRegistry.LM_WORKBENCH.get());
-            dropSelf(SPBlockRegistry.COMPOSE.get());
+            for (final var value : SPBlockRegistry.GLYPH_MAP.values()) {
+                dropSelf(value.get());
+            }
             dropSelf(SPBlockRegistry.COMPOSE_CREATIVE.get());
-            dropSelf(SPBlockRegistry.AFFIX.get());
-            dropSelf(SPBlockRegistry.ASH.get());
-            dropSelf(SPBlockRegistry.IMPEL.get());
-            dropSelf(SPBlockRegistry.OFFSET.get());
-            dropSelf(SPBlockRegistry.REVITALISE.get());
-            dropSelf(SPBlockRegistry.SUSTAIN.get());
         }
     }
 }

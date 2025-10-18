@@ -8,18 +8,14 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.common.blockentity.ImpelBlockEntity;
-import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
+import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
 
 public class ImpelBlock extends GlyphBlock {
 
     public ImpelBlock(final Properties properties) {
-        super(properties);
-    }
-
-    @Override
-    public int getTint() {
-        return 0x65b7db;
+        super(SPGlyphTypeRegistry.IMPEL, properties);
     }
 
     @Override
@@ -29,7 +25,7 @@ public class ImpelBlock extends GlyphBlock {
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(final @NotNull Level level, final @NotNull BlockState state,  BlockEntityType<T> type) {
-        return !level.isClientSide() && type == SPBlockEntityTypeRegistry.IMPEL.get() ? (l, p, s, e) ->  ImpelBlockEntity.tick(l, p, s, (ImpelBlockEntity) e) : null;
+        return !level.isClientSide() && type == Util.getImpelBET() ? (l, p, s, e) ->  ImpelBlockEntity.tick(l, p, s, (ImpelBlockEntity) e) : null;
     }
 
 }

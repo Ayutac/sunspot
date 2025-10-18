@@ -2,44 +2,50 @@ package studio.abos.mc.sunspot.common.registry;
 
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import org.jetbrains.annotations.NotNull;
+import studio.abos.mc.sunspot.Identifiers;
 import studio.abos.mc.sunspot.Sunspot;
-import studio.abos.mc.sunspot.common.item.FlamefallRodItem;
-import studio.abos.mc.sunspot.common.item.FourspaceShifterItem;
+import studio.abos.mc.sunspot.common.GlyphType;
 
-public interface SPItemRegistry {
+import java.util.HashMap;
+import java.util.Map;
 
-    DeferredRegister<Item> ITEM_REGISTRY = DeferredRegister.create(Sunspot.MOD_ID, Registries.ITEM);
+public final class SPItemRegistry {
 
-    RegistrySupplier<Item> SUBSTRATE_2 = ITEM_REGISTRY.register(Sunspot.id("substrate_2"), () -> new Item(new Item.Properties()));
-    RegistrySupplier<Item> SUBSTRATE_3 = ITEM_REGISTRY.register(Sunspot.id("substrate_3"), () -> new BlockItem(SPBlockRegistry.SUBSTRATE_3.get(), new Item.Properties()));
-    RegistrySupplier<Item> SUBSTRATE_4 = ITEM_REGISTRY.register(Sunspot.id("substrate_4"), () -> new BlockItem(SPBlockRegistry.SUBSTRATE_4.get(), new Item.Properties()));
-    RegistrySupplier<Item> ASH_RESIDUE = ITEM_REGISTRY.register(Sunspot.id("ash_residue"), () -> new Item(new Item.Properties().fireResistant()));
-    RegistrySupplier<Item> ASH_RESIDUE_BLOCK = ITEM_REGISTRY.register(Sunspot.id("ash_residue_block"), () -> new BlockItem(SPBlockRegistry.ASH_RESIDUE.get(), new Item.Properties().fireResistant()));
+    private static final DeferredRegister<Item> ITEM_REGISTRY = SPItemPreRegistry.ITEM_REGISTRY;
 
-    RegistrySupplier<BlockItem> LM_WORKBENCH = ITEM_REGISTRY.register(Sunspot.id("lm_workbench"), () -> new BlockItem(SPBlockRegistry.LM_WORKBENCH.get(), new Item.Properties()));
-    RegistrySupplier<BlockItem> AFFIX_BLOCK = ITEM_REGISTRY.register(Sunspot.id("affix_block"), () -> new BlockItem(SPBlockRegistry.AFFIX.get(), new Item.Properties()));
-    RegistrySupplier<BlockItem> ASH_BLOCK = ITEM_REGISTRY.register(Sunspot.id("ash_block"), () -> new BlockItem(SPBlockRegistry.ASH.get(), new Item.Properties()));
-    RegistrySupplier<BlockItem> COMPOSE_BLOCK = ITEM_REGISTRY.register(Sunspot.id("compose_block"), () -> new BlockItem(SPBlockRegistry.COMPOSE.get(), new Item.Properties()));
-    RegistrySupplier<BlockItem> COMPOSE_CREATIVE_BLOCK = ITEM_REGISTRY.register(Sunspot.id("compose_creative_block"), () -> new BlockItem(SPBlockRegistry.COMPOSE_CREATIVE.get(), new Item.Properties()));
-    RegistrySupplier<BlockItem> IMPEL_BLOCK = ITEM_REGISTRY.register(Sunspot.id("impel_block"), () -> new BlockItem(SPBlockRegistry.IMPEL.get(), new Item.Properties()));
-    RegistrySupplier<BlockItem> OFFSET_BLOCK = ITEM_REGISTRY.register(Sunspot.id("offset_block"), () -> new BlockItem(SPBlockRegistry.OFFSET.get(), new Item.Properties()));
-    RegistrySupplier<BlockItem> REVITALISE_BLOCK = ITEM_REGISTRY.register(Sunspot.id("revitalise_block"), () -> new BlockItem(SPBlockRegistry.REVITALISE.get(), new Item.Properties()));
-    RegistrySupplier<BlockItem> SUSTAIN_BLOCK = ITEM_REGISTRY.register(Sunspot.id("sustain_block"), () -> new BlockItem(SPBlockRegistry.SUSTAIN.get(), new Item.Properties()));
+    public static final RegistrySupplier<BlockItem> COMPOSE_CREATIVE_BLOCK = ITEM_REGISTRY.register(Sunspot.id("compose_creative_block"), () -> new BlockItem(SPBlockRegistry.COMPOSE_CREATIVE.get(), new Item.Properties()));
 
-    RegistrySupplier<Item> MANTLE_BASE_HELMET = ITEM_REGISTRY.register(Sunspot.id("mantle_base_helmet"), () -> new Item(new Item.Properties()));
-    RegistrySupplier<Item> MANTLE_BASE_CHESTPLATE = ITEM_REGISTRY.register(Sunspot.id("mantle_base_chestplate"), () -> new Item(new Item.Properties()));
-    RegistrySupplier<Item> MANTLE_BASE_LEGGINGS = ITEM_REGISTRY.register(Sunspot.id("mantle_base_leggings"), () -> new Item(new Item.Properties()));
-    RegistrySupplier<Item> MANTLE_BASE_BOOTS = ITEM_REGISTRY.register(Sunspot.id("mantle_base_boots"), () -> new Item(new Item.Properties()));
+    public static final Map<RegistrySupplier<GlyphType>, RegistrySupplier<BlockItem>> GLYPH_BLOCK_MAP = new HashMap<>();
 
-    RegistrySupplier<Item> FOURSPACE_SHIFTER = ITEM_REGISTRY.register(Sunspot.id("fourspace_shifter"), () -> new FourspaceShifterItem(new Item.Properties()));
+    static {
+        registerGlyphItemBlock(Identifiers.AFFIX_BLOCK, SPGlyphTypeRegistry.AFFIX);
+        registerGlyphItemBlock(Identifiers.ASH_BLOCK, SPGlyphTypeRegistry.ASH);
+        registerGlyphItemBlock(Identifiers.COMPOSE_BLOCK, SPGlyphTypeRegistry.COMPOSE);
+        registerGlyphItemBlock(Identifiers.IMPEL_BLOCK, SPGlyphTypeRegistry.IMPEL);
+        registerGlyphItemBlock(Identifiers.OFFSET_BLOCK, SPGlyphTypeRegistry.OFFSET);
+        registerGlyphItemBlock(Identifiers.REVITALISE_BLOCK, SPGlyphTypeRegistry.REVITALISE);
+        registerGlyphItemBlock(Identifiers.SUSTAIN_BLOCK, SPGlyphTypeRegistry.SUSTAIN);
+    }
 
-    RegistrySupplier<Item> FLAMEFALL_ROD = ITEM_REGISTRY.register(Sunspot.id("flamefall_rod"), () -> new FlamefallRodItem(new Item.Properties()));
+    private static void registerGlyphItemBlock(final @NotNull ResourceLocation id, final @NotNull RegistrySupplier<GlyphType> glyphType) {
+        GLYPH_BLOCK_MAP.put(glyphType,
+            ITEM_REGISTRY.register(
+                id,
+                () -> new BlockItem(SPBlockRegistry.GLYPH_MAP.get(glyphType).get(), new Item.Properties())
+            )
+        );
+    }
 
-    static void register() {
+    public static void register() {
         ITEM_REGISTRY.register();
+    }
+
+    private SPItemRegistry() {
+        /* No Instantiation */
     }
 
 }

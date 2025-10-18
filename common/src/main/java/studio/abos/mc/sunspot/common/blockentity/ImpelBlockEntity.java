@@ -5,14 +5,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
-import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
+import studio.abos.mc.sunspot.Util;
 
 public class ImpelBlockEntity extends GlyphBlockEntity {
 
     public static int VELOCITY = 5;
 
     public ImpelBlockEntity(final BlockPos blockPos, final BlockState blockState) {
-        this(SPBlockEntityTypeRegistry.IMPEL.get(), blockPos, blockState);
+        this(Util.getImpelBET(), blockPos, blockState);
         setMaxFlame(20);
     }
 

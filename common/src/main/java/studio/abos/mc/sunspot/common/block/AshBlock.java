@@ -12,14 +12,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.common.blockentity.AshBlockEntity;
-import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPDamageTypeRegistry;
+import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 
 public class AshBlock extends GlyphBlock {
 
     public AshBlock(final Properties properties) {
-        super(properties);
+        super(SPGlyphTypeRegistry.ASH, properties);
     }
 
     @Override
@@ -31,18 +31,13 @@ public class AshBlock extends GlyphBlock {
     }
 
     @Override
-    public int getTint() {
-        return 0x551b1b;
-    }
-
-    @Override
     public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
         return new AshBlockEntity(blockPos, blockState);
     }
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(final @NotNull Level level, final @NotNull BlockState state,  BlockEntityType<T> type) {
-        return !level.isClientSide() && type == SPBlockEntityTypeRegistry.ASH.get() ? (l, p, s, e) ->  AshBlockEntity.tick(l, p, s, (AshBlockEntity) e) : null;
+        return !level.isClientSide() && type == Util.getAshBET() ? (l, p, s, e) ->  AshBlockEntity.tick(l, p, s, (AshBlockEntity) e) : null;
     }
 
 }

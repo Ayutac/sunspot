@@ -6,7 +6,7 @@ import net.minecraft.core.HolderLookup;
 import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
 import studio.abos.mc.sunspot.common.registry.SPCreativeMenuTabRegistry;
 import studio.abos.mc.sunspot.common.registry.SPEntityTypeRegistry;
-import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
+import studio.abos.mc.sunspot.common.registry.SPItemPreRegistry;
 import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 
 import java.util.concurrent.CompletableFuture;
@@ -18,26 +18,22 @@ public class SPLangProvider extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(final HolderLookup.Provider registryLookup, final TranslationBuilder builder) {
-        builder.add(SPItemRegistry.SUBSTRATE_2.get(), "2-dimensional Substrate");
+        builder.add(SPItemPreRegistry.SUBSTRATE_2.get(), "2-dimensional Substrate");
         builder.add(SPBlockRegistry.SUBSTRATE_3.get(), "3-dimensional Substrate");
         builder.add(SPBlockRegistry.SUBSTRATE_4.get(), "4-dimensional Substrate");
-        builder.add(SPItemRegistry.ASH_RESIDUE.get(), "{ASH} Residue");
-        builder.add(SPItemRegistry.ASH_RESIDUE_BLOCK.get(), "{ASH} Residue Block");
+        builder.add(SPItemPreRegistry.ASH_RESIDUE.get(), "{ASH} Residue");
+        builder.add(SPItemPreRegistry.ASH_RESIDUE_BLOCK.get(), "{ASH} Residue Block");
         builder.add(SPBlockRegistry.LM_WORKBENCH.get(), "LM Workbench");
-        builder.add(SPBlockRegistry.AFFIX.get(), "{AFFIX} Block");
-        builder.add(SPBlockRegistry.ASH.get(), "{ASH} Block");
-        builder.add(SPBlockRegistry.COMPOSE.get(), "{COMPOSE} Block");
+        for (final var entry : SPBlockRegistry.GLYPH_MAP.entrySet()) {
+            builder.add(entry.getValue().get(), entry.getKey().get().getTranslation() + " Block");
+        }
         builder.add(SPBlockRegistry.COMPOSE_CREATIVE.get(), "Creative {COMPOSE} Block");
-        builder.add(SPBlockRegistry.IMPEL.get(), "{IMPEL} Block");
-        builder.add(SPBlockRegistry.OFFSET.get(), "{OFFSET} Block");
-        builder.add(SPBlockRegistry.REVITALISE.get(), "{REVITALISE} Block");
-        builder.add(SPBlockRegistry.SUSTAIN.get(), "{SUSTAIN} Block");
-        builder.add(SPItemRegistry.MANTLE_BASE_HELMET.get(), "Mantle Base Helmet");
-        builder.add(SPItemRegistry.MANTLE_BASE_CHESTPLATE.get(), "Mantle Base Chestplate");
-        builder.add(SPItemRegistry.MANTLE_BASE_LEGGINGS.get(), "Mantle Base Leggings");
-        builder.add(SPItemRegistry.MANTLE_BASE_BOOTS.get(), "Mantle Base Boots");
-        builder.add(SPItemRegistry.FOURSPACE_SHIFTER.get(), "Fourspace Shifter");
-        builder.add(SPItemRegistry.FLAMEFALL_ROD.get(), "Flamefall Rod");
+        builder.add(SPItemPreRegistry.MANTLE_BASE_HELMET.get(), "Mantle Base Helmet");
+        builder.add(SPItemPreRegistry.MANTLE_BASE_CHESTPLATE.get(), "Mantle Base Chestplate");
+        builder.add(SPItemPreRegistry.MANTLE_BASE_LEGGINGS.get(), "Mantle Base Leggings");
+        builder.add(SPItemPreRegistry.MANTLE_BASE_BOOTS.get(), "Mantle Base Boots");
+        builder.add(SPItemPreRegistry.FOURSPACE_SHIFTER.get(), "Fourspace Shifter");
+        builder.add(SPItemPreRegistry.FLAMEFALL_ROD.get(), "Flamefall Rod");
 
         builder.add(SPEntityTypeRegistry.FLAMEFALL.get(), "Flamefall");
 

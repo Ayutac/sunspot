@@ -14,7 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
-import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
+import studio.abos.mc.sunspot.common.registry.SPItemPreRegistry;
 
 public class SPModelProvider extends FabricModelProvider {
 
@@ -28,14 +28,10 @@ public class SPModelProvider extends FabricModelProvider {
         gen.createNonTemplateModelBlock(SPBlockRegistry.SUBSTRATE_4.get());
         gen.createTrivialCube(SPBlockRegistry.ASH_RESIDUE.get());
         gen.createTrivialCube(SPBlockRegistry.LM_WORKBENCH.get());
-        generateCubeAllPowered(gen, SPBlockRegistry.AFFIX.get());
-        generateCubeAllPowered(gen, SPBlockRegistry.ASH.get());
-        generateCubeAllPowered(gen, SPBlockRegistry.COMPOSE.get());
+        for (final var value : SPBlockRegistry.GLYPH_MAP.values()) {
+            generateCubeAllPowered(gen, value.get());
+        }
         generateCubeAllPowered(gen, SPBlockRegistry.COMPOSE_CREATIVE.get());
-        generateCubeAllPowered(gen, SPBlockRegistry.IMPEL.get());
-        generateCubeAllPowered(gen, SPBlockRegistry.OFFSET.get());
-        generateCubeAllPowered(gen, SPBlockRegistry.REVITALISE.get());
-        generateCubeAllPowered(gen, SPBlockRegistry.SUSTAIN.get());
     }
 
     public static void generateCubeAllPowered(final BlockModelGenerators gen, final Block block) {
@@ -48,13 +44,13 @@ public class SPModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(final ItemModelGenerators gen) {
-        gen.generateFlatItem(SPItemRegistry.SUBSTRATE_2.get(), ModelTemplates.FLAT_ITEM);
-        gen.generateFlatItem(SPItemRegistry.ASH_RESIDUE.get(), ModelTemplates.FLAT_ITEM);
-        gen.generateFlatItem(SPItemRegistry.MANTLE_BASE_HELMET.get(), ModelTemplates.FLAT_ITEM);
-        gen.generateFlatItem(SPItemRegistry.MANTLE_BASE_CHESTPLATE.get(), ModelTemplates.FLAT_ITEM);
-        gen.generateFlatItem(SPItemRegistry.MANTLE_BASE_LEGGINGS.get(), ModelTemplates.FLAT_ITEM);
-        gen.generateFlatItem(SPItemRegistry.MANTLE_BASE_BOOTS.get(), ModelTemplates.FLAT_ITEM);
-        gen.generateFlatItem(SPItemRegistry.FOURSPACE_SHIFTER.get(), ModelTemplates.FLAT_ITEM);
-        gen.generateFlatItem(SPItemRegistry.FLAMEFALL_ROD.get(), ModelTemplates.FLAT_ITEM);
+        gen.generateFlatItem(SPItemPreRegistry.SUBSTRATE_2.get(), ModelTemplates.FLAT_ITEM);
+        gen.generateFlatItem(SPItemPreRegistry.ASH_RESIDUE.get(), ModelTemplates.FLAT_ITEM);
+        gen.generateFlatItem(SPItemPreRegistry.MANTLE_BASE_HELMET.get(), ModelTemplates.FLAT_ITEM);
+        gen.generateFlatItem(SPItemPreRegistry.MANTLE_BASE_CHESTPLATE.get(), ModelTemplates.FLAT_ITEM);
+        gen.generateFlatItem(SPItemPreRegistry.MANTLE_BASE_LEGGINGS.get(), ModelTemplates.FLAT_ITEM);
+        gen.generateFlatItem(SPItemPreRegistry.MANTLE_BASE_BOOTS.get(), ModelTemplates.FLAT_ITEM);
+        gen.generateFlatItem(SPItemPreRegistry.FOURSPACE_SHIFTER.get(), ModelTemplates.FLAT_ITEM);
+        gen.generateFlatItem(SPItemPreRegistry.FLAMEFALL_ROD.get(), ModelTemplates.FLAT_ITEM);
     }
 }

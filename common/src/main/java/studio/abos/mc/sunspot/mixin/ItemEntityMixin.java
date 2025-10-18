@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.common.registry.SPDamageTypeRegistry;
-import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
+import studio.abos.mc.sunspot.common.registry.SPItemPreRegistry;
 
 @Mixin(ItemEntity.class)
 public class ItemEntityMixin {
@@ -27,7 +27,7 @@ public class ItemEntityMixin {
         final Level level = entity.level();
         if (cir.getReturnValueZ() && !level.isClientSide() && health <= 0 && Util.isOfDamageType(damageSource, SPDamageTypeRegistry.ASH, entity.level())) {
             final Vec3 pos = entity.position();
-            level.addFreshEntity(new ItemEntity(level, pos.x(), pos.y(), pos.z(), new ItemStack(SPItemRegistry.ASH_RESIDUE, entity.getItem().getCount())));
+            level.addFreshEntity(new ItemEntity(level, pos.x(), pos.y(), pos.z(), new ItemStack(SPItemPreRegistry.ASH_RESIDUE, entity.getItem().getCount())));
         }
     }
 

@@ -11,9 +11,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
+import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.common.block.GlyphBlock;
-import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
+import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class OffsetBlockEntity extends GlyphBlockEntity {
     public static int TELEPORT_USAGE = 5;
 
     public OffsetBlockEntity(final BlockPos blockPos, final BlockState blockState) {
-        this(SPBlockEntityTypeRegistry.OFFSET.get(), blockPos, blockState);
+        this(Util.getOffsetBET(), blockPos, blockState);
         setMaxFlame(20);
     }
 
@@ -59,7 +60,8 @@ public class OffsetBlockEntity extends GlyphBlockEntity {
     private static boolean isValidTarget(final @NotNull BlockPos pos, final @NotNull Level level) {
         final BlockState target = level.getBlockState(pos);
         return level.getBlockState(pos.above()).isAir() && level.getBlockState(pos.above(2)).isAir() &&
-                target.is(SPBlockRegistry.OFFSET) && target.getValue(GlyphBlock.POWERED);
+                target.is(SPBlockRegistry.GLYPH_MAP.get(SPGlyphTypeRegistry.OFFSET)) &&
+                target.getValue(GlyphBlock.POWERED);
     }
 
     public static @NotNull Optional<BlockPos> nextUpElevator(final @NotNull BlockPos pos, final @NotNull Level level) {

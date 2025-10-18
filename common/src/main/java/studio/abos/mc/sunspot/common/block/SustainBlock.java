@@ -8,18 +8,14 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.common.blockentity.SustainBlockEntity;
-import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
+import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
 
 public class SustainBlock extends GlyphBlock {
 
     public SustainBlock(final Properties properties) {
-        super(properties);
-    }
-
-    @Override
-    public int getTint() {
-        return 0x8d9589;
+        super(SPGlyphTypeRegistry.SUSTAIN, properties);
     }
 
     @Override
@@ -29,7 +25,7 @@ public class SustainBlock extends GlyphBlock {
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(final @NotNull Level level, final @NotNull BlockState state,  BlockEntityType<T> type) {
-        return !level.isClientSide() && type == SPBlockEntityTypeRegistry.SUSTAIN.get() ? (l, p, s, e) ->  SustainBlockEntity.tick(l, p, s, (SustainBlockEntity) e) : null;
+        return !level.isClientSide() && type == Util.getSustainBET() ? (l, p, s, e) ->  SustainBlockEntity.tick(l, p, s, (SustainBlockEntity) e) : null;
     }
 
 }

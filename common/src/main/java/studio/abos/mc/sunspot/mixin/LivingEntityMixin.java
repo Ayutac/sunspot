@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlameComponent;
 import studio.abos.mc.sunspot.common.registry.SPDamageTypeRegistry;
-import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
+import studio.abos.mc.sunspot.common.registry.SPItemPreRegistry;
 import studio.abos.mc.sunspot.platform.SPComponentPlatformUtils;
 
 @Mixin(LivingEntity.class)
@@ -57,13 +57,13 @@ public abstract class LivingEntityMixin {
         }
     }
 
-    @Inject(method = "Lnet/minecraft/world/entity/LivingEntity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z", at = @At("RETURN"))
+    @Inject(method = "hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z", at = @At("RETURN"))
     void sunspot$dropAshOnHurt(final @NotNull DamageSource damageSource, final float f, final @NotNull CallbackInfoReturnable<Boolean> cir) {
         final LivingEntity entity = (LivingEntity)(Object)this;
         final Level level = entity.level();
         if (cir.getReturnValueZ() && !level.isClientSide() && Util.isOfDamageType(damageSource, SPDamageTypeRegistry.ASH, level)) {
             final Vec3 pos = entity.position();
-            level.addFreshEntity(new ItemEntity(level, pos.x(), pos.y(), pos.z(), new ItemStack(SPItemRegistry.ASH_RESIDUE)));
+            level.addFreshEntity(new ItemEntity(level, pos.x(), pos.y(), pos.z(), new ItemStack(SPItemPreRegistry.ASH_RESIDUE)));
         }
     }
 

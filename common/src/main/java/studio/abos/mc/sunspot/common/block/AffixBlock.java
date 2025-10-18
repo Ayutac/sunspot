@@ -8,18 +8,14 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.common.blockentity.AffixBlockEntity;
-import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
+import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
 
 public class AffixBlock extends GlyphBlock {
 
     public AffixBlock(final Properties properties) {
-        super(properties);
-    }
-
-    @Override
-    public int getTint() {
-        return 0x2b6f3a;
+        super(SPGlyphTypeRegistry.AFFIX, properties);
     }
 
     @Override
@@ -29,7 +25,7 @@ public class AffixBlock extends GlyphBlock {
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(final @NotNull Level level, final @NotNull BlockState state,  BlockEntityType<T> type) {
-        return !level.isClientSide() && type == SPBlockEntityTypeRegistry.AFFIX.get() ? (l, p, s, e) ->  AffixBlockEntity.tick(l, p, s, (AffixBlockEntity) e) : null;
+        return !level.isClientSide() && type == Util.getAffixBET() ? (l, p, s, e) ->  AffixBlockEntity.tick(l, p, s, (AffixBlockEntity) e) : null;
     }
 
 }

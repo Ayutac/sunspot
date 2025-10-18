@@ -12,8 +12,11 @@ import studio.abos.mc.sunspot.common.registry.SPCreativeMenuTabRegistry;
 import studio.abos.mc.sunspot.common.registry.SPDimensionRegistry;
 import studio.abos.mc.sunspot.common.registry.SPEntityTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPEventRegistry;
+import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
+import studio.abos.mc.sunspot.common.registry.SPItemPreRegistry;
 import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
 import studio.abos.mc.sunspot.common.registry.SPParticleTypeRegistry;
+import studio.abos.mc.sunspot.common.registry.SPRegistries;
 import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 
 public class Sunspot {
@@ -21,9 +24,13 @@ public class Sunspot {
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
     public static void init() {
-        SPBlockRegistry.register();
+        SPRegistries.init(); // registry of registries always first
+        SPItemPreRegistry.init(); // anything registered here can be used as intent
+        SPGlyphTypeRegistry.register(); // register glyph types with intent
+        SPBlockRegistry.register(); // blocks before items
         SPItemRegistry.register();
-        SPBlockEntityTypeRegistry.register();
+        SPBlockEntityTypeRegistry.register(); // BEs after blocks
+        // order of the rest is relatively arbitrary
         SPEntityTypeRegistry.register();
         SPTagRegistry.init();
         SPCreativeMenuTabRegistry.register();

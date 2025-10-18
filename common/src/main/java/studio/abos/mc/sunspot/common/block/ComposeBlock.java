@@ -8,18 +8,14 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.common.blockentity.ComposeBlockEntity;
-import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
+import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
 
 public class ComposeBlock extends GlyphBlock {
 
     public ComposeBlock(final Properties properties) {
-        super(properties);
-    }
-
-    @Override
-    public int getTint() {
-        return 0x1412ae;
+        super(SPGlyphTypeRegistry.COMPOSE, properties);
     }
 
     @Override
@@ -29,7 +25,7 @@ public class ComposeBlock extends GlyphBlock {
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(final @NotNull Level level, final @NotNull BlockState state,  BlockEntityType<T> type) {
-        return !level.isClientSide() && type == SPBlockEntityTypeRegistry.COMPOSE.get() ? (l, p, s, e) ->  ComposeBlockEntity.tick(l, p, s, (ComposeBlockEntity) e) : null;
+        return !level.isClientSide() && type == Util.getComposeBET() ? (l, p, s, e) ->  ComposeBlockEntity.tick(l, p, s, (ComposeBlockEntity) e) : null;
     }
 
 }

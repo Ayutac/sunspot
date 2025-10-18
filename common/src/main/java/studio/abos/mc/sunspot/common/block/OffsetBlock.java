@@ -8,18 +8,14 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.common.blockentity.OffsetBlockEntity;
-import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
+import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
 
 public class OffsetBlock extends GlyphBlock {
 
     public OffsetBlock(final Properties properties) {
-        super(properties);
-    }
-
-    @Override
-    public int getTint() {
-        return 0xd8f2f1;
+        super(SPGlyphTypeRegistry.OFFSET, properties);
     }
 
     @Override
@@ -29,7 +25,7 @@ public class OffsetBlock extends GlyphBlock {
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(final @NotNull Level level, final @NotNull BlockState state,  BlockEntityType<T> type) {
-        return !level.isClientSide() && type == SPBlockEntityTypeRegistry.OFFSET.get() ? (l, p, s, e) ->  OffsetBlockEntity.tick(l, p, s, (OffsetBlockEntity) e) : null;
+        return !level.isClientSide() && type == Util.getOffsetBET() ? (l, p, s, e) ->  OffsetBlockEntity.tick(l, p, s, (OffsetBlockEntity) e) : null;
     }
 
 }

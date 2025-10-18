@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
-import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
+import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 
 import java.util.Optional;
@@ -18,7 +18,7 @@ import java.util.Optional;
 public class SustainBlockEntity extends EffectGlyphBlockEntity {
 
     public SustainBlockEntity(final BlockPos blockPos, final BlockState blockState) {
-        this(SPBlockEntityTypeRegistry.SUSTAIN.get(), blockPos, blockState);
+        this(Util.getSustainBET(), blockPos, blockState);
         setMaxFlame(20);
     }
 

@@ -10,13 +10,8 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.jetbrains.annotations.NotNull;
-import studio.abos.mc.sunspot.client.renderer.block.AffixBlockEntityRenderer;
-import studio.abos.mc.sunspot.client.renderer.block.AshBlockEntityRenderer;
-import studio.abos.mc.sunspot.client.renderer.block.ImpelBlockEntityRenderer;
-import studio.abos.mc.sunspot.client.renderer.block.ComposeBlockEntityRenderer;
-import studio.abos.mc.sunspot.client.renderer.block.ComposeCreativeBlockEntityRenderer;
-import studio.abos.mc.sunspot.client.renderer.block.OffsetBlockEntityRenderer;
-import studio.abos.mc.sunspot.client.renderer.block.RevitaliseBlockEntityRenderer;
+import studio.abos.mc.sunspot.Util;
+import studio.abos.mc.sunspot.client.renderer.block.GlyphBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.entity.FlamefallRenderer;
 import studio.abos.mc.sunspot.common.block.GlyphBlock;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
@@ -30,25 +25,22 @@ public class ClientSetupEvent {
     @SubscribeEvent
     public static void onInitializeClient(final @NotNull EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(SPEntityTypeRegistry.FLAMEFALL.get(), FlamefallRenderer::new);
-        event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.AFFIX.get(), AffixBlockEntityRenderer::new);
-        event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.ASH.get(), AshBlockEntityRenderer::new);
-        event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.COMPOSE.get(), ComposeBlockEntityRenderer::new);
-        event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.COMPOSE_CREATIVE.get(), ComposeCreativeBlockEntityRenderer::new);
-        event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.IMPEL.get(), ImpelBlockEntityRenderer::new);
-        event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.OFFSET.get(), OffsetBlockEntityRenderer::new);
-        event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.REVITALISE.get(), RevitaliseBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(Util.getAffixBET(), GlyphBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(Util.getAshBET(), GlyphBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(Util.getComposeBET(), GlyphBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.COMPOSE_CREATIVE.get(), GlyphBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(Util.getImpelBET(), GlyphBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(Util.getOffsetBET(), GlyphBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(Util.getRevitaliseBET(), GlyphBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(Util.getSustainBET(), GlyphBlockEntityRenderer::new);
     }
 
     @SubscribeEvent
     public static void onBlockColorHandlerRegistration(final @NotNull RegisterColorHandlersEvent.Block event) {
-        registerGlyphBlockTint(event, SPItemRegistry.AFFIX_BLOCK);
-        registerGlyphBlockTint(event, SPItemRegistry.ASH_BLOCK);
-        registerGlyphBlockTint(event, SPItemRegistry.COMPOSE_BLOCK);
+        for (final var value : SPItemRegistry.GLYPH_BLOCK_MAP.values()) {
+            registerGlyphBlockTint(event, value);
+        }
         registerGlyphBlockTint(event, SPItemRegistry.COMPOSE_CREATIVE_BLOCK);
-        registerGlyphBlockTint(event, SPItemRegistry.IMPEL_BLOCK);
-        registerGlyphBlockTint(event, SPItemRegistry.OFFSET_BLOCK);
-        registerGlyphBlockTint(event, SPItemRegistry.REVITALISE_BLOCK);
-        registerGlyphBlockTint(event, SPItemRegistry.SUSTAIN_BLOCK);
     }
 
     private static void registerGlyphBlockTint(final @NotNull RegisterColorHandlersEvent.Block event, final @NotNull RegistrySupplier<BlockItem> blockItem) {
@@ -57,14 +49,10 @@ public class ClientSetupEvent {
 
     @SubscribeEvent
     public static void onBlockItemColorHandlerRegistration(final @NotNull RegisterColorHandlersEvent.Item event) {
-        registerGlyphBlockItemTint(event, SPItemRegistry.AFFIX_BLOCK);
-        registerGlyphBlockItemTint(event, SPItemRegistry.ASH_BLOCK);
-        registerGlyphBlockItemTint(event, SPItemRegistry.COMPOSE_BLOCK);
+        for (final var value : SPItemRegistry.GLYPH_BLOCK_MAP.values()) {
+            registerGlyphBlockItemTint(event, value);
+        }
         registerGlyphBlockItemTint(event, SPItemRegistry.COMPOSE_CREATIVE_BLOCK);
-        registerGlyphBlockItemTint(event, SPItemRegistry.IMPEL_BLOCK);
-        registerGlyphBlockItemTint(event, SPItemRegistry.OFFSET_BLOCK);
-        registerGlyphBlockItemTint(event, SPItemRegistry.REVITALISE_BLOCK);
-        registerGlyphBlockItemTint(event, SPItemRegistry.SUSTAIN_BLOCK);
     }
 
     private static void registerGlyphBlockItemTint(final @NotNull RegisterColorHandlersEvent.Item event, final @NotNull RegistrySupplier<BlockItem> blockItem) {
