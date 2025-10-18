@@ -46,6 +46,8 @@ public class SunspotFabricClient implements ClientModInitializer {
         BlockEntityRendererRegistry.register(Util.getOffsetBET(), GlyphBlockEntityRenderer::new);
         registerGlyphBlockTint(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.REVITALISE));
         BlockEntityRendererRegistry.register(Util.getRevitaliseBET(), GlyphBlockEntityRenderer::new);
+        registerGlyphBlockTint(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.SEVER));
+        BlockEntityRendererRegistry.register(Util.getSeverBET(), GlyphBlockEntityRenderer::new);
         registerGlyphBlockTint(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.SUSTAIN));
         BlockEntityRendererRegistry.register(Util.getSustainBET(), GlyphBlockEntityRenderer::new);
         ParticleFactoryRegistry.getInstance().register(SPParticleTypeRegistry.FLAMEFALL_FLAME.get(), FlameParticle.Provider::new);

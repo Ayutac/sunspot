@@ -16,6 +16,8 @@ public interface Identifiers {
     ResourceLocation OFFSET_BLOCK = Sunspot.id("offset_block");
     ResourceLocation REVITALISE = Sunspot.id("revitalise");
     ResourceLocation REVITALISE_BLOCK = Sunspot.id("revitalise_block");
+    ResourceLocation SEVER = Sunspot.id("sever");
+    ResourceLocation SEVER_BLOCK = Sunspot.id("sever_block");
     ResourceLocation SUSTAIN = Sunspot.id("sustain");
     ResourceLocation SUSTAIN_BLOCK = Sunspot.id("sustain_block");
 

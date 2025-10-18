@@ -32,6 +32,7 @@ public class ClientSetupEvent {
         event.registerBlockEntityRenderer(Util.getImpelBET(), GlyphBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(Util.getOffsetBET(), GlyphBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(Util.getRevitaliseBET(), GlyphBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(Util.getSeverBET(), GlyphBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(Util.getSustainBET(), GlyphBlockEntityRenderer::new);
     }
 

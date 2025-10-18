@@ -19,6 +19,7 @@ import studio.abos.mc.sunspot.common.block.ImpelBlock;
 import studio.abos.mc.sunspot.common.block.ComposeBlock;
 import studio.abos.mc.sunspot.common.block.OffsetBlock;
 import studio.abos.mc.sunspot.common.block.RevitaliseBlock;
+import studio.abos.mc.sunspot.common.block.SeverBlock;
 import studio.abos.mc.sunspot.common.block.SmallSubstrateBlock;
 import studio.abos.mc.sunspot.common.block.SustainBlock;
 
@@ -47,6 +48,7 @@ public final class SPBlockRegistry {
         registerGlyphBlock(Identifiers.IMPEL, SPGlyphTypeRegistry.IMPEL, ImpelBlock::new);
         registerGlyphBlock(Identifiers.OFFSET, SPGlyphTypeRegistry.OFFSET, OffsetBlock::new);
         registerGlyphBlock(Identifiers.REVITALISE, SPGlyphTypeRegistry.REVITALISE, RevitaliseBlock::new);
+        registerGlyphBlock(Identifiers.SEVER, SPGlyphTypeRegistry.SEVER, SeverBlock::new);
         registerGlyphBlock(Identifiers.SUSTAIN, SPGlyphTypeRegistry.SUSTAIN, SustainBlock::new);
     }
 

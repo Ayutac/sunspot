@@ -23,6 +23,7 @@ public interface SPGlyphTypeRegistry {
     RegistrySupplier<GlyphType> IMPEL = register(Identifiers.IMPEL, () -> Items.PISTON, 0x65b7db);
     RegistrySupplier<GlyphType> OFFSET = register(Identifiers.OFFSET, () -> Items.ENDER_PEARL, 0xd8f2f1);
     RegistrySupplier<GlyphType> REVITALISE = register(Identifiers.REVITALISE, () -> Items.GLISTERING_MELON_SLICE, 0x58e125);
+    RegistrySupplier<GlyphType> SEVER = register(Identifiers.SEVER, () -> Items.IRON_SWORD, 0xc30a0a);
     RegistrySupplier<GlyphType> SUSTAIN = register(Identifiers.SUSTAIN, () -> Items.SHIELD, 0x8d9589);
 
     @ApiStatus.Internal

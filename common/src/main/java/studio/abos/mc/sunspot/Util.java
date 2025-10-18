@@ -15,6 +15,7 @@ import studio.abos.mc.sunspot.common.blockentity.ComposeBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.ImpelBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.OffsetBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.RevitaliseBlockEntity;
+import studio.abos.mc.sunspot.common.blockentity.SeverBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.SustainBlockEntity;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
@@ -80,6 +81,14 @@ public final class Util {
 
     public static BlockEntityType<RevitaliseBlockEntity> getRevitaliseBET() {
         return (BlockEntityType<RevitaliseBlockEntity>)SPBlockEntityTypeRegistry.GLYPH_MAP.get(SPGlyphTypeRegistry.REVITALISE).get();
+    }
+
+    public static boolean isSever(final @NotNull BlockState state) {
+        return state.is(SPBlockRegistry.GLYPH_MAP.get(SPGlyphTypeRegistry.SEVER));
+    }
+
+    public static BlockEntityType<SeverBlockEntity> getSeverBET() {
+        return (BlockEntityType<SeverBlockEntity>)SPBlockEntityTypeRegistry.GLYPH_MAP.get(SPGlyphTypeRegistry.SEVER).get();
     }
 
     public static boolean isSustain(final @NotNull BlockState state) {

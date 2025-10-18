@@ -28,6 +28,7 @@ public final class SPItemRegistry {
         registerGlyphItemBlock(Identifiers.IMPEL_BLOCK, SPGlyphTypeRegistry.IMPEL);
         registerGlyphItemBlock(Identifiers.OFFSET_BLOCK, SPGlyphTypeRegistry.OFFSET);
         registerGlyphItemBlock(Identifiers.REVITALISE_BLOCK, SPGlyphTypeRegistry.REVITALISE);
+        registerGlyphItemBlock(Identifiers.SEVER_BLOCK, SPGlyphTypeRegistry.SEVER);
         registerGlyphItemBlock(Identifiers.SUSTAIN_BLOCK, SPGlyphTypeRegistry.SUSTAIN);
     }
 
