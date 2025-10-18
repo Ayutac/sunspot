@@ -35,7 +35,7 @@ public abstract class EffectGlyphBlockEntity extends GlyphBlockEntity {
         GlyphBlockEntity.tick(level, pos, state, blockEntity);
         if (level.getGameTime() % blockEntity.getInterval() == 0) {
             final List<LivingEntity> entities = level.getEntitiesOfClass(LivingEntity.class, new AABB(pos).inflate(blockEntity.getRadius()), entity -> !(entity instanceof final Player player && player.isSpectator()));
-            Optional<TagKey<EntityType<?>>> unaffectedTag = blockEntity.getUnaffectedTag();
+            final var unaffectedTag = blockEntity.getUnaffectedTag();
             for (final LivingEntity entity : entities) {
                 if (unaffectedTag.isEmpty() || !entity.getType().is(unaffectedTag.get())) {
                     entity.addEffect(new MobEffectInstance(blockEntity.getEffect(), blockEntity.getInterval()));
