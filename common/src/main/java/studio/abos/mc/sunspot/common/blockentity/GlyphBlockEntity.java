@@ -11,11 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.common.block.GlyphBlock;
 import studio.abos.mc.sunspot.common.block.ComposeBlock;
 
-public abstract class GlyphBlockEntity extends BlockEntity {
-
-    protected static String CURRENT_FLAME_KEY = "current_flame";
-
-    protected static String MAX_FLAME_KEY = "max_flame";
+public abstract class GlyphBlockEntity extends BlockEntity implements FlameBlockEntity {
 
     protected int currentFlame;
 
@@ -25,14 +21,12 @@ public abstract class GlyphBlockEntity extends BlockEntity {
         super(blockEntityType, blockPos, blockState);
     }
 
+    @Override
     public int getCurrentFlame() {
         return currentFlame;
     }
 
-    public boolean isPowered() {
-        return getCurrentFlame() > 0;
-    }
-
+    @Override
     public void setCurrentFlame(final int currentFlame) {
         if (currentFlame < 0) {
             throw new IllegalArgumentException("Current Flame cannot be negative!");
@@ -44,10 +38,12 @@ public abstract class GlyphBlockEntity extends BlockEntity {
         setChanged();
     }
 
+    @Override
     public int getMaxFlame() {
         return maxFlame;
     }
 
+    @Override
     public void setMaxFlame(final int maxFlame) {
         if (maxFlame < 0) {
             throw new IllegalArgumentException("Max Flame cannot be negative!");
@@ -70,14 +66,14 @@ public abstract class GlyphBlockEntity extends BlockEntity {
     @Override
     protected void loadAdditional(final CompoundTag tag, final HolderLookup.Provider lookup) {
         super.loadAdditional(tag, lookup);
-        setMaxFlame(Math.max(0, tag.getInt(MAX_FLAME_KEY)));
-        setCurrentFlame(Math.max(0, tag.getInt(CURRENT_FLAME_KEY)));
+        setMaxFlame(Math.max(0, tag.getInt(FlameBlockEntity.MAX_FLAME_KEY)));
+        setCurrentFlame(Math.max(0, tag.getInt(FlameBlockEntity.CURRENT_FLAME_KEY)));
     }
 
     @Override
     protected void saveAdditional(final CompoundTag tag, final HolderLookup.Provider lookup) {
         super.saveAdditional(tag, lookup);
-        tag.putInt(MAX_FLAME_KEY, getMaxFlame());
-        tag.putInt(CURRENT_FLAME_KEY, getCurrentFlame());
+        tag.putInt(FlameBlockEntity.MAX_FLAME_KEY, getMaxFlame());
+        tag.putInt(FlameBlockEntity.CURRENT_FLAME_KEY, getCurrentFlame());
     }
 }
