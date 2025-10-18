@@ -19,6 +19,7 @@ import studio.abos.mc.sunspot.common.blockentity.OffsetBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.RevitaliseBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.SeverBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.SustainBlockEntity;
+import studio.abos.mc.sunspot.common.blockentity.TransposeBlockEntity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -42,6 +43,7 @@ public final class SPBlockEntityTypeRegistry {
         registerGlyphBlockEntity(Identifiers.REVITALISE, SPGlyphTypeRegistry.REVITALISE, RevitaliseBlockEntity::new);
         registerGlyphBlockEntity(Identifiers.SEVER, SPGlyphTypeRegistry.SEVER, SeverBlockEntity::new);
         registerGlyphBlockEntity(Identifiers.SUSTAIN, SPGlyphTypeRegistry.SUSTAIN, SustainBlockEntity::new);
+        registerGlyphBlockEntity(Identifiers.TRANSPOSE, SPGlyphTypeRegistry.TRANSPOSE, TransposeBlockEntity::new);
     }
 
     private static <T extends BlockEntity> void registerGlyphBlockEntity(final @NotNull ResourceLocation id, final @NotNull RegistrySupplier<GlyphType> glyphType, final @NotNull BlockEntityType.BlockEntitySupplier<T> blockEntitySupplier) {

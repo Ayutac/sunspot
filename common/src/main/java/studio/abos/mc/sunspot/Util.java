@@ -17,6 +17,7 @@ import studio.abos.mc.sunspot.common.blockentity.OffsetBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.RevitaliseBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.SeverBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.SustainBlockEntity;
+import studio.abos.mc.sunspot.common.blockentity.TransposeBlockEntity;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPBlockRegistry;
 import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
@@ -97,5 +98,13 @@ public final class Util {
 
     public static BlockEntityType<SustainBlockEntity> getSustainBET() {
         return (BlockEntityType<SustainBlockEntity>)SPBlockEntityTypeRegistry.GLYPH_MAP.get(SPGlyphTypeRegistry.SUSTAIN).get();
+    }
+
+    public static boolean isTranspose(final @NotNull BlockState state) {
+        return state.is(SPBlockRegistry.GLYPH_MAP.get(SPGlyphTypeRegistry.TRANSPOSE));
+    }
+
+    public static BlockEntityType<TransposeBlockEntity> getTransposeBET() {
+        return (BlockEntityType<TransposeBlockEntity>)SPBlockEntityTypeRegistry.GLYPH_MAP.get(SPGlyphTypeRegistry.TRANSPOSE).get();
     }
 }

@@ -50,6 +50,8 @@ public class SunspotFabricClient implements ClientModInitializer {
         BlockEntityRendererRegistry.register(Util.getSeverBET(), GlyphBlockEntityRenderer::new);
         registerGlyphBlockTint(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.SUSTAIN));
         BlockEntityRendererRegistry.register(Util.getSustainBET(), GlyphBlockEntityRenderer::new);
+        registerGlyphBlockTint(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.TRANSPOSE));
+        BlockEntityRendererRegistry.register(Util.getTransposeBET(), GlyphBlockEntityRenderer::new);
         ParticleFactoryRegistry.getInstance().register(SPParticleTypeRegistry.FLAMEFALL_FLAME.get(), FlameParticle.Provider::new);
         // build in the jump activation (in case we need it for more than the {OFFSET} block)
         ClientTickEvents.END_CLIENT_TICK.register(client -> {

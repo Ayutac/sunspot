@@ -25,6 +25,7 @@ public interface SPGlyphTypeRegistry {
     RegistrySupplier<GlyphType> REVITALISE = register(Identifiers.REVITALISE, () -> Items.GLISTERING_MELON_SLICE, 0x58e125);
     RegistrySupplier<GlyphType> SEVER = register(Identifiers.SEVER, () -> Items.IRON_SWORD, 0xc30a0a);
     RegistrySupplier<GlyphType> SUSTAIN = register(Identifiers.SUSTAIN, () -> Items.SHIELD, 0x8d9589);
+    RegistrySupplier<GlyphType> TRANSPOSE = register(Identifiers.TRANSPOSE, () -> Items.REDSTONE, 0xdb861e);
 
     @ApiStatus.Internal
     private static RegistrySupplier<GlyphType> register(final @NotNull ResourceLocation id, final @NotNull Supplier<Item> intent, final int tint) {

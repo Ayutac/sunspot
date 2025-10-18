@@ -20,5 +20,7 @@ public interface Identifiers {
     ResourceLocation SEVER_BLOCK = Sunspot.id("sever_block");
     ResourceLocation SUSTAIN = Sunspot.id("sustain");
     ResourceLocation SUSTAIN_BLOCK = Sunspot.id("sustain_block");
+    ResourceLocation TRANSPOSE = Sunspot.id("transpose");
+    ResourceLocation TRANSPOSE_BLOCK = Sunspot.id("transpose_block");
 
 }

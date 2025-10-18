@@ -22,6 +22,7 @@ import studio.abos.mc.sunspot.common.block.RevitaliseBlock;
 import studio.abos.mc.sunspot.common.block.SeverBlock;
 import studio.abos.mc.sunspot.common.block.SmallSubstrateBlock;
 import studio.abos.mc.sunspot.common.block.SustainBlock;
+import studio.abos.mc.sunspot.common.block.TransposeBlock;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -50,6 +51,7 @@ public final class SPBlockRegistry {
         registerGlyphBlock(Identifiers.REVITALISE, SPGlyphTypeRegistry.REVITALISE, RevitaliseBlock::new);
         registerGlyphBlock(Identifiers.SEVER, SPGlyphTypeRegistry.SEVER, SeverBlock::new);
         registerGlyphBlock(Identifiers.SUSTAIN, SPGlyphTypeRegistry.SUSTAIN, SustainBlock::new);
+        registerGlyphBlock(Identifiers.TRANSPOSE, SPGlyphTypeRegistry.TRANSPOSE, TransposeBlock::new);
     }
 
     private static void registerGlyphBlock(final @NotNull ResourceLocation id, final @NotNull RegistrySupplier<GlyphType> glyphType, final @NotNull Function<BlockBehaviour.Properties, Block> ctor) {

@@ -38,6 +38,7 @@ public interface SPCreativeMenuTabRegistry {
                     entries.accept(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.REVITALISE).get());
                     entries.accept(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.SEVER).get());
                     entries.accept(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.SUSTAIN).get());
+                    entries.accept(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.TRANSPOSE).get());
                     entries.accept(SPItemPreRegistry.FOURSPACE_SHIFTER.get());
                     entries.accept(SPItemPreRegistry.MANTLE_BASE_HELMET.get());
                     entries.accept(SPItemPreRegistry.MANTLE_BASE_CHESTPLATE.get());

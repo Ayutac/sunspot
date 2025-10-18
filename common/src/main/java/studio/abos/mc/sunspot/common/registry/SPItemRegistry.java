@@ -30,6 +30,7 @@ public final class SPItemRegistry {
         registerGlyphItemBlock(Identifiers.REVITALISE_BLOCK, SPGlyphTypeRegistry.REVITALISE);
         registerGlyphItemBlock(Identifiers.SEVER_BLOCK, SPGlyphTypeRegistry.SEVER);
         registerGlyphItemBlock(Identifiers.SUSTAIN_BLOCK, SPGlyphTypeRegistry.SUSTAIN);
+        registerGlyphItemBlock(Identifiers.TRANSPOSE_BLOCK, SPGlyphTypeRegistry.TRANSPOSE);
     }
 
     private static void registerGlyphItemBlock(final @NotNull ResourceLocation id, final @NotNull RegistrySupplier<GlyphType> glyphType) {
