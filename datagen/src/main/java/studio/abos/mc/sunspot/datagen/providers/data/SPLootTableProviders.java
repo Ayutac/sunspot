@@ -28,6 +28,7 @@ public class SPLootTableProviders {
             dropSelf(SPBlockRegistry.IMPEL.get());
             dropSelf(SPBlockRegistry.OFFSET.get());
             dropSelf(SPBlockRegistry.REVITALISE.get());
+            dropSelf(SPBlockRegistry.SUSTAIN.get());
         }
     }
 }

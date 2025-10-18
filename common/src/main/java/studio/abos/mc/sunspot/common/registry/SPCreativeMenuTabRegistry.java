@@ -36,6 +36,7 @@ public interface SPCreativeMenuTabRegistry {
                     entries.accept(SPItemRegistry.IMPEL_BLOCK.get());
                     entries.accept(SPItemRegistry.OFFSET_BLOCK.get());
                     entries.accept(SPItemRegistry.REVITALISE_BLOCK.get());
+                    entries.accept(SPItemRegistry.SUSTAIN_BLOCK.get());
                     entries.accept(SPItemRegistry.FOURSPACE_SHIFTER.get());
                     entries.accept(SPItemRegistry.MANTLE_BASE_HELMET.get());
                     entries.accept(SPItemRegistry.MANTLE_BASE_CHESTPLATE.get());

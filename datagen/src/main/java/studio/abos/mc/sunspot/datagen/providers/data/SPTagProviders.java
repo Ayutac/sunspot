@@ -59,6 +59,10 @@ public class SPTagProviders {
             unaffectedByRevitalise.add(SPEntityTypeRegistry.FLAMEFALL.getId());
             unaffectedByRevitalise.add(EntityType.VEX);
             unaffectedByRevitalise.addOptionalTag(EntityTypeTags.UNDEAD);
+
+            var unaffectedBySustain = getOrCreateTagBuilder(SPTagRegistry.UNAFFECTED_BY_SUSTAIN);
+            unaffectedBySustain.add(SPEntityTypeRegistry.FLAMEFALL.getId());
+            unaffectedBySustain.add(EntityType.VEX);
         }
     }
 }

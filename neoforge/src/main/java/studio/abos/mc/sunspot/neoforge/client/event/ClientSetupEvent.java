@@ -48,6 +48,7 @@ public class ClientSetupEvent {
         registerGlyphBlockTint(event, SPItemRegistry.IMPEL_BLOCK);
         registerGlyphBlockTint(event, SPItemRegistry.OFFSET_BLOCK);
         registerGlyphBlockTint(event, SPItemRegistry.REVITALISE_BLOCK);
+        registerGlyphBlockTint(event, SPItemRegistry.SUSTAIN_BLOCK);
     }
 
     private static void registerGlyphBlockTint(final @NotNull RegisterColorHandlersEvent.Block event, final @NotNull RegistrySupplier<BlockItem> blockItem) {
@@ -63,6 +64,7 @@ public class ClientSetupEvent {
         registerGlyphBlockItemTint(event, SPItemRegistry.IMPEL_BLOCK);
         registerGlyphBlockItemTint(event, SPItemRegistry.OFFSET_BLOCK);
         registerGlyphBlockItemTint(event, SPItemRegistry.REVITALISE_BLOCK);
+        registerGlyphBlockItemTint(event, SPItemRegistry.SUSTAIN_BLOCK);
     }
 
     private static void registerGlyphBlockItemTint(final @NotNull RegisterColorHandlersEvent.Item event, final @NotNull RegistrySupplier<BlockItem> blockItem) {

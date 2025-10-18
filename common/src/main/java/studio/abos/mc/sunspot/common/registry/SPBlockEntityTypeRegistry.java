@@ -12,6 +12,7 @@ import studio.abos.mc.sunspot.common.blockentity.ImpelBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.ComposeCreativeBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.OffsetBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.RevitaliseBlockEntity;
+import studio.abos.mc.sunspot.common.blockentity.SustainBlockEntity;
 
 public interface SPBlockEntityTypeRegistry {
 
@@ -37,6 +38,9 @@ public interface SPBlockEntityTypeRegistry {
     );
     RegistrySupplier<BlockEntityType<RevitaliseBlockEntity>> REVITALISE = BLOCK_ENTITY_TYPE_REGISTRY.register(
             "revitalise", () -> BlockEntityType.Builder.of(RevitaliseBlockEntity::new, SPBlockRegistry.REVITALISE.get()).build(null)
+    );
+    RegistrySupplier<BlockEntityType<SustainBlockEntity>> SUSTAIN = BLOCK_ENTITY_TYPE_REGISTRY.register(
+            "sustain", () -> BlockEntityType.Builder.of(SustainBlockEntity::new, SPBlockRegistry.SUSTAIN.get()).build(null)
     );
 
     static void register() {

@@ -20,6 +20,7 @@ import studio.abos.mc.sunspot.client.renderer.block.ComposeBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.block.ComposeCreativeBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.block.OffsetBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.block.RevitaliseBlockEntityRenderer;
+import studio.abos.mc.sunspot.client.renderer.block.SustainBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.entity.FlamefallRenderer;
 import studio.abos.mc.sunspot.common.block.GlyphBlock;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
@@ -50,6 +51,8 @@ public class SunspotFabricClient implements ClientModInitializer {
         BlockEntityRendererRegistry.register(SPBlockEntityTypeRegistry.OFFSET.get(), OffsetBlockEntityRenderer::new);
         registerGlyphBlockTint(SPItemRegistry.REVITALISE_BLOCK);
         BlockEntityRendererRegistry.register(SPBlockEntityTypeRegistry.REVITALISE.get(), RevitaliseBlockEntityRenderer::new);
+        registerGlyphBlockTint(SPItemRegistry.SUSTAIN_BLOCK);
+        BlockEntityRendererRegistry.register(SPBlockEntityTypeRegistry.SUSTAIN.get(), SustainBlockEntityRenderer::new);
         ParticleFactoryRegistry.getInstance().register(SPParticleTypeRegistry.FLAMEFALL_FLAME.get(), FlameParticle.Provider::new);
         // build in the jump activation (in case we need it for more than the {OFFSET} block)
         ClientTickEvents.END_CLIENT_TICK.register(client -> {

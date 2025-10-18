@@ -24,13 +24,14 @@ public class SPLangProvider extends FabricLanguageProvider {
         builder.add(SPItemRegistry.ASH_RESIDUE.get(), "{ASH} Residue");
         builder.add(SPItemRegistry.ASH_RESIDUE_BLOCK.get(), "{ASH} Residue Block");
         builder.add(SPBlockRegistry.LM_WORKBENCH.get(), "LM Workbench");
-        builder.add(SPBlockRegistry.COMPOSE.get(), "{COMPOSE} Block");
-        builder.add(SPBlockRegistry.COMPOSE_CREATIVE.get(), "Creative {COMPOSE} Block");
         builder.add(SPBlockRegistry.AFFIX.get(), "{AFFIX} Block");
         builder.add(SPBlockRegistry.ASH.get(), "{ASH} Block");
+        builder.add(SPBlockRegistry.COMPOSE.get(), "{COMPOSE} Block");
+        builder.add(SPBlockRegistry.COMPOSE_CREATIVE.get(), "Creative {COMPOSE} Block");
         builder.add(SPBlockRegistry.IMPEL.get(), "{IMPEL} Block");
         builder.add(SPBlockRegistry.OFFSET.get(), "{OFFSET} Block");
         builder.add(SPBlockRegistry.REVITALISE.get(), "{REVITALISE} Block");
+        builder.add(SPBlockRegistry.SUSTAIN.get(), "{SUSTAIN} Block");
         builder.add(SPItemRegistry.MANTLE_BASE_HELMET.get(), "Mantle Base Helmet");
         builder.add(SPItemRegistry.MANTLE_BASE_CHESTPLATE.get(), "Mantle Base Chestplate");
         builder.add(SPItemRegistry.MANTLE_BASE_LEGGINGS.get(), "Mantle Base Leggings");
@@ -47,6 +48,7 @@ public class SPLangProvider extends FabricLanguageProvider {
         builder.add(SPTagRegistry.UNAFFECTED_BY_IMPEL, "Unaffected by {IMPEL}");
         builder.add(SPTagRegistry.UNAFFECTED_BY_OFFSET, "Unaffected by {OFFSET}");
         builder.add(SPTagRegistry.UNAFFECTED_BY_REVITALISE, "Unaffected by {REVITALISE}");
+        builder.add(SPTagRegistry.UNAFFECTED_BY_SUSTAIN, "Unaffected by {SUSTAIN}");
 
         builder.add(SPCreativeMenuTabRegistry.GENERAL_TAB_KEY, "Sunspot");
 
