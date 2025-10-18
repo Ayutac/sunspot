@@ -12,6 +12,7 @@ import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseFireBlock;
@@ -162,6 +163,9 @@ public final class SPServerEvents {
         }
         if (delta != Vec3.ZERO) {
             entity.setDeltaMovement(delta);
+            if (entity instanceof Player) {
+                entity.hurtMarked = true;
+            }
         }
     }
 }

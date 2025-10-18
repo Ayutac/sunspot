@@ -72,7 +72,10 @@ public abstract class EntityMixin {
 
     @Inject(method = "tick()V", at = @At("HEAD"))
     void sunspot$impelTick(final @NotNull CallbackInfo ci) {
-        SPServerEvents.impelTick((Entity)(Object)this);
+        final Entity entity = (Entity)(Object)this;
+        if (!entity.level().isClientSide()) {
+            SPServerEvents.impelTick(entity);
+        }
     }
 
 }
