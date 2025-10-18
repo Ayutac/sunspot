@@ -2,13 +2,18 @@ package studio.abos.mc.sunspot.common.blockentity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
+import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
+
+import java.util.Optional;
 
 public class SustainBlockEntity extends EffectGlyphBlockEntity {
 
@@ -34,6 +39,11 @@ public class SustainBlockEntity extends EffectGlyphBlockEntity {
     @Override
     public Holder<MobEffect> getEffect() {
         return MobEffects.DAMAGE_RESISTANCE;
+    }
+
+    @Override
+    public Optional<TagKey<EntityType<?>>> getUnaffectedTag() {
+        return Optional.of(SPTagRegistry.UNAFFECTED_BY_SUSTAIN);
     }
 
     public static void tick(final @NotNull Level level, final @NotNull BlockPos pos, final @NotNull BlockState state, final @NotNull SustainBlockEntity blockEntity) {
