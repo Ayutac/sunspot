@@ -5,6 +5,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.RelativeMovement;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
@@ -49,7 +50,9 @@ public abstract class EntityMixin {
         final BlockState blockBelow = entity.level().getBlockState(entity.blockPosition().below());
         if (!entity.getType().is(SPTagRegistry.UNAFFECTED_BY_AFFIX) &&
                 Util.isAffix(blockBelow) &&
-                blockBelow.getValue(GlyphBlock.POWERED)) {
+                blockBelow.getValue(GlyphBlock.POWERED) &&
+                !(entity instanceof Player player && (player.isCreative() || player.isSpectator()))
+        ) {
             deltaMovement = Vec3.ZERO;
             final Vec3 oldPos = entity.position();
             if (oldPos.y() != Math.floor(oldPos.y())) {
