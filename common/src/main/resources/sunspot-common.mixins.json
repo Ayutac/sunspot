@@ -10,6 +10,7 @@
   "mixins": [
     "EntityMixin",
     "ItemEntityMixin",
+    "LevelMixin",
     "LivingEntityMixin",
     "ServerPlayerMixin",
     "SimpleParticleTypeInvoker"

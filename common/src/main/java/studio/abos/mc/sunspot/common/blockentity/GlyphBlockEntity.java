@@ -8,14 +8,20 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.common.block.GlyphBlock;
 import studio.abos.mc.sunspot.common.block.ComposeBlock;
+
+import java.util.SequencedSet;
 
 public abstract class GlyphBlockEntity extends BlockEntity implements FlameBlockEntity {
 
     protected int currentFlame;
 
     protected int maxFlame;
+
+    protected @Nullable SequencedSet<BlockPos> networkCache;
 
     public GlyphBlockEntity(final @NotNull BlockEntityType<? extends GlyphBlockEntity> blockEntityType, final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
         super(blockEntityType, blockPos, blockState);
@@ -55,7 +61,26 @@ public abstract class GlyphBlockEntity extends BlockEntity implements FlameBlock
         setChanged();
     }
 
+    @Override
+    public @Nullable SequencedSet<BlockPos> getNetworkCache() {
+        return networkCache;
+    }
+
+    @Override
+    public void setNetworkCache(@Nullable SequencedSet<BlockPos> networkCache) {
+        this.networkCache = networkCache;
+    }
+
     public static void tick(final @NotNull Level level, final @NotNull BlockPos pos, final @NotNull BlockState state, final @NotNull GlyphBlockEntity blockEntity) {
+        if (blockEntity.getNetworkCache() == null) {
+            Util.invalidateNetworkCacheAround(level, pos);
+            Util.buildNetworkCache(level, pos);
+        }
+        if (blockEntity instanceof ComposeCreativeBlockEntity) {
+            return;
+        }
+        final int networkFlame = Util.requestEnergyFromNetwork(blockEntity.getNetworkCache(), level, pos, blockEntity.getMaxFlame() - blockEntity.getCurrentFlame());
+        blockEntity.setCurrentFlame(blockEntity.getCurrentFlame() + networkFlame);
         final boolean oldState = state.getValue(GlyphBlock.POWERED);
         final boolean newState = blockEntity.currentFlame != 0;
         if (oldState != newState) {
