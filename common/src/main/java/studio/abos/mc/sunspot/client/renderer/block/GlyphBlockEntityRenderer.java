@@ -25,9 +25,9 @@ public class GlyphBlockEntityRenderer<T extends GlyphBlockEntity> implements Blo
     public void render(final @NotNull T blockEntity, final float partialTick, final @NotNull PoseStack poseStack, final @NotNull MultiBufferSource multiBufferSource, final int packedLight, final int packedOverlay) {
         final GlyphType type = ((GlyphBlock)blockEntity.getBlockState().getBlock()).getType();
         poseStack.pushPose();
-        poseStack.translate(0.5f, 0.98f, 0.5f);
+        poseStack.translate(0.5f, 1f, 0.5f);
         poseStack.mulPose(Axis.XP.rotationDegrees(90f));
-        poseStack.scale(0.5f, 0.5f, 1f);
+        poseStack.scale(0.5f, 0.5f, 0.5f);
         Minecraft.getInstance().getItemRenderer().renderStatic(new ItemStack(type.getIntent().get()), ItemDisplayContext.FIXED,
                 LevelRenderer.getLightColor(blockEntity.getLevel(), blockEntity.getBlockPos().above()),
                 OverlayTexture.NO_OVERLAY, poseStack, multiBufferSource, blockEntity.getLevel(), 0
