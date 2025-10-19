@@ -60,6 +60,10 @@ public class SPTagProviders {
             unaffectedByRevitalise.add(EntityType.VEX);
             unaffectedByRevitalise.addOptionalTag(EntityTypeTags.UNDEAD);
 
+            var unaffectedBySever = getOrCreateTagBuilder(SPTagRegistry.UNAFFECTED_BY_SEVER);
+            unaffectedBySever.add(SPEntityTypeRegistry.FLAMEFALL.getId());
+            unaffectedBySever.add(EntityType.VEX);
+
             var unaffectedBySustain = getOrCreateTagBuilder(SPTagRegistry.UNAFFECTED_BY_SUSTAIN);
             unaffectedBySustain.add(SPEntityTypeRegistry.FLAMEFALL.getId());
             unaffectedBySustain.add(EntityType.VEX);

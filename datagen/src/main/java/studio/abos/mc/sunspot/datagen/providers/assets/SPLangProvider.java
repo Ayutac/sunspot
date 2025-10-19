@@ -44,6 +44,7 @@ public class SPLangProvider extends FabricLanguageProvider {
         builder.add(SPTagRegistry.UNAFFECTED_BY_IMPEL, "Unaffected by {IMPEL}");
         builder.add(SPTagRegistry.UNAFFECTED_BY_OFFSET, "Unaffected by {OFFSET}");
         builder.add(SPTagRegistry.UNAFFECTED_BY_REVITALISE, "Unaffected by {REVITALISE}");
+        builder.add(SPTagRegistry.UNAFFECTED_BY_SEVER, "Unaffected by {SEVER}");
         builder.add(SPTagRegistry.UNAFFECTED_BY_SUSTAIN, "Unaffected by {SUSTAIN}");
 
         builder.add(SPCreativeMenuTabRegistry.GENERAL_TAB_KEY, "Sunspot");

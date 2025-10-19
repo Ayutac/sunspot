@@ -16,6 +16,7 @@ public interface SPTagRegistry {
     TagKey<EntityType<?>> UNAFFECTED_BY_IMPEL = TagKey.create(Registries.ENTITY_TYPE, Sunspot.id("unaffected_by_impel"));
     TagKey<EntityType<?>> UNAFFECTED_BY_OFFSET = TagKey.create(Registries.ENTITY_TYPE, Sunspot.id("unaffected_by_offset"));
     TagKey<EntityType<?>> UNAFFECTED_BY_REVITALISE = TagKey.create(Registries.ENTITY_TYPE, Sunspot.id("unaffected_by_revitalise"));
+    TagKey<EntityType<?>> UNAFFECTED_BY_SEVER = TagKey.create(Registries.ENTITY_TYPE, Sunspot.id("unaffected_by_sever"));
     TagKey<EntityType<?>> UNAFFECTED_BY_SUSTAIN = TagKey.create(Registries.ENTITY_TYPE, Sunspot.id("unaffected_by_sustain"));
 
     static void init() {
