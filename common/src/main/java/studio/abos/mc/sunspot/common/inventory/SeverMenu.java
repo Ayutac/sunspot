@@ -17,18 +17,19 @@ public class SeverMenu extends AbstractContainerMenu {
     public static final int INPUT_SLOT = 0;
     public static final int OUTPUT_SLOT = INPUT_SLOT + 1;
     public static final int SLOT_COUNT = OUTPUT_SLOT + 1;
+    public static final int PROGRESS_DATA_SLOT = 0;
 
     protected final @NotNull Container container;
     protected final @NotNull ContainerData containerData;
 
     public SeverMenu(final int containerId, final @NotNull Inventory inventory) {
-        this(containerId, inventory, new SimpleContainer(SLOT_COUNT));
+        this(containerId, inventory, new SimpleContainer(SLOT_COUNT), new SimpleContainerData(1));
     }
 
-    public SeverMenu(final int containerId, final @NotNull Inventory playerInventory, final @NotNull Container inventory) {
+    public SeverMenu(final int containerId, final @NotNull Inventory playerInventory, final @NotNull Container inventory, final @NotNull ContainerData data) {
         super(SPMenuTypeRegistry.SEVER.get(), containerId);
         container = inventory;
-        containerData = new SimpleContainerData(1);
+        containerData = data;
         // j is x, k is y, i is index
         // Player inventory
         for (int row = 0; row < 3; row++) {
