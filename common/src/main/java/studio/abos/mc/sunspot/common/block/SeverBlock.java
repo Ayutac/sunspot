@@ -1,6 +1,7 @@
 package studio.abos.mc.sunspot.common.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.damagesource.DamageSource;
@@ -53,6 +54,19 @@ public class SeverBlock extends GlyphBlock {
         final BlockEntity blockEntity = level.getBlockEntity(blockPos);
         if (blockEntity instanceof SeverBlockEntity) {
             player.openMenu((MenuProvider)blockEntity);
+        }
+    }
+
+    @Override
+    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean moved) {
+        if (state.getBlock() != newState.getBlock()) {
+            BlockEntity blockEntity = level.getBlockEntity(pos);
+            if (blockEntity instanceof final SeverBlockEntity severBlockEntity) {
+                Containers.dropContents(level, pos, severBlockEntity);
+                // update comparators TODO issue #9
+                // level.updateNeighbourForOutputSignal(pos,this);
+            }
+            super.onRemove(state, level, pos, newState, moved);
         }
     }
 
