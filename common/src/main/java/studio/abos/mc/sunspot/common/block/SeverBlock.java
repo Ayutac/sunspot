@@ -1,6 +1,8 @@
 package studio.abos.mc.sunspot.common.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -10,7 +12,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.common.blockentity.SeverBlockEntity;
+import studio.abos.mc.sunspot.common.registry.SPDamageTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
+import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 
 public class SeverBlock extends GlyphBlock {
 
@@ -21,6 +25,14 @@ public class SeverBlock extends GlyphBlock {
     @Override
     public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
         return new SeverBlockEntity(blockPos, blockState);
+    }
+
+    @Override
+    public void stepOn(final @NotNull Level level, final @NotNull BlockPos blockPos, final @NotNull BlockState state, final @NotNull Entity entity) {
+        if (state.getValue(GlyphBlock.POWERED) && !entity.getType().is(SPTagRegistry.UNAFFECTED_BY_SEVER)) {
+            entity.hurt(new DamageSource(Util.damageTypeHolder(SPDamageTypeRegistry.SEVER, level)), 2f);
+        }
+        super.stepOn(level, blockPos, state, entity);
     }
 
     @Override
