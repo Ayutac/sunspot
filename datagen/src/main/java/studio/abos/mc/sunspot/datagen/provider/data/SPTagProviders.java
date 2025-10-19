@@ -28,6 +28,13 @@ public class SPTagProviders {
                     SPItemPreRegistry.ASH_RESIDUE.getId(),
                     SPItemPreRegistry.ASH_RESIDUE_BLOCK.getId()
             );
+            getOrCreateTagBuilder(SPTagRegistry.SEVERED_INTO_GRAVEL).add(
+                    Items.COBBLESTONE,
+                    Items.COBBLED_DEEPSLATE,
+                    Items.GRANITE,
+                    Items.DIORITE,
+                    Items.ANDESITE
+            );
         }
     }
 
