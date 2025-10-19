@@ -42,7 +42,7 @@ public class SeverMenu extends AbstractContainerMenu {
         }
         // Own slots
         addSlot(new Slot(container, INPUT_SLOT, 56, 35)); // input
-        addSlot(new SeverResultSlot(container, OUTPUT_SLOT, 116, 35)); // output
+        addSlot(new ResultSlot(container, OUTPUT_SLOT, 116, 35)); // output
         addDataSlots(containerData); // conversion time
     }
 
