@@ -27,7 +27,7 @@ public class SPModelProvider extends FabricModelProvider {
         gen.createNonTemplateModelBlock(SPBlockRegistry.SUBSTRATE_3.get());
         gen.createNonTemplateModelBlock(SPBlockRegistry.SUBSTRATE_4.get());
         gen.createTrivialCube(SPBlockRegistry.ASH_RESIDUE.get());
-        gen.createTrivialCube(SPBlockRegistry.LM_WORKBENCH.get());
+        gen.createTrivialCube(SPBlockRegistry.WORKBENCH.get());
         for (final var value : SPBlockRegistry.GLYPH_MAP.values()) {
             generateCubeAllPowered(gen, value.get());
         }

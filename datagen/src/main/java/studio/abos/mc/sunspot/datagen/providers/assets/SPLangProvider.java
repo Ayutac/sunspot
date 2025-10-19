@@ -23,7 +23,7 @@ public class SPLangProvider extends FabricLanguageProvider {
         builder.add(SPBlockRegistry.SUBSTRATE_4.get(), "4-dimensional Substrate");
         builder.add(SPItemPreRegistry.ASH_RESIDUE.get(), "{ASH} Residue");
         builder.add(SPItemPreRegistry.ASH_RESIDUE_BLOCK.get(), "{ASH} Residue Block");
-        builder.add(SPBlockRegistry.LM_WORKBENCH.get(), "LM Workbench");
+        builder.add(SPBlockRegistry.WORKBENCH.get(), "Workbench");
         for (final var entry : SPBlockRegistry.GLYPH_MAP.entrySet()) {
             builder.add(entry.getValue().get(), entry.getKey().get().getTranslation() + " Block");
         }

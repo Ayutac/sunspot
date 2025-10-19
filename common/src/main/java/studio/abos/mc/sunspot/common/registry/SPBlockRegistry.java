@@ -36,7 +36,7 @@ public final class SPBlockRegistry {
     public static final RegistrySupplier<Block> SUBSTRATE_4 = BLOCK_REGISTRY.register(Sunspot.id("substrate_4"), () -> new SmallSubstrateBlock(BlockBehaviour.Properties.of()));
     public static final RegistrySupplier<Block> ASH_RESIDUE = BLOCK_REGISTRY.register(Sunspot.id("ash_residue"), () -> new ColoredFallingBlock(new ColorRGBA(-8356741), BlockBehaviour.Properties.of()));
 
-    public static final RegistrySupplier<Block> LM_WORKBENCH = BLOCK_REGISTRY.register(Sunspot.id("lm_workbench"), () -> new Block(BlockBehaviour.Properties.of()));
+    public static final RegistrySupplier<Block> WORKBENCH = BLOCK_REGISTRY.register(Sunspot.id("workbench"), () -> new Block(BlockBehaviour.Properties.of()));
 
     public static final RegistrySupplier<Block> COMPOSE_CREATIVE = BLOCK_REGISTRY.register(Sunspot.id("compose_creative"), () -> new ComposeCreativeBlock(BlockBehaviour.Properties.of()));
 

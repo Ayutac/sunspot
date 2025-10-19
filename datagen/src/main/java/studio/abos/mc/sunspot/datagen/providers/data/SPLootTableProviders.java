@@ -20,7 +20,7 @@ public class SPLootTableProviders {
             dropSelf(SPBlockRegistry.SUBSTRATE_3.get());
             dropSelf(SPBlockRegistry.SUBSTRATE_4.get());
             dropSelf(SPBlockRegistry.ASH_RESIDUE.get());
-            dropSelf(SPBlockRegistry.LM_WORKBENCH.get());
+            dropSelf(SPBlockRegistry.WORKBENCH.get());
             for (final var value : SPBlockRegistry.GLYPH_MAP.values()) {
                 dropSelf(value.get());
             }
