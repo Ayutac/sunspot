@@ -118,5 +118,13 @@ public class SPRecipeProvider extends FabricRecipeProvider {
                 .requires(Ingredient.of(SPTagRegistry.SEVERED_INTO_GRAVEL))
                 .unlockedBy("has_material", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(SPTagRegistry.SEVERED_INTO_GRAVEL)))
                 .save(out, Sunspot.id("sever/gravel"));
+        new SeverRecipeBuilder(Items.SAND)
+                .requires(Ingredient.of(SPTagRegistry.SEVERED_INTO_SAND))
+                .unlockedBy("has_material", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(SPTagRegistry.SEVERED_INTO_SAND)))
+                .save(out, Sunspot.id("sever/sand"));
+        new SeverRecipeBuilder(Items.RED_SAND)
+                .requires(Ingredient.of(SPTagRegistry.SEVERED_INTO_RED_SAND))
+                .unlockedBy("has_material", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(SPTagRegistry.SEVERED_INTO_RED_SAND)))
+                .save(out, Sunspot.id("sever/red_sand"));
     }
 }

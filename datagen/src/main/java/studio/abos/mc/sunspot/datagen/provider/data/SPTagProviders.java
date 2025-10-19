@@ -36,6 +36,19 @@ public class SPTagProviders {
                     Items.ANDESITE,
                     Items.TUFF
             );
+            getOrCreateTagBuilder(SPTagRegistry.SEVERED_INTO_SAND).add(
+                    Items.GRAVEL,
+                    Items.SANDSTONE,
+                    Items.SMOOTH_SANDSTONE,
+                    Items.CUT_SANDSTONE,
+                    Items.CHISELED_SANDSTONE
+            );
+            getOrCreateTagBuilder(SPTagRegistry.SEVERED_INTO_RED_SAND).add(
+                    Items.RED_SANDSTONE,
+                    Items.SMOOTH_RED_SANDSTONE,
+                    Items.CUT_RED_SANDSTONE,
+                    Items.CHISELED_RED_SANDSTONE
+            );
         }
     }
 
