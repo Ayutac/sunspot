@@ -83,7 +83,6 @@ public class SeverBlockEntity extends GlyphBlockEntity implements ImplementedInv
         if (!severEntity.isPowered() || input.isEmpty()) {
             return;
         }
-        final ItemStack output = severEntity.items.get(SeverMenu.OUTPUT_SLOT);
         final var recipeHolder = severEntity.quickCheck.getRecipeFor(new SingleRecipeInput(input), level).orElse(null);
         final int maxStackSize = severEntity.getMaxStackSize();
         if (canSever(level.registryAccess(), recipeHolder, severEntity.items, maxStackSize)) {
