@@ -11,8 +11,11 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import studio.abos.mc.sunspot.Sunspot;
 import studio.abos.mc.sunspot.common.registry.SPItemPreRegistry;
 import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
+import studio.abos.mc.sunspot.datagen.builder.SeverRecipeBuilder;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -111,5 +114,9 @@ public class SPRecipeProvider extends FabricRecipeProvider {
                 .define('R', Items.BLAZE_ROD)
                 .unlockedBy("has_blaze_rod", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BLAZE_ROD))
                 .save(out);
+        new SeverRecipeBuilder(Items.GRAVEL)
+                .requires(Ingredient.of(SPTagRegistry.SEVERED_INTO_GRAVEL))
+                .unlockedBy("has_material", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(SPTagRegistry.SEVERED_INTO_GRAVEL)))
+                .save(out, Sunspot.id("sever/gravel"));
     }
 }

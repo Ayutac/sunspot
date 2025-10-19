@@ -10,6 +10,7 @@ public interface SPTagRegistry {
 
     TagKey<Item> SUBSTRATE_MATERIAL = TagKey.create(Registries.ITEM, Sunspot.id("substrate_material"));
     TagKey<Item> UNAFFECTED_BY_ASH_TRANSFORMATION = TagKey.create(Registries.ITEM, Sunspot.id("unaffected_by_ash_transformation"));
+    TagKey<Item> SEVERED_INTO_GRAVEL = TagKey.create(Registries.ITEM, Sunspot.id("severed_into_gravel"));
 
     TagKey<EntityType<?>> UNAFFECTED_BY_AFFIX = TagKey.create(Registries.ENTITY_TYPE, Sunspot.id("unaffected_by_affix"));
     TagKey<EntityType<?>> UNAFFECTED_BY_ASH = TagKey.create(Registries.ENTITY_TYPE, Sunspot.id("unaffected_by_ash"));

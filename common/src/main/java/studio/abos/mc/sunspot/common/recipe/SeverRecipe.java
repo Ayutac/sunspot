@@ -46,8 +46,8 @@ public class SeverRecipe implements Recipe<SingleRecipeInput> {
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
-        return null;
+    public @NotNull RecipeSerializer<?> getSerializer() {
+        return SPRecipeRegistry.SEVER_SERIALIZER.get();
     }
 
     @Override
