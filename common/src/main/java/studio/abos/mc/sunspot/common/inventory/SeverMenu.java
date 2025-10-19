@@ -10,6 +10,7 @@ import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import studio.abos.mc.sunspot.common.blockentity.SeverBlockEntity;
 import studio.abos.mc.sunspot.common.registry.SPMenuTypeRegistry;
 
 public class SeverMenu extends AbstractContainerMenu {
@@ -47,12 +48,16 @@ public class SeverMenu extends AbstractContainerMenu {
         addDataSlots(containerData); // conversion time
     }
 
+    public float getProgress() {
+        return containerData.get(PROGRESS_DATA_SLOT) / (float)SeverBlockEntity.TOTAL_SEVER_TIME;
+    }
+
     @Override
     public @NotNull ItemStack quickMoveStack(final Player player, final int index) {
         // The quick moved slot stack
         ItemStack quickMovedStack = ItemStack.EMPTY;
         // The quick moved slot
-        Slot quickMovedSlot = this.slots.get(index);
+        final Slot quickMovedSlot = this.slots.get(index);
 
         // If the slot is in the valid range and the slot is not empty
         if (quickMovedSlot.hasItem()) {
@@ -106,7 +111,7 @@ public class SeverMenu extends AbstractContainerMenu {
                 // If the raw stack has completely moved out of the slot, set the slot to the empty stack
                 quickMovedSlot.set(ItemStack.EMPTY);
             } else {
-                // Otherwise, notify the slot that that the stack count has changed
+                // Otherwise, notify the slot that the stack count has changed
                 quickMovedSlot.setChanged();
             }
 

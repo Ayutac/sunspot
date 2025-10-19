@@ -33,7 +33,7 @@ public class SeverBlockEntity extends GlyphBlockEntity implements ImplementedInv
 
     public static final String PROGRESS_KEY = "progress";
 
-    public static final int TOTAL_SEVER_TIME = 20;
+    public static final int TOTAL_SEVER_TIME = 24;
 
     protected final @NotNull NonNullList<ItemStack> items = NonNullList.withSize(SeverMenu.SLOT_COUNT, ItemStack.EMPTY);
     protected final @NotNull ContainerData containerData = new SimpleContainerData(1);
