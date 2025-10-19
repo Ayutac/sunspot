@@ -17,6 +17,7 @@ import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.client.SunspotClient;
 import studio.abos.mc.sunspot.client.gui.screens.inventory.SeverScreen;
 import studio.abos.mc.sunspot.client.renderer.block.GlyphBlockEntityRenderer;
+import studio.abos.mc.sunspot.client.renderer.block.SeverBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.entity.FlamefallRenderer;
 import studio.abos.mc.sunspot.common.block.GlyphBlock;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
@@ -54,7 +55,7 @@ public class SunspotFabricClient implements ClientModInitializer {
         registerGlyphBlockTint(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.REVITALISE));
         BlockEntityRendererRegistry.register(Util.getRevitaliseBET(), GlyphBlockEntityRenderer::new);
         registerGlyphBlockTint(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.SEVER));
-        BlockEntityRendererRegistry.register(Util.getSeverBET(), GlyphBlockEntityRenderer::new);
+        BlockEntityRendererRegistry.register(Util.getSeverBET(), SeverBlockEntityRenderer::new);
         registerGlyphBlockTint(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.SUSTAIN));
         BlockEntityRendererRegistry.register(Util.getSustainBET(), GlyphBlockEntityRenderer::new);
         registerGlyphBlockTint(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.TRANSPOSE));

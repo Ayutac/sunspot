@@ -2,6 +2,8 @@ package studio.abos.mc.sunspot.client.renderer.block;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -15,6 +17,7 @@ import studio.abos.mc.sunspot.common.GlyphType;
 import studio.abos.mc.sunspot.common.block.GlyphBlock;
 import studio.abos.mc.sunspot.common.blockentity.GlyphBlockEntity;
 
+@Environment(EnvType.CLIENT)
 public class GlyphBlockEntityRenderer<T extends GlyphBlockEntity> implements BlockEntityRenderer<T> {
 
     public GlyphBlockEntityRenderer(final @NotNull BlockEntityRendererProvider.Context context) {

@@ -14,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.client.gui.screens.inventory.SeverScreen;
 import studio.abos.mc.sunspot.client.renderer.block.GlyphBlockEntityRenderer;
+import studio.abos.mc.sunspot.client.renderer.block.SeverBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.entity.FlamefallRenderer;
 import studio.abos.mc.sunspot.common.block.GlyphBlock;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
@@ -36,7 +37,7 @@ public class ClientSetupEvent {
         event.registerBlockEntityRenderer(Util.getImpelBET(), GlyphBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(Util.getOffsetBET(), GlyphBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(Util.getRevitaliseBET(), GlyphBlockEntityRenderer::new);
-        event.registerBlockEntityRenderer(Util.getSeverBET(), GlyphBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(Util.getSeverBET(), SeverBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(Util.getSustainBET(), GlyphBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(Util.getTransposeBET(), GlyphBlockEntityRenderer::new);
     }
@@ -70,7 +71,7 @@ public class ClientSetupEvent {
         event.registerSpriteSet(SPParticleTypeRegistry.FLAMEFALL_FLAME.get(), FlameParticle.Provider::new);
     }
 
-    @SubscribeEvent // on the mod event bus only on the physical client
+    @SubscribeEvent
     public static void registerScreens(final @NotNull RegisterMenuScreensEvent event) {
         event.register(SPMenuTypeRegistry.SEVER.get(), SeverScreen::new);
     }

@@ -6,7 +6,11 @@ import studio.abos.mc.sunspot.common.component.entity.CommonFlameComponent;
 import studio.abos.mc.sunspot.common.component.entity.CommonFlamefallFireComponent;
 import studio.abos.mc.sunspot.platform.neoforge.SPComponentPlatformUtilsImpl;
 
-public class ClientPayloadHandler {
+public final class ClientPayloadHandlerNeoForge {
+
+    private ClientPayloadHandlerNeoForge() {
+        /* No instantiation */
+    }
 
     public static void handleFlameDataOnMain(final FlameData data, final IPayloadContext context) {
         final CommonFlameComponent flame = SPComponentPlatformUtilsImpl.getFlameData(context.player());

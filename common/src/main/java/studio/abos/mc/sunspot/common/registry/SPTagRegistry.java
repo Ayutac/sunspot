@@ -1,9 +1,11 @@
 package studio.abos.mc.sunspot.common.registry;
 
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import studio.abos.mc.sunspot.Sunspot;
 
 public interface SPTagRegistry {
@@ -13,6 +15,8 @@ public interface SPTagRegistry {
     TagKey<Item> SEVERED_INTO_GRAVEL = TagKey.create(Registries.ITEM, Sunspot.id("severed_into_gravel"));
     TagKey<Item> SEVERED_INTO_SAND = TagKey.create(Registries.ITEM, Sunspot.id("severed_into_sand"));
     TagKey<Item> SEVERED_INTO_RED_SAND = TagKey.create(Registries.ITEM, Sunspot.id("severed_into_red_sand"));
+
+    TagKey<Block> GLASS_BLOCKS = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "glass_blocks"));
 
     TagKey<EntityType<?>> UNAFFECTED_BY_AFFIX = TagKey.create(Registries.ENTITY_TYPE, Sunspot.id("unaffected_by_affix"));
     TagKey<EntityType<?>> UNAFFECTED_BY_ASH = TagKey.create(Registries.ENTITY_TYPE, Sunspot.id("unaffected_by_ash"));

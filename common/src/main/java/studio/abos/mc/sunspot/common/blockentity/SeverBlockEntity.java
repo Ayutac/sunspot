@@ -6,6 +6,7 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
@@ -65,6 +66,18 @@ public class SeverBlockEntity extends GlyphBlockEntity implements ImplementedInv
         return new SeverMenu(index, inventory, this, containerData);
     }
 
+    @Override
+    public @Nullable ClientboundBlockEntityDataPacket getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
+    public @NotNull CompoundTag getUpdateTag(final @NotNull HolderLookup.Provider lookup) {
+        CompoundTag tag = super.getUpdateTag(lookup);
+        saveAdditional(tag, lookup);
+        return tag;
+    }
+
     public int getSeverTicks() {
         return containerData.get(SeverMenu.PROGRESS_DATA_SLOT);
     }
@@ -87,6 +100,7 @@ public class SeverBlockEntity extends GlyphBlockEntity implements ImplementedInv
         final int maxStackSize = severEntity.getMaxStackSize();
         if (canSever(level.registryAccess(), recipeHolder, severEntity.items, maxStackSize)) {
             severEntity.increaseSeverTicks();
+            severEntity.setChanged();
             if (severEntity.getSeverTicks() == TOTAL_SEVER_TIME) {
                 severEntity.resetSeverTicks();
                 if (sever(level.registryAccess(), recipeHolder, severEntity.items, maxStackSize)) {
