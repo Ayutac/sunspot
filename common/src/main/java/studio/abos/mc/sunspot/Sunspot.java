@@ -15,6 +15,7 @@ import studio.abos.mc.sunspot.common.registry.SPEventRegistry;
 import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPItemPreRegistry;
 import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
+import studio.abos.mc.sunspot.common.registry.SPMenuTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPParticleTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPRecipeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPRegistries;
@@ -38,6 +39,7 @@ public class Sunspot {
         SPTagRegistry.init();
         SPRecipeRegistry.register();
         SPCreativeMenuTabRegistry.register();
+        SPMenuTypeRegistry.register();
         SPBiomeRegistry.init();
         SPDimensionRegistry.init();
         SPParticleTypeRegistry.register();

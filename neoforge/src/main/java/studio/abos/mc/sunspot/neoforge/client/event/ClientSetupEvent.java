@@ -8,15 +8,18 @@ import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.Util;
+import studio.abos.mc.sunspot.client.gui.screens.inventory.SeverScreen;
 import studio.abos.mc.sunspot.client.renderer.block.GlyphBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.entity.FlamefallRenderer;
 import studio.abos.mc.sunspot.common.block.GlyphBlock;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPEntityTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
+import studio.abos.mc.sunspot.common.registry.SPMenuTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPParticleTypeRegistry;
 
 @OnlyIn(Dist.CLIENT)
@@ -64,5 +67,10 @@ public class ClientSetupEvent {
     @SubscribeEvent
     public static void onParticleFactoryRegistration(final @NotNull RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(SPParticleTypeRegistry.FLAMEFALL_FLAME.get(), FlameParticle.Provider::new);
+    }
+
+    @SubscribeEvent // on the mod event bus only on the physical client
+    public static void registerScreens(final @NotNull RegisterMenuScreensEvent event) {
+        event.register(SPMenuTypeRegistry.SEVER.get(), SeverScreen::new);
     }
 }

@@ -9,11 +9,13 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.world.item.BlockItem;
 import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.client.SunspotClient;
+import studio.abos.mc.sunspot.client.gui.screens.inventory.SeverScreen;
 import studio.abos.mc.sunspot.client.renderer.block.GlyphBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.entity.FlamefallRenderer;
 import studio.abos.mc.sunspot.common.block.GlyphBlock;
@@ -21,6 +23,7 @@ import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPEntityTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
+import studio.abos.mc.sunspot.common.registry.SPMenuTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPParticleTypeRegistry;
 import studio.abos.mc.sunspot.fabric.client.event.ClientEvents;
 import studio.abos.mc.sunspot.fabric.client.event.ClientJumpEvent;
@@ -31,7 +34,9 @@ public class SunspotFabricClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         SunspotClient.init();
+        // entity renderer registration
         EntityRendererRegistry.register(SPEntityTypeRegistry.FLAMEFALL, FlamefallRenderer::new);
+        // block entity renderer and tint registration
         registerGlyphBlockTint(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.AFFIX));
         BlockEntityRendererRegistry.register(Util.getAffixBET(), GlyphBlockEntityRenderer::new);
         registerGlyphBlockTint(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.ASH));
@@ -52,6 +57,7 @@ public class SunspotFabricClient implements ClientModInitializer {
         BlockEntityRendererRegistry.register(Util.getSustainBET(), GlyphBlockEntityRenderer::new);
         registerGlyphBlockTint(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.TRANSPOSE));
         BlockEntityRendererRegistry.register(Util.getTransposeBET(), GlyphBlockEntityRenderer::new);
+        // particle registration
         ParticleFactoryRegistry.getInstance().register(SPParticleTypeRegistry.FLAMEFALL_FLAME.get(), FlameParticle.Provider::new);
         // build in the jump activation (in case we need it for more than the {OFFSET} block)
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -61,6 +67,8 @@ public class SunspotFabricClient implements ClientModInitializer {
         });
         // activate the {OFFSET} block
         ClientJumpEvent.EVENT.register(ClientEvents::jumpOnOffsetBlock);
+        // register the screen
+        MenuScreens.register(SPMenuTypeRegistry.SEVER.get(), SeverScreen::new);
     }
 
     private static void registerGlyphBlockTint(final @NotNull RegistrySupplier<BlockItem> blockItem) {
