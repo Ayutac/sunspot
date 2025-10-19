@@ -17,6 +17,7 @@ import org.jetbrains.annotations.Nullable;
 import studio.abos.mc.sunspot.common.blockentity.AffixBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.AshBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.ComposeBlockEntity;
+import studio.abos.mc.sunspot.common.blockentity.DissipateBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.FlameBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.ImpelBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.OffsetBlockEntity;
@@ -76,6 +77,14 @@ public final class Util {
 
     public static BlockEntityType<ImpelBlockEntity> getImpelBET() {
         return (BlockEntityType<ImpelBlockEntity>)SPBlockEntityTypeRegistry.GLYPH_MAP.get(SPGlyphTypeRegistry.IMPEL).get();
+    }
+
+    public static boolean isDissipate(final @NotNull BlockState state) {
+        return state.is(SPBlockRegistry.GLYPH_MAP.get(SPGlyphTypeRegistry.DISSIPATE));
+    }
+
+    public static BlockEntityType<DissipateBlockEntity> getDissipateBET() {
+        return (BlockEntityType<DissipateBlockEntity>)SPBlockEntityTypeRegistry.GLYPH_MAP.get(SPGlyphTypeRegistry.DISSIPATE).get();
     }
 
     public static boolean isOffset(final @NotNull BlockState state) {

@@ -32,6 +32,7 @@ public class ClientSetupEvent {
         event.registerBlockEntityRenderer(Util.getAshBET(), GlyphBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(Util.getComposeBET(), GlyphBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.COMPOSE_CREATIVE.get(), GlyphBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(Util.getDissipateBET(), GlyphBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(Util.getImpelBET(), GlyphBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(Util.getOffsetBET(), GlyphBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(Util.getRevitaliseBET(), GlyphBlockEntityRenderer::new);

@@ -13,6 +13,7 @@ import studio.abos.mc.sunspot.common.GlyphType;
 import studio.abos.mc.sunspot.common.blockentity.AffixBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.AshBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.ComposeBlockEntity;
+import studio.abos.mc.sunspot.common.blockentity.DissipateBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.ImpelBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.ComposeCreativeBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.OffsetBlockEntity;
@@ -38,6 +39,7 @@ public final class SPBlockEntityTypeRegistry {
         registerGlyphBlockEntity(Identifiers.AFFIX, SPGlyphTypeRegistry.AFFIX, AffixBlockEntity::new);
         registerGlyphBlockEntity(Identifiers.ASH, SPGlyphTypeRegistry.ASH, AshBlockEntity::new);
         registerGlyphBlockEntity(Identifiers.COMPOSE, SPGlyphTypeRegistry.COMPOSE, ComposeBlockEntity::new);
+        registerGlyphBlockEntity(Identifiers.DISSIPATE, SPGlyphTypeRegistry.DISSIPATE, DissipateBlockEntity::new);
         registerGlyphBlockEntity(Identifiers.IMPEL, SPGlyphTypeRegistry.IMPEL, ImpelBlockEntity::new);
         registerGlyphBlockEntity(Identifiers.OFFSET, SPGlyphTypeRegistry.OFFSET, OffsetBlockEntity::new);
         registerGlyphBlockEntity(Identifiers.REVITALISE, SPGlyphTypeRegistry.REVITALISE, RevitaliseBlockEntity::new);
