@@ -26,7 +26,7 @@ public class TransposeBlock extends GlyphBlock {
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(final @NotNull Level level, final @NotNull BlockState state,  BlockEntityType<T> type) {
-        return !level.isClientSide() && type == Util.getTransposeBET() ? (l, p, s, e) -> TransposeBlockEntity.tick(l, p, s, (SeverBlockEntity) e) : null;
+        return !level.isClientSide() && type == Util.getTransposeBET() ? (l, p, s, e) -> TransposeBlockEntity.tick(l, p, s, (TransposeBlockEntity) e) : null;
     }
 
 }
