@@ -4,6 +4,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public interface Identifiers {
 
+    // Glyphs + Glyph Blocks
     ResourceLocation AFFIX = Sunspot.id("affix");
     ResourceLocation AFFIX_BLOCK = Sunspot.id("affix_block");
     ResourceLocation ASH = Sunspot.id("ash");
@@ -22,5 +23,14 @@ public interface Identifiers {
     ResourceLocation SUSTAIN_BLOCK = Sunspot.id("sustain_block");
     ResourceLocation TRANSPOSE = Sunspot.id("transpose");
     ResourceLocation TRANSPOSE_BLOCK = Sunspot.id("transpose_block");
+
+    // Ripple
+    ResourceLocation BLUE = Sunspot.id("blue");
+    ResourceLocation GREEN = Sunspot.id("green");
+    ResourceLocation PINK = Sunspot.id("pink");
+    ResourceLocation ORANGE = Sunspot.id("orange");
+    ResourceLocation RED = Sunspot.id("red");
+    ResourceLocation SILVER = Sunspot.id("silver");
+    ResourceLocation WHITE = Sunspot.id("white");
 
 }

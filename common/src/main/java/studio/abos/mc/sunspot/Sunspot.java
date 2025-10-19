@@ -17,6 +17,7 @@ import studio.abos.mc.sunspot.common.registry.SPItemPreRegistry;
 import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
 import studio.abos.mc.sunspot.common.registry.SPParticleTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPRegistries;
+import studio.abos.mc.sunspot.common.registry.SPRippleTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 
 public class Sunspot {
@@ -25,6 +26,7 @@ public class Sunspot {
 
     public static void init() {
         SPRegistries.init(); // registry of registries always first
+        SPRippleTypeRegistry.register();
         SPItemPreRegistry.init(); // anything registered here can be used as intent
         SPGlyphTypeRegistry.register(); // register glyph types with intent
         SPBlockRegistry.register(); // blocks before items
