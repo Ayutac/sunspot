@@ -33,7 +33,8 @@ public class SPTagProviders {
                     Items.COBBLED_DEEPSLATE,
                     Items.GRANITE,
                     Items.DIORITE,
-                    Items.ANDESITE
+                    Items.ANDESITE,
+                    Items.TUFF
             );
         }
     }
