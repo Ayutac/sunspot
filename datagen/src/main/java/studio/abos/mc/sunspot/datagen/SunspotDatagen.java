@@ -4,14 +4,14 @@ import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
-import studio.abos.mc.sunspot.datagen.providers.assets.SPLangProvider;
-import studio.abos.mc.sunspot.datagen.providers.assets.SPModelProvider;
-import studio.abos.mc.sunspot.datagen.providers.data.SPAdvancementProvider;
-import studio.abos.mc.sunspot.datagen.providers.data.SPBiomeProvider;
-import studio.abos.mc.sunspot.datagen.providers.data.SPDamageTypeProvider;
-import studio.abos.mc.sunspot.datagen.providers.data.SPLootTableProviders;
-import studio.abos.mc.sunspot.datagen.providers.data.SPRecipeProvider;
-import studio.abos.mc.sunspot.datagen.providers.data.SPTagProviders;
+import studio.abos.mc.sunspot.datagen.provider.assets.SPLangProvider;
+import studio.abos.mc.sunspot.datagen.provider.assets.SPModelProvider;
+import studio.abos.mc.sunspot.datagen.provider.data.SPAdvancementProvider;
+import studio.abos.mc.sunspot.datagen.provider.data.SPBiomeProvider;
+import studio.abos.mc.sunspot.datagen.provider.data.SPDamageTypeProvider;
+import studio.abos.mc.sunspot.datagen.provider.data.SPLootTableProviders;
+import studio.abos.mc.sunspot.datagen.provider.data.SPRecipeProvider;
+import studio.abos.mc.sunspot.datagen.provider.data.SPTagProviders;
 
 public class SunspotDatagen implements DataGeneratorEntrypoint {
     @Override

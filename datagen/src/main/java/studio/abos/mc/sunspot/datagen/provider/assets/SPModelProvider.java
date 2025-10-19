@@ -1,4 +1,4 @@
-package studio.abos.mc.sunspot.datagen.providers.assets;
+package studio.abos.mc.sunspot.datagen.provider.assets;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
