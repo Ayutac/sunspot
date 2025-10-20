@@ -1,6 +1,7 @@
 package studio.abos.mc.sunspot.common.blockentity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
@@ -10,6 +11,7 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.MenuProvider;
+import net.minecraft.world.WorldlyContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -31,7 +33,7 @@ import studio.abos.mc.sunspot.common.recipe.SeverRecipe;
 import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
 import studio.abos.mc.sunspot.common.registry.SPRecipeRegistry;
 
-public class SeverBlockEntity extends GlyphBlockEntity implements ImplementedInventory, MenuProvider {
+public class SeverBlockEntity extends GlyphBlockEntity implements ImplementedInventory, WorldlyContainer, MenuProvider {
 
     public static final String PROGRESS_KEY = "progress";
 
@@ -66,6 +68,21 @@ public class SeverBlockEntity extends GlyphBlockEntity implements ImplementedInv
     @Override
     public @Nullable AbstractContainerMenu createMenu(final int index, final @NotNull Inventory inventory, final @NotNull Player player) {
         return new SeverMenu(index, inventory, this, containerData);
+    }
+
+    @Override
+    public int @NotNull [] getSlotsForFace(Direction direction) {
+        return new int[] { SeverMenu.INPUT_SLOT, SeverMenu.OUTPUT_SLOT };
+    }
+
+    @Override
+    public boolean canPlaceItemThroughFace(int slotIndex, ItemStack itemStack, @Nullable Direction direction) {
+        return slotIndex != SeverMenu.OUTPUT_SLOT;
+    }
+
+    @Override
+    public boolean canTakeItemThroughFace(int slotIndex, ItemStack itemStack, Direction direction) {
+        return slotIndex != SeverMenu.INPUT_SLOT;
     }
 
     @Override
@@ -166,4 +183,5 @@ public class SeverBlockEntity extends GlyphBlockEntity implements ImplementedInv
         ContainerHelper.saveAllItems(tag, items, lookup);
         tag.putInt(PROGRESS_KEY, containerData.get(SeverMenu.PROGRESS_DATA_SLOT));
     }
+
 }
