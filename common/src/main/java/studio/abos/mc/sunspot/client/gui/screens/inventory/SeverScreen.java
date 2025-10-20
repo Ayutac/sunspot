@@ -32,6 +32,6 @@ public class SeverScreen extends AbstractContainerScreen<SeverMenu> {
     protected void renderBg(final @NotNull GuiGraphics guiGraphics, final float f, final int i, final int j) {
         guiGraphics.blit(BACKGROUND, leftPos, topPos, 0, 0, imageWidth, imageHeight);
         final int progress = Mth.ceil(menu.getProgress() * 24f);
-        guiGraphics.blitSprite(PROGRESS_SPRITE, 24, 24, 0, 0, leftPos + 79, topPos + 30, progress, 24);
+        guiGraphics.blitSprite(PROGRESS_SPRITE, 24, 24, 0, 0, leftPos + 79, topPos + 29, progress, 24);
     }
 }
