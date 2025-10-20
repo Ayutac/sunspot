@@ -67,8 +67,8 @@ public class SeverRecipeBuilder implements RecipeBuilder {
         ensureValid(resourceLocation);
         final Advancement.Builder builder = recipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(resourceLocation)).rewards(AdvancementRewards.Builder.recipe(resourceLocation)).requirements(AdvancementRequirements.Strategy.OR);
         criteria.forEach(builder::addCriterion);
-        final SeverRecipe SeverRecipe = new SeverRecipe(ingredient, result);
-        recipeOutput.accept(resourceLocation, SeverRecipe, builder.build(resourceLocation.withPrefix("recipes/sever/")));
+        final SeverRecipe severRecipe = new SeverRecipe(ingredient, result);
+        recipeOutput.accept(resourceLocation, severRecipe, builder.build(resourceLocation.withPrefix("recipes/sever/")));
     }
 
     private void ensureValid(ResourceLocation resourceLocation) {
