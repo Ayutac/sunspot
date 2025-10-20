@@ -29,8 +29,8 @@ public class SeverBlockEntityRenderer<T extends SeverBlockEntity> extends GlyphB
         final ItemStack input = blockEntity.getItem(SeverMenu.INPUT_SLOT);
         if (!input.isEmpty() && blockEntity.getLevel().getBlockState(blockEntity.getBlockPos().above()).is(SPTagRegistry.GLASS_BLOCKS)) {
             poseStack.pushPose();
-            poseStack.translate(0.5f, 1.15f, 0.5f);
-            poseStack.mulPose(Axis.YP.rotationDegrees(blockEntity.getSeverTicks() % 360));
+            poseStack.translate(0.5f, 1.5f, 0.5f);
+            poseStack.mulPose(Axis.YP.rotationDegrees(blockEntity.getRotationDegrees()));
             poseStack.scale(0.5f, 0.5f, 0.5f);
             Minecraft.getInstance().getItemRenderer().renderStatic(input, ItemDisplayContext.FIXED,
                     LevelRenderer.getLightColor(blockEntity.getLevel(), blockEntity.getBlockPos().above()),

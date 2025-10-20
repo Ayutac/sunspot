@@ -7,6 +7,7 @@ import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
@@ -38,6 +39,7 @@ public class SeverBlockEntity extends GlyphBlockEntity implements ImplementedInv
 
     protected final @NotNull NonNullList<ItemStack> items = NonNullList.withSize(SeverMenu.SLOT_COUNT, ItemStack.EMPTY);
     protected final @NotNull ContainerData containerData = new SimpleContainerData(1);
+    protected float rotationDegrees;
 
     protected final RecipeManager.CachedCheck<SingleRecipeInput, ? extends SeverRecipe> quickCheck;
 
@@ -90,9 +92,19 @@ public class SeverBlockEntity extends GlyphBlockEntity implements ImplementedInv
         containerData.set(SeverMenu.PROGRESS_DATA_SLOT, 0);
     }
 
+    public float getRotationDegrees() {
+        rotationDegrees += 0.5f;
+        if (rotationDegrees >= 360f) {
+            rotationDegrees = 0f;
+        }
+        return rotationDegrees;
+    }
+
     public static void tick(final @NotNull Level level, final @NotNull BlockPos pos, final @NotNull BlockState state, final @NotNull SeverBlockEntity severEntity) {
         GlyphBlockEntity.tick(level, pos, state, severEntity);
         final ItemStack input = severEntity.items.get(SeverMenu.INPUT_SLOT);
+        severEntity.setChanged();
+        ((ServerLevel)level).getChunkSource().blockChanged(pos);
         if (!severEntity.isPowered() || input.isEmpty()) {
             return;
         }
@@ -100,7 +112,6 @@ public class SeverBlockEntity extends GlyphBlockEntity implements ImplementedInv
         final int maxStackSize = severEntity.getMaxStackSize();
         if (canSever(level.registryAccess(), recipeHolder, severEntity.items, maxStackSize)) {
             severEntity.increaseSeverTicks();
-            severEntity.setChanged();
             if (severEntity.getSeverTicks() == TOTAL_SEVER_TIME) {
                 severEntity.resetSeverTicks();
                 if (sever(level.registryAccess(), recipeHolder, severEntity.items, maxStackSize)) {
