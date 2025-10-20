@@ -13,6 +13,7 @@ import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.client.gui.screens.inventory.SeverScreen;
+import studio.abos.mc.sunspot.client.gui.screens.inventory.WorkbenchScreen;
 import studio.abos.mc.sunspot.client.renderer.block.GlyphBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.block.SeverBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.entity.FlamefallRenderer;
@@ -74,5 +75,6 @@ public class ClientSetupEvent {
     @SubscribeEvent
     public static void registerScreens(final @NotNull RegisterMenuScreensEvent event) {
         event.register(SPMenuTypeRegistry.SEVER.get(), SeverScreen::new);
+        event.register(SPMenuTypeRegistry.WORKBENCH.get(), WorkbenchScreen::new);
     }
 }

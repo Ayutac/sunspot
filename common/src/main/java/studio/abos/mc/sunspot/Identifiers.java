@@ -4,6 +4,8 @@ import net.minecraft.resources.ResourceLocation;
 
 public interface Identifiers {
 
+    ResourceLocation WORKBENCH = Sunspot.id("workbench");
+
     // Glyphs + Glyph Blocks
     ResourceLocation AFFIX = Sunspot.id("affix");
     ResourceLocation AFFIX_BLOCK = Sunspot.id("affix_block");

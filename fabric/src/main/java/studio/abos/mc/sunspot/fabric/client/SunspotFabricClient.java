@@ -16,6 +16,7 @@ import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.client.SunspotClient;
 import studio.abos.mc.sunspot.client.gui.screens.inventory.SeverScreen;
+import studio.abos.mc.sunspot.client.gui.screens.inventory.WorkbenchScreen;
 import studio.abos.mc.sunspot.client.renderer.block.GlyphBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.block.SeverBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.entity.FlamefallRenderer;
@@ -72,6 +73,7 @@ public class SunspotFabricClient implements ClientModInitializer {
         ClientJumpEvent.EVENT.register(ClientEvents::jumpOnOffsetBlock);
         // register the screen
         MenuScreens.register(SPMenuTypeRegistry.SEVER.get(), SeverScreen::new);
+        MenuScreens.register(SPMenuTypeRegistry.WORKBENCH.get(), WorkbenchScreen::new);
     }
 
     private static void registerGlyphBlockTint(final @NotNull RegistrySupplier<BlockItem> blockItem) {

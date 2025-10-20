@@ -5,6 +5,7 @@ import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import studio.abos.mc.sunspot.Identifiers;
 import studio.abos.mc.sunspot.Sunspot;
 import studio.abos.mc.sunspot.common.item.FlamefallRodItem;
 import studio.abos.mc.sunspot.common.item.FourspaceShifterItem;
@@ -19,7 +20,7 @@ public interface SPItemPreRegistry {
     RegistrySupplier<Item> ASH_RESIDUE = ITEM_REGISTRY.register(Sunspot.id("ash_residue"), () -> new Item(new Item.Properties().fireResistant()));
     RegistrySupplier<Item> ASH_RESIDUE_BLOCK = ITEM_REGISTRY.register(Sunspot.id("ash_residue_block"), () -> new BlockItem(SPBlockRegistry.ASH_RESIDUE.get(), new Item.Properties().fireResistant()));
 
-    RegistrySupplier<BlockItem> LM_WORKBENCH = ITEM_REGISTRY.register(Sunspot.id("lm_workbench"), () -> new BlockItem(SPBlockRegistry.WORKBENCH.get(), new Item.Properties()));
+    RegistrySupplier<BlockItem> LM_WORKBENCH = ITEM_REGISTRY.register(Identifiers.WORKBENCH, () -> new BlockItem(SPBlockRegistry.WORKBENCH.get(), new Item.Properties()));
 
     RegistrySupplier<Item> MANTLE_BASE_HELMET = ITEM_REGISTRY.register(Sunspot.id("mantle_base_helmet"), () -> new Item(new Item.Properties()));
     RegistrySupplier<Item> MANTLE_BASE_CHESTPLATE = ITEM_REGISTRY.register(Sunspot.id("mantle_base_chestplate"), () -> new Item(new Item.Properties()));

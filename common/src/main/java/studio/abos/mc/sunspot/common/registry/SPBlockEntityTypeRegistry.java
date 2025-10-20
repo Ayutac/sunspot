@@ -21,6 +21,7 @@ import studio.abos.mc.sunspot.common.blockentity.RevitaliseBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.SeverBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.SustainBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.TransposeBlockEntity;
+import studio.abos.mc.sunspot.common.blockentity.WorkbenchBlockEntity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +30,9 @@ public final class SPBlockEntityTypeRegistry {
 
     private static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPE_REGISTRY = DeferredRegister.create(Sunspot.MOD_ID, Registries.BLOCK_ENTITY_TYPE);
 
+    public static final RegistrySupplier<BlockEntityType<WorkbenchBlockEntity>> WORKBENCH = BLOCK_ENTITY_TYPE_REGISTRY.register(
+            Identifiers.WORKBENCH, () -> BlockEntityType.Builder.of(WorkbenchBlockEntity::new, SPBlockRegistry.WORKBENCH.get()).build(null)
+    );
     public static final RegistrySupplier<BlockEntityType<ComposeCreativeBlockEntity>> COMPOSE_CREATIVE = BLOCK_ENTITY_TYPE_REGISTRY.register(
             "compose_creative", () -> BlockEntityType.Builder.of(ComposeCreativeBlockEntity::new, SPBlockRegistry.COMPOSE_CREATIVE.get()).build(null)
     );
