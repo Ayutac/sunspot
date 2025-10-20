@@ -15,6 +15,8 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,19 +25,22 @@ import org.jetbrains.annotations.Nullable;
 import studio.abos.mc.sunspot.common.inventory.ImplementedInventory;
 import studio.abos.mc.sunspot.common.inventory.SeverMenu;
 import studio.abos.mc.sunspot.common.inventory.WorkbenchMenu;
+import studio.abos.mc.sunspot.common.recipe.WorkbenchRecipe;
+import studio.abos.mc.sunspot.common.recipe.WorkbenchRecipeInput;
 import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
+import studio.abos.mc.sunspot.common.registry.SPRecipeRegistry;
 
 public class WorkbenchBlockEntity extends BlockEntity implements ImplementedInventory, WorldlyContainer, MenuProvider {
 
     public static final String PROGRESS_KEY = "progress";
 
-    public static final int TOTAL_WEAVE_TIME = 12;
-
     protected final @NotNull NonNullList<ItemStack> items = NonNullList.withSize(WorkbenchMenu.SLOT_COUNT, ItemStack.EMPTY);
     protected final @NotNull ContainerData containerData = new SimpleContainerData(1);
+    protected final @NotNull RecipeManager.CachedCheck<WorkbenchRecipeInput, ? extends WorkbenchRecipe> quickCheck;
 
-    public WorkbenchBlockEntity(BlockPos blockPos, BlockState blockState) {
+    public WorkbenchBlockEntity(final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
         super(SPBlockEntityTypeRegistry.WORKBENCH.get(), blockPos, blockState);
+        quickCheck = RecipeManager.createCheck(SPRecipeRegistry.WORKBENCH_TYPE.get());
     }
 
     @Override
@@ -45,7 +50,7 @@ public class WorkbenchBlockEntity extends BlockEntity implements ImplementedInve
 
     @Override
     public @Nullable AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
-        return new WorkbenchMenu(i, inventory, this, containerData);
+        return new WorkbenchMenu(i, inventory, this);
     }
 
     @Override
@@ -66,6 +71,39 @@ public class WorkbenchBlockEntity extends BlockEntity implements ImplementedInve
     @Override
     public boolean canTakeItemThroughFace(final int slotIndex, final @NotNull ItemStack itemStack, final Direction direction) {
         return slotIndex == WorkbenchMenu.OUTPUT_SLOT;
+    }
+
+    protected @NotNull WorkbenchRecipeInput getCurrentInput() {
+        return new WorkbenchRecipeInput(items.get(WorkbenchMenu.INPUT_SLOT), items.get(WorkbenchMenu.INTENT_SLOT));
+    }
+
+    protected @Nullable RecipeHolder<? extends WorkbenchRecipe> getRecipeHolder() {
+        return quickCheck.getRecipeFor(getCurrentInput(), getLevel()).orElse(null);
+    }
+
+    @Override
+    public void setChanged() {
+        final var recipeHolder = getRecipeHolder();
+        if (recipeHolder != null) {
+            items.set(WorkbenchMenu.OUTPUT_SLOT, recipeHolder.value().assemble(getCurrentInput(), getLevel().registryAccess()));
+        }
+        else {
+            items.set(WorkbenchMenu.OUTPUT_SLOT, ItemStack.EMPTY);
+        }
+        super.setChanged();
+    }
+
+    @Override
+    public @NotNull ItemStack removeItem(final int slot, final int count) {
+        final ItemStack removedItem = ImplementedInventory.super.removeItem(slot, count);
+        if (removedItem.isEmpty()) {
+            return removedItem;
+        }
+        if (slot == WorkbenchMenu.OUTPUT_SLOT) {
+            items.get(WorkbenchMenu.INPUT_SLOT).shrink(1);
+        }
+        setChanged();
+        return removedItem;
     }
 
     public static void tick(final @NotNull Level level, final @NotNull BlockPos pos, final @NotNull BlockState state, final @NotNull WorkbenchBlockEntity workbenchEntity) {

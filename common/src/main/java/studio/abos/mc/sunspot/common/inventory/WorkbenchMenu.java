@@ -5,12 +5,9 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import studio.abos.mc.sunspot.common.blockentity.SeverBlockEntity;
 import studio.abos.mc.sunspot.common.registry.SPMenuTypeRegistry;
 
 public class WorkbenchMenu extends AbstractContainerMenu {
@@ -22,16 +19,14 @@ public class WorkbenchMenu extends AbstractContainerMenu {
     public static final int PROGRESS_DATA_SLOT = 0;
 
     protected final @NotNull Container container;
-    protected final @NotNull ContainerData containerData;
 
     public WorkbenchMenu(final int containerId, final @NotNull Inventory inventory) {
-        this(containerId, inventory, new SimpleContainer(SLOT_COUNT), new SimpleContainerData(1));
+        this(containerId, inventory, new SimpleContainer(SLOT_COUNT));
     }
 
-    public WorkbenchMenu(final int containerId, final @NotNull Inventory playerInventory, final @NotNull Container inventory, final @NotNull ContainerData data) {
+    public WorkbenchMenu(final int containerId, final @NotNull Inventory playerInventory, final @NotNull Container inventory) {
         super(SPMenuTypeRegistry.WORKBENCH.get(), containerId);
         container = inventory;
-        containerData = data;
         // j is x, k is y, i is index
         // Player inventory
         for (int row = 0; row < 3; row++) {
@@ -45,13 +40,8 @@ public class WorkbenchMenu extends AbstractContainerMenu {
         }
         // Own slots
         addSlot(new Slot(container, INPUT_SLOT, 56, 27)); // input
-        addSlot(new Slot(container, INTENT_SLOT, 84, 54)); // input
+        addSlot(new Slot(container, INTENT_SLOT, 84, 54)); // intent
         addSlot(new ResultSlot(container, OUTPUT_SLOT, 116, 27)); // output
-        addDataSlots(containerData); // conversion time
-    }
-
-    public float getProgress() {
-        return containerData.get(PROGRESS_DATA_SLOT) / (float)SeverBlockEntity.TOTAL_SEVER_TIME;
     }
 
     @Override

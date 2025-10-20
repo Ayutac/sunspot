@@ -20,7 +20,7 @@ import studio.abos.mc.sunspot.common.registry.SPBlockEntityTypeRegistry;
 
 public class WorkbenchBlock extends Block implements EntityBlock {
 
-    public WorkbenchBlock(Properties properties) {
+    public WorkbenchBlock(final @NotNull Properties properties) {
         super(properties);
     }
 
@@ -47,7 +47,7 @@ public class WorkbenchBlock extends Block implements EntityBlock {
     }
 
     @Override
-    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean moved) {
+    public void onRemove(final @NotNull BlockState state, final @NotNull Level level, final @NotNull BlockPos pos, final @NotNull BlockState newState, final boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
             if (blockEntity instanceof final WorkbenchBlockEntity severBlockEntity) {

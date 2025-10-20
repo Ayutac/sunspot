@@ -11,12 +11,11 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.common.registry.SPRecipeRegistry;
 
-public class WorkbenchRecipe implements Recipe<SingleRecipeInput> {
+public class WorkbenchRecipe implements Recipe<WorkbenchRecipeInput> {
 
     protected @NotNull final Ingredient ingredient;
     protected @NotNull final Ingredient intent;
@@ -34,12 +33,12 @@ public class WorkbenchRecipe implements Recipe<SingleRecipeInput> {
     }
 
     @Override
-    public boolean matches(final @NotNull SingleRecipeInput recipeInput, final Level level) {
-        return ingredient.test(recipeInput.item());
+    public boolean matches(final @NotNull WorkbenchRecipeInput recipeInput, final Level level) {
+        return ingredient.test(recipeInput.ingredient()) && intent.test(recipeInput.intent());
     }
 
     @Override
-    public @NotNull ItemStack assemble(final SingleRecipeInput recipeInput, final HolderLookup.Provider provider) {
+    public @NotNull ItemStack assemble(final @NotNull WorkbenchRecipeInput recipeInput, final @NotNull HolderLookup.Provider lookup) {
         return result.copy();
     }
 
@@ -49,7 +48,7 @@ public class WorkbenchRecipe implements Recipe<SingleRecipeInput> {
     }
 
     @Override
-    public @NotNull ItemStack getResultItem(HolderLookup.Provider provider) {
+    public @NotNull ItemStack getResultItem(HolderLookup.Provider lookup) {
         return result;
     }
 

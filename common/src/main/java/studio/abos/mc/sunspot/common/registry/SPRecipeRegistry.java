@@ -19,7 +19,7 @@ public interface SPRecipeRegistry {
 
     DeferredRegister<RecipeType<?>> TYPE_REGISTRY = DeferredRegister.create(Sunspot.MOD_ID, Registries.RECIPE_TYPE);
 
-    RegistrySupplier<RecipeType<SeverRecipe>> WORKBENCH_TYPE = TYPE_REGISTRY.register(Identifiers.WORKBENCH, () -> new RecipeType<>() {
+    RegistrySupplier<RecipeType<WorkbenchRecipe>> WORKBENCH_TYPE = TYPE_REGISTRY.register(Identifiers.WORKBENCH, () -> new RecipeType<>() {
         @Override
         public String toString() {
             return Identifiers.WORKBENCH.getPath();
