@@ -57,6 +57,9 @@ public class SeverMenu extends AbstractContainerMenu {
         // The quick moved slot stack
         ItemStack quickMovedStack = ItemStack.EMPTY;
         // The quick moved slot
+        if (index < 0 || index >= 36 + SLOT_COUNT) { // 36 are the player inventory slots
+            return quickMovedStack;
+        }
         final Slot quickMovedSlot = this.slots.get(index);
 
         // If the slot is in the valid range and the slot is not empty
@@ -73,9 +76,9 @@ public class SeverMenu extends AbstractContainerMenu {
             */
 
             // If the quick move was performed on the data inventory result slot
-            if (index == 0) {
+            if (index == 36 + OUTPUT_SLOT) {
                 // Try to move the result slot into the player inventory/hotbar
-                if (!this.moveItemStackTo(rawStack, 5, 41, true)) {
+                if (!this.moveItemStackTo(rawStack, 0, 36, true)) {
                     // If cannot move, no longer quick move
                     return ItemStack.EMPTY;
                 }
@@ -84,25 +87,25 @@ public class SeverMenu extends AbstractContainerMenu {
                 quickMovedSlot.onQuickCraft(rawStack, quickMovedStack);
             }
             // Else if the quick move was performed on the player inventory or hotbar slot
-            else if (index >= 5 && index < 41) {
+            else if (index < 36) {
                 // Try to move the inventory/hotbar slot into the data inventory input slots
-                if (!this.moveItemStackTo(rawStack, 1, 5, false)) {
+                if (!this.moveItemStackTo(rawStack, 36 + INPUT_SLOT, 36 + OUTPUT_SLOT, false)) {
                     // If cannot move and in player inventory slot, try to move to hotbar
-                    if (index < 32) {
-                        if (!this.moveItemStackTo(rawStack, 32, 41, false)) {
+                    if (index < 27) {
+                        if (!this.moveItemStackTo(rawStack, 27, 36, true)) {
                             // If cannot move, no longer quick move
                             return ItemStack.EMPTY;
                         }
                     }
                     // Else try to move hotbar into player inventory slot
-                    else if (!this.moveItemStackTo(rawStack, 5, 32, false)) {
+                    else if (!this.moveItemStackTo(rawStack, 0, 27, false)) {
                         // If cannot move, no longer quick move
                         return ItemStack.EMPTY;
                     }
                 }
             }
             // Else if the quick move was performed on the data inventory input slots, try to move to player inventory/hotbar
-            else if (!this.moveItemStackTo(rawStack, 5, 41, false)) {
+            else if (!this.moveItemStackTo(rawStack, 0, 36, false)) {
                 // If cannot move, no longer quick move
                 return ItemStack.EMPTY;
             }
