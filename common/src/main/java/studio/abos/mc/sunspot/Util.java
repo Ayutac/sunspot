@@ -17,6 +17,7 @@ import org.jetbrains.annotations.Nullable;
 import studio.abos.mc.sunspot.common.blockentity.AffixBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.AshBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.ComposeBlockEntity;
+import studio.abos.mc.sunspot.common.blockentity.ComposeCreativeBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.DissipateBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.FlameBlockEntity;
 import studio.abos.mc.sunspot.common.blockentity.ImpelBlockEntity;
@@ -259,6 +260,9 @@ public final class Util {
                 continue;
             }
             if (!(getter.getBlockEntity(pos) instanceof final ComposeBlockEntity battery) || !battery.isPowered()) {
+                continue;
+            }
+            if (getter.getBlockEntity(requester) instanceof ComposeBlockEntity && !(battery instanceof ComposeCreativeBlockEntity)) {
                 continue;
             }
             final int remainingAmount = requestedAmount - amount;
