@@ -13,13 +13,15 @@ public class GlyphType {
     protected final @NotNull ResourceLocation blockItemId;
     protected final @NotNull String translation;
     protected final @NotNull Supplier<Item> intent;
+    protected final @NotNull Supplier<Item> substrate;
     protected final int tint;
 
-    public GlyphType(final @NotNull ResourceLocation id, final @NotNull Supplier<Item> intent, final int tint) {
+    public GlyphType(final @NotNull ResourceLocation id, final @NotNull Supplier<Item> intent, final @NotNull Supplier<Item> substrate, final int tint) {
         this.id = id;
         blockItemId = ResourceLocation.fromNamespaceAndPath(id.getNamespace(), id.getPath() + "_block");
         translation = "{" + id.getPath().toUpperCase(Locale.ROOT) + "}";
         this.intent = intent;
+        this.substrate = substrate;
         this.tint = tint;
     }
 
@@ -37,6 +39,10 @@ public class GlyphType {
 
     public @NotNull Supplier<Item> getIntent() {
         return intent;
+    }
+
+    public @NotNull Supplier<Item> getSubstrate() {
+        return substrate;
     }
 
     public int getTint() {

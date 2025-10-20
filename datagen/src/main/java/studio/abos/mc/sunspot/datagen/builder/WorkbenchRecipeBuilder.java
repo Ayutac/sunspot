@@ -65,7 +65,7 @@ public class WorkbenchRecipeBuilder implements RecipeBuilder {
     }
 
     public WorkbenchRecipeBuilder intent(final @NotNull ItemLike ingredient) {
-        return requires(Ingredient.of(ingredient));
+        return intent(Ingredient.of(ingredient));
     }
 
     public WorkbenchRecipeBuilder intent(final @NotNull Ingredient ingredient) {

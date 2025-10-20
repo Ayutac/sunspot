@@ -13,9 +13,12 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import studio.abos.mc.sunspot.Sunspot;
+import studio.abos.mc.sunspot.common.GlyphType;
 import studio.abos.mc.sunspot.common.registry.SPItemPreRegistry;
+import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
 import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 import studio.abos.mc.sunspot.datagen.builder.SeverRecipeBuilder;
+import studio.abos.mc.sunspot.datagen.builder.WorkbenchRecipeBuilder;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -126,5 +129,14 @@ public class SPRecipeProvider extends FabricRecipeProvider {
                 .requires(Ingredient.of(SPTagRegistry.SEVERED_INTO_RED_SAND))
                 .unlockedBy("has_material", InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(SPTagRegistry.SEVERED_INTO_RED_SAND)))
                 .save(out, Sunspot.id("sever/red_sand"));
+        for (var entry : SPItemRegistry.GLYPH_BLOCK_MAP.entrySet()) {
+            final GlyphType glyphType = entry.getKey().get();
+            new WorkbenchRecipeBuilder(entry.getValue().get())
+                    .requires(glyphType.getSubstrate().get())
+                    .intent(glyphType.getIntent().get())
+                    .flame(15)
+                    .unlockedBy("has_intent", InventoryChangeTrigger.TriggerInstance.hasItems(glyphType.getIntent().get()))
+                    .save(out, Sunspot.id("workbench/" + glyphType.getId().getPath()));
+        }
     }
 }
