@@ -126,12 +126,11 @@ public class SeverBlockEntity extends GlyphBlockEntity implements ImplementedInv
             return;
         }
         final var recipeHolder = severEntity.quickCheck.getRecipeFor(new SingleRecipeInput(input), level).orElse(null);
-        final int maxStackSize = severEntity.getMaxStackSize();
-        if (canSever(level.registryAccess(), recipeHolder, severEntity.items, maxStackSize)) {
+        if (canSever(level.registryAccess(), recipeHolder, severEntity.items, severEntity.getMaxStackSize())) {
             severEntity.increaseSeverTicks();
             if (severEntity.getSeverTicks() == TOTAL_SEVER_TIME) {
                 severEntity.resetSeverTicks();
-                if (sever(level.registryAccess(), recipeHolder, severEntity.items, maxStackSize)) {
+                if (sever(level.registryAccess(), recipeHolder, severEntity.items)) {
                     /* Cache the recipe? See AbstractFurnaceBlockEntity and RecipeCraftingHolder for more details */
                 }
             }
@@ -157,7 +156,7 @@ public class SeverBlockEntity extends GlyphBlockEntity implements ImplementedInv
         }
     }
 
-    private static boolean sever(final @NotNull RegistryAccess registryAccess, final @NotNull RecipeHolder<? extends SeverRecipe> recipeHolder, final @NotNull NonNullList<ItemStack> items, final int maxStackSize) {
+    private static boolean sever(final @NotNull RegistryAccess registryAccess, final @NotNull RecipeHolder<? extends SeverRecipe> recipeHolder, final @NotNull NonNullList<ItemStack> items) {
         final ItemStack input = items.get(SeverMenu.INPUT_SLOT);
         final ItemStack result = recipeHolder.value().getResultItem(registryAccess);
         final ItemStack output = items.get(SeverMenu.OUTPUT_SLOT);
