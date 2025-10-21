@@ -23,25 +23,6 @@ public class SPTagProviders {
 
         @Override
         protected void addTags(final @NotNull HolderLookup.Provider lookup) {
-            getOrCreateTagBuilder(SPTagRegistry.CANDLES).add(
-                    Items.CANDLE,
-                    Items.WHITE_CANDLE,
-                    Items.LIGHT_GRAY_CANDLE,
-                    Items.GRAY_CANDLE,
-                    Items.BLACK_CANDLE,
-                    Items.BROWN_CANDLE,
-                    Items.RED_CANDLE,
-                    Items.ORANGE_CANDLE,
-                    Items.YELLOW_CANDLE,
-                    Items.LIME_CANDLE,
-                    Items.GREEN_CANDLE,
-                    Items.CYAN_CANDLE,
-                    Items.LIGHT_BLUE_CANDLE,
-                    Items.BLUE_CANDLE,
-                    Items.PURPLE_CANDLE,
-                    Items.MAGENTA_CANDLE,
-                    Items.PINK_CANDLE
-            );
             getOrCreateTagBuilder(SPTagRegistry.SUBSTRATE_MATERIAL).add(Items.BONE_BLOCK);
             getOrCreateTagBuilder(SPTagRegistry.UNAFFECTED_BY_ASH_TRANSFORMATION).add(
                     SPItemPreRegistry.ASH_RESIDUE.getId(),

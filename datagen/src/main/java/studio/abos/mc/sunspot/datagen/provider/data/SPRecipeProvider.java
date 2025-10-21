@@ -151,7 +151,7 @@ public class SPRecipeProvider extends FabricRecipeProvider {
         severTag(out, SPTagRegistry.SEVERED_INTO_NETHERRACK, Items.NETHERRACK);
         severTag(out, SPTagRegistry.SEVERED_INTO_FOUR_NETHER_BRICK, Items.NETHER_BRICK, 4);
         severTag(out, SPTagRegistry.SEVERED_INTO_FOUR_NETHER_QUARTZ, Items.QUARTZ, 4);
-        severTag(out, SPTagRegistry.CANDLES, Items.STRING);
+        severTag(out, ItemTags.CANDLES, Items.STRING);
         severTag(out, TagKey.create(Registries.ITEM, Sunspot.c("shulker_boxes")), Items.SHULKER_SHELL, 2);
         severPlanksFromLogs(out, ItemTags.OAK_LOGS, Items.OAK_PLANKS);
         severPlanksFromLogs(out, ItemTags.BIRCH_LOGS, Items.BIRCH_PLANKS);
