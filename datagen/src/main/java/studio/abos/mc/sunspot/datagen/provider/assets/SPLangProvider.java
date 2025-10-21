@@ -40,6 +40,8 @@ public class SPLangProvider extends FabricLanguageProvider {
         builder.add(SPTagRegistry.SUBSTRATE_MATERIAL, "Substrate Material");
         builder.add(SPTagRegistry.UNAFFECTED_BY_ASH_TRANSFORMATION, "Unaffected by {ASH}");
         builder.add(SPTagRegistry.SEVERED_INTO_GRAVEL, "{SEVER}ed into Gravel");
+        builder.add(SPTagRegistry.SEVERED_INTO_SAND, "{SEVER}ed into Sand");
+        builder.add(SPTagRegistry.SEVERED_INTO_RED_SAND, "{SEVER}ed into Red Sand");
         builder.add(SPTagRegistry.UNAFFECTED_BY_AFFIX, "Unaffected by {AFFIX}");
         builder.add(SPTagRegistry.UNAFFECTED_BY_ASH, "Unaffected by {ASH}");
         builder.add(SPTagRegistry.UNAFFECTED_BY_IMPEL, "Unaffected by {IMPEL}");
