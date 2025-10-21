@@ -50,4 +50,8 @@ public class Sunspot {
     public static ResourceLocation id(final String name) {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
     }
+
+    public static ResourceLocation c(final String name) {
+        return ResourceLocation.fromNamespaceAndPath("c", name);
+    }
 }

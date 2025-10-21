@@ -23,18 +23,71 @@ public class SPTagProviders {
 
         @Override
         protected void addTags(final @NotNull HolderLookup.Provider lookup) {
+            getOrCreateTagBuilder(SPTagRegistry.CANDLES).add(
+                    Items.CANDLE,
+                    Items.WHITE_CANDLE,
+                    Items.LIGHT_GRAY_CANDLE,
+                    Items.GRAY_CANDLE,
+                    Items.BLACK_CANDLE,
+                    Items.BROWN_CANDLE,
+                    Items.RED_CANDLE,
+                    Items.ORANGE_CANDLE,
+                    Items.YELLOW_CANDLE,
+                    Items.LIME_CANDLE,
+                    Items.GREEN_CANDLE,
+                    Items.CYAN_CANDLE,
+                    Items.LIGHT_BLUE_CANDLE,
+                    Items.BLUE_CANDLE,
+                    Items.PURPLE_CANDLE,
+                    Items.MAGENTA_CANDLE,
+                    Items.PINK_CANDLE
+            );
             getOrCreateTagBuilder(SPTagRegistry.SUBSTRATE_MATERIAL).add(Items.BONE_BLOCK);
             getOrCreateTagBuilder(SPTagRegistry.UNAFFECTED_BY_ASH_TRANSFORMATION).add(
                     SPItemPreRegistry.ASH_RESIDUE.getId(),
                     SPItemPreRegistry.ASH_RESIDUE_BLOCK.getId()
             );
+            getOrCreateTagBuilder(SPTagRegistry.SEVERED_INTO_COBBLESTONE).add(
+                    Items.STONE,
+                    Items.STONE_BRICKS,
+                    Items.CHISELED_STONE_BRICKS,
+                    Items.SMOOTH_STONE,
+                    Items.CRACKED_STONE_BRICKS,
+                    Items.MOSSY_COBBLESTONE,
+                    Items.MOSSY_STONE_BRICKS
+            );
+            getOrCreateTagBuilder(SPTagRegistry.SEVERED_INTO_COBBLED_DEEPSLATE).add(
+                    Items.DEEPSLATE,
+                    Items.DEEPSLATE_BRICKS,
+                    Items.CHISELED_DEEPSLATE,
+                    Items.DEEPSLATE_TILES,
+                    Items.POLISHED_DEEPSLATE,
+                    Items.CRACKED_DEEPSLATE_BRICKS,
+                    Items.CRACKED_DEEPSLATE_TILES
+            );
+            getOrCreateTagBuilder(SPTagRegistry.SEVERED_INTO_BLACKSTONE).add(
+                    Items.CHISELED_POLISHED_BLACKSTONE,
+                    Items.CRACKED_POLISHED_BLACKSTONE_BRICKS,
+                    Items.POLISHED_BLACKSTONE
+            );
             getOrCreateTagBuilder(SPTagRegistry.SEVERED_INTO_GRAVEL).add(
                     Items.COBBLESTONE,
                     Items.COBBLED_DEEPSLATE,
-                    Items.GRANITE,
-                    Items.DIORITE,
                     Items.ANDESITE,
-                    Items.TUFF
+                    Items.DIORITE,
+                    Items.GRANITE,
+                    Items.TUFF,
+                    Items.BASALT,
+                    Items.CALCITE,
+                    Items.POLISHED_ANDESITE,
+                    Items.POLISHED_DIORITE,
+                    Items.POLISHED_GRANITE,
+                    Items.SMOOTH_BASALT,
+                    Items.POLISHED_BASALT,
+                    Items.POLISHED_TUFF,
+                    Items.TUFF_BRICKS,
+                    Items.CHISELED_TUFF,
+                    Items.CHISELED_TUFF_BRICKS
             );
             getOrCreateTagBuilder(SPTagRegistry.SEVERED_INTO_SAND).add(
                     Items.GRAVEL,
@@ -48,6 +101,33 @@ public class SPTagProviders {
                     Items.SMOOTH_RED_SANDSTONE,
                     Items.CUT_RED_SANDSTONE,
                     Items.CHISELED_RED_SANDSTONE
+            );
+            getOrCreateTagBuilder(SPTagRegistry.SEVERED_INTO_DIRT).add(
+                    Items.PACKED_MUD,
+                    Items.MUD_BRICKS,
+                    Items.MUD,
+                    Items.PODZOL,
+                    Items.GRASS_BLOCK,
+                    Items.MYCELIUM,
+                    Items.ROOTED_DIRT,
+                    Items.COARSE_DIRT,
+                    Items.MUDDY_MANGROVE_ROOTS
+            );
+            getOrCreateTagBuilder(SPTagRegistry.SEVERED_INTO_NETHERRACK).add(
+                    Items.CRIMSON_NYLIUM,
+                    Items.WARPED_NYLIUM
+            );
+            getOrCreateTagBuilder(SPTagRegistry.SEVERED_INTO_FOUR_NETHER_BRICK).add(
+                    Items.NETHER_BRICKS,
+                    Items.CRACKED_NETHER_BRICKS,
+                    Items.CHISELED_NETHER_BRICKS
+            );
+            getOrCreateTagBuilder(SPTagRegistry.SEVERED_INTO_FOUR_NETHER_QUARTZ).add(
+                    Items.QUARTZ_BLOCK,
+                    Items.QUARTZ_BRICKS,
+                    Items.QUARTZ_PILLAR,
+                    Items.CHISELED_QUARTZ_BLOCK,
+                    Items.SMOOTH_QUARTZ
             );
         }
     }

@@ -29,6 +29,10 @@ public class SeverRecipeBuilder implements RecipeBuilder {
         this(new ItemStack(result));
     }
 
+    public SeverRecipeBuilder(final ItemLike result, final int amount) {
+        this(new ItemStack(result, amount));
+    }
+
     public SeverRecipeBuilder(final ItemStack result) {
         this.result = result;
     }

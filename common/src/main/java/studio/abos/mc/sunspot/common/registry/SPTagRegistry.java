@@ -10,11 +10,19 @@ import studio.abos.mc.sunspot.Sunspot;
 
 public interface SPTagRegistry {
 
+    TagKey<Item> CANDLES = TagKey.create(Registries.ITEM, Sunspot.c("candles"));
     TagKey<Item> SUBSTRATE_MATERIAL = TagKey.create(Registries.ITEM, Sunspot.id("substrate_material"));
     TagKey<Item> UNAFFECTED_BY_ASH_TRANSFORMATION = TagKey.create(Registries.ITEM, Sunspot.id("unaffected_by_ash_transformation"));
+    TagKey<Item> SEVERED_INTO_COBBLESTONE = TagKey.create(Registries.ITEM, Sunspot.id("severed_into_cobblestone"));
+    TagKey<Item> SEVERED_INTO_COBBLED_DEEPSLATE = TagKey.create(Registries.ITEM, Sunspot.id("severed_into_cobbled_deepslate"));
+    TagKey<Item> SEVERED_INTO_BLACKSTONE = TagKey.create(Registries.ITEM, Sunspot.id("severed_into_blackstone"));
     TagKey<Item> SEVERED_INTO_GRAVEL = TagKey.create(Registries.ITEM, Sunspot.id("severed_into_gravel"));
     TagKey<Item> SEVERED_INTO_SAND = TagKey.create(Registries.ITEM, Sunspot.id("severed_into_sand"));
     TagKey<Item> SEVERED_INTO_RED_SAND = TagKey.create(Registries.ITEM, Sunspot.id("severed_into_red_sand"));
+    TagKey<Item> SEVERED_INTO_DIRT = TagKey.create(Registries.ITEM, Sunspot.id("severed_into_dirt"));
+    TagKey<Item> SEVERED_INTO_NETHERRACK = TagKey.create(Registries.ITEM, Sunspot.id("severed_into_netherrack"));
+    TagKey<Item> SEVERED_INTO_FOUR_NETHER_BRICK = TagKey.create(Registries.ITEM, Sunspot.id("severed_into_four_nether_brick"));
+    TagKey<Item> SEVERED_INTO_FOUR_NETHER_QUARTZ = TagKey.create(Registries.ITEM, Sunspot.id("severed_into_four_nether_quartz"));
 
     TagKey<Block> GLASS_BLOCKS = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("c", "glass_blocks"));
 
