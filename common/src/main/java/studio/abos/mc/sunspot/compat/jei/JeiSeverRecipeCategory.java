@@ -2,12 +2,11 @@ package studio.abos.mc.sunspot.compat.jei;
 
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
-import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
+import mezz.jei.api.gui.widgets.IRecipeExtrasBuilder;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
@@ -20,7 +19,6 @@ import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
 public class JeiSeverRecipeCategory implements IRecipeCategory<SeverRecipe> {
 
     public static final RecipeType<SeverRecipe> TYPE = RecipeType.create(Sunspot.MOD_ID, SPGlyphTypeRegistry.SEVER.get().getId().getPath(), SeverRecipe.class);
-    public static final ResourceLocation BACKGROUND = Sunspot.id("textures/gui/jei/sever.png");
     public static final ResourceLocation PROGRESS_SPRITE = Sunspot.id("container/sever/progress");
 
     protected final @NotNull IGuiHelper guiHelper;
@@ -58,5 +56,10 @@ public class JeiSeverRecipeCategory implements IRecipeCategory<SeverRecipe> {
     @Override
     public int getHeight() {
         return 26;
+    }
+
+    @Override
+    public void createRecipeExtras(final @NotNull IRecipeExtrasBuilder builder, final @NotNull SeverRecipe recipe, final @NotNull IFocusGroup focuses) {
+        builder.addWidget(new JeiSpriteWidget(PROGRESS_SPRITE, 24, 0, 24, 24));
     }
 }
