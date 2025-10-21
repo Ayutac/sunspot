@@ -25,6 +25,9 @@
     ],
     "cardinal-components": [
       "studio.abos.mc.sunspot.fabric.common.component.SPComponents"
+    ],
+    "jei_mod_plugin": [
+      "studio.abos.mc.sunspot.compat.jei.Jei"
     ]
   },
   "custom": {
