@@ -36,13 +36,13 @@ public class JeiSeverRecipeCategory implements IRecipeCategory<SeverRecipe> {
 
     @Override
     public void setRecipe(final @NotNull IRecipeLayoutBuilder builder, final @NotNull SeverRecipe recipe, final @NotNull IFocusGroup focuses) {
-        builder.addInputSlot(0, 0).addIngredients(recipe.getIngredient());
-        builder.addOutputSlot(16, 16).addItemStack(recipe.getResult());
+        builder.addInputSlot(1, 5).setStandardSlotBackground().addIngredients(recipe.getIngredient());
+        builder.addOutputSlot(61, 5).setOutputSlotBackground().addItemStack(recipe.getResult());
     }
 
     @Override
     public @NotNull Component getTitle() {
-        return Component.literal(SPGlyphTypeRegistry.SEVER.get().getTranslation());
+        return Component.literal(SPGlyphTypeRegistry.SEVER.get().getTranslation() + "ing");
     }
 
     @Override
@@ -58,11 +58,5 @@ public class JeiSeverRecipeCategory implements IRecipeCategory<SeverRecipe> {
     @Override
     public int getHeight() {
         return 26;
-    }
-
-    @Override
-    public void draw(final @NotNull SeverRecipe recipe, final @NotNull IRecipeSlotsView recipeSlotsView, final @NotNull GuiGraphics guiGraphics, final double mouseX, final double mouseY) {
-        IRecipeCategory.super.draw(recipe, recipeSlotsView, guiGraphics, mouseX, mouseY);
-        guiGraphics.blit(BACKGROUND, 0, 0, 0, 0, getWidth(), getHeight());
     }
 }
