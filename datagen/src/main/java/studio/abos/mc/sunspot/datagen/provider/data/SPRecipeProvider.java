@@ -206,6 +206,7 @@ public class SPRecipeProvider extends FabricRecipeProvider {
         sever(out, Items.BOOK, Items.PAPER, 2);
         sever(out, Items.COMPASS, Items.IRON_INGOT, 3, true);
         sever(out, Items.RECOVERY_COMPASS, Items.ECHO_SHARD, 6);
+        sever(out, Items.CHAIN, Items.IRON_NUGGET, 3, true);
         // wool to carpet
         sever(out, Items.WHITE_WOOL, Items.WHITE_CARPET, 4);
         sever(out, Items.LIGHT_GRAY_WOOL, Items.LIGHT_GRAY_CARPET, 4);
@@ -274,6 +275,44 @@ public class SPRecipeProvider extends FabricRecipeProvider {
         // tools, weapons and armor
         sever(out, Items.FLINT_AND_STEEL, Items.FLINT, 1);
         sever(out, Items.SHEARS, Items.IRON_INGOT, 1, true);
+        sever(out, Items.WOLF_ARMOR, Items.ARMADILLO_SCUTE, 5);
+        sever(out, Items.LEATHER_BOOTS, Items.LEATHER, 2, true);
+        sever(out, Items.LEATHER_HELMET, Items.LEATHER, 3, true);
+        sever(out, Items.LEATHER_LEGGINGS, Items.LEATHER, 5, true);
+        sever(out, Items.LEATHER_HORSE_ARMOR, Items.LEATHER, 5, true);
+        sever(out, Items.LEATHER_CHESTPLATE, Items.LEATHER, 6, true);
+        sever(out, Items.IRON_SWORD, Items.IRON_INGOT, 1, true);
+        sever(out, Items.IRON_HOE, Items.IRON_INGOT, 1, true);
+        sever(out, Items.IRON_AXE, Items.IRON_INGOT, 2, true);
+        sever(out, Items.IRON_PICKAXE, Items.IRON_INGOT, 2, true);
+        sever(out, Items.IRON_BOOTS, Items.IRON_INGOT, 2, true);
+        sever(out, Items.IRON_HELMET, Items.IRON_INGOT, 3, true);
+        sever(out, Items.IRON_LEGGINGS, Items.IRON_INGOT, 5, true);
+        sever(out, Items.IRON_HORSE_ARMOR, Items.IRON_INGOT, 5, true);
+        sever(out, Items.IRON_CHESTPLATE, Items.IRON_INGOT, 6, true);
+        sever(out, Items.CHAINMAIL_BOOTS, Items.IRON_NUGGET, 8, true);
+        sever(out, Items.CHAINMAIL_HELMET, Items.IRON_NUGGET, 13, true);
+        sever(out, Items.CHAINMAIL_LEGGINGS, Items.IRON_NUGGET, 20, true);
+        sever(out, Items.CHAINMAIL_CHESTPLATE, Items.IRON_INGOT, 26, true);
+        sever(out, Items.GOLDEN_SWORD, Items.GOLD_INGOT, 1, true);
+        sever(out, Items.GOLDEN_HOE, Items.GOLD_INGOT, 1, true);
+        sever(out, Items.GOLDEN_AXE, Items.GOLD_INGOT, 2, true);
+        sever(out, Items.GOLDEN_PICKAXE, Items.GOLD_INGOT, 2, true);
+        sever(out, Items.GOLDEN_BOOTS, Items.GOLD_INGOT, 2, true);
+        sever(out, Items.GOLDEN_HELMET, Items.GOLD_INGOT, 3, true);
+        sever(out, Items.GOLDEN_LEGGINGS, Items.GOLD_INGOT, 5, true);
+        sever(out, Items.GOLDEN_HORSE_ARMOR, Items.GOLD_INGOT, 5, true);
+        sever(out, Items.GOLDEN_CHESTPLATE, Items.GOLD_INGOT, 6, true);
+        sever(out, Items.DIAMOND_SWORD, Items.DIAMOND, 1, true);
+        sever(out, Items.DIAMOND_HOE, Items.DIAMOND, 1, true);
+        sever(out, Items.DIAMOND_AXE, Items.DIAMOND, 2, true);
+        sever(out, Items.DIAMOND_PICKAXE, Items.DIAMOND, 2, true);
+        sever(out, Items.DIAMOND_BOOTS, Items.DIAMOND, 2, true);
+        sever(out, Items.DIAMOND_HELMET, Items.DIAMOND, 3, true);
+        sever(out, Items.DIAMOND_LEGGINGS, Items.DIAMOND, 5, true);
+        sever(out, Items.DIAMOND_HORSE_ARMOR, Items.DIAMOND, 5, true);
+        sever(out, Items.DIAMOND_CHESTPLATE, Items.DIAMOND, 6, true);
+        sever(out, Items.TURTLE_HELMET, Items.TURTLE_SCUTE, 3);
     }
 
     private void sever(final @NotNull RecipeOutput out, final @NotNull Item input, final @NotNull Item output, final int amount) {
