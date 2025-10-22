@@ -1,0 +1,87 @@
+package studio.abos.mc.sunspot.common.recipe;
+
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
+import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
+import studio.abos.mc.sunspot.common.registry.SPRecipeRegistry;
+
+public class ExtractRecipe implements Recipe<SingleRecipeInput> {
+
+    protected @NotNull final Ingredient ingredient;
+    private @NotNull final ItemStack result;
+
+    public ExtractRecipe(final @NotNull Ingredient ingredient, final @NotNull ItemStack result) {
+        this.ingredient = ingredient;
+        this.result = result;
+    }
+
+    @Override
+    public boolean matches(final @NotNull SingleRecipeInput recipeInput, final Level level) {
+        return ingredient.test(recipeInput.item());
+    }
+
+    @Override
+    public @NotNull ItemStack assemble(final SingleRecipeInput recipeInput, final HolderLookup.Provider provider) {
+        return result.copy();
+    }
+
+    @Override
+    public boolean canCraftInDimensions(int i, int j) {
+        return true;
+    }
+
+    @Override
+    public @NotNull ItemStack getResultItem(HolderLookup.Provider provider) {
+        return result;
+    }
+
+    @Override
+    public @NotNull RecipeSerializer<?> getSerializer() {
+        return SPRecipeRegistry.EXTRACT_SERIALIZER.get();
+    }
+
+    @Override
+    public @NotNull RecipeType<?> getType() {
+        return SPRecipeRegistry.EXTRACT_TYPE.get();
+    }
+
+    public @NotNull Ingredient getIngredient() {
+        return ingredient;
+    }
+
+    public @NotNull ItemStack getResult() {
+        return result;
+    }
+
+    public static class Serializer implements RecipeSerializer<ExtractRecipe> {
+        private static final MapCodec<ExtractRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Ingredient.CODEC.fieldOf("ingredient").forGetter(ExtractRecipe::getIngredient), ItemStack.CODEC.fieldOf("result").forGetter(ExtractRecipe::getResult)).apply(instance, ExtractRecipe::new));
+        public static final StreamCodec<RegistryFriendlyByteBuf, ExtractRecipe> STREAM_CODEC = StreamCodec.of(ExtractRecipe.Serializer::toNetwork, ExtractRecipe.Serializer::fromNetwork);
+
+        public @NotNull MapCodec<ExtractRecipe> codec() {
+            return CODEC;
+        }
+
+        public @NotNull StreamCodec<RegistryFriendlyByteBuf, ExtractRecipe> streamCodec() {
+            return STREAM_CODEC;
+        }
+
+        private static ExtractRecipe fromNetwork(RegistryFriendlyByteBuf byteBuf) {
+            return new ExtractRecipe(Ingredient.CONTENTS_STREAM_CODEC.decode(byteBuf), ItemStack.STREAM_CODEC.decode(byteBuf));
+        }
+
+        private static void toNetwork(RegistryFriendlyByteBuf byteBuf, ExtractRecipe recipe) {
+            Ingredient.CONTENTS_STREAM_CODEC.encode(byteBuf, recipe.getIngredient());
+            ItemStack.STREAM_CODEC.encode(byteBuf, recipe.getResult());
+        }
+    }
+}

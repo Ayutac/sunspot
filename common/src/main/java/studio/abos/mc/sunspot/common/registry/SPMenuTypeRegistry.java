@@ -7,6 +7,7 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.inventory.MenuType;
 import studio.abos.mc.sunspot.Identifiers;
 import studio.abos.mc.sunspot.Sunspot;
+import studio.abos.mc.sunspot.common.inventory.ExtractMenu;
 import studio.abos.mc.sunspot.common.inventory.SeverMenu;
 import studio.abos.mc.sunspot.common.inventory.WorkbenchMenu;
 
@@ -16,6 +17,7 @@ public interface SPMenuTypeRegistry {
 
     RegistrySupplier<MenuType<WorkbenchMenu>> WORKBENCH = MENU_TYPE_REGISTRY.register(Identifiers.WORKBENCH, () -> new MenuType<>(WorkbenchMenu::new, FeatureFlags.DEFAULT_FLAGS));
     RegistrySupplier<MenuType<SeverMenu>> SEVER = MENU_TYPE_REGISTRY.register(Identifiers.SEVER, () -> new MenuType<>(SeverMenu::new, FeatureFlags.DEFAULT_FLAGS));
+    RegistrySupplier<MenuType<ExtractMenu>> EXTRACT = MENU_TYPE_REGISTRY.register(Identifiers.EXTRACT, () -> new MenuType<>(ExtractMenu::new, FeatureFlags.DEFAULT_FLAGS));
 
     static void register() {
         MENU_TYPE_REGISTRY.register();

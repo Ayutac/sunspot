@@ -16,6 +16,7 @@ import studio.abos.mc.sunspot.common.block.AffixBlock;
 import studio.abos.mc.sunspot.common.block.AshBlock;
 import studio.abos.mc.sunspot.common.block.ComposeCreativeBlock;
 import studio.abos.mc.sunspot.common.block.DissipateBlock;
+import studio.abos.mc.sunspot.common.block.ExtractBlock;
 import studio.abos.mc.sunspot.common.block.ImpelBlock;
 import studio.abos.mc.sunspot.common.block.ComposeBlock;
 import studio.abos.mc.sunspot.common.block.OffsetBlock;
@@ -49,6 +50,7 @@ public final class SPBlockRegistry {
         registerGlyphBlock(Identifiers.ASH, SPGlyphTypeRegistry.ASH, AshBlock::new);
         registerGlyphBlock(Identifiers.COMPOSE, SPGlyphTypeRegistry.COMPOSE, ComposeBlock::new);
         registerGlyphBlock(Identifiers.DISSIPATE, SPGlyphTypeRegistry.DISSIPATE, DissipateBlock::new);
+        registerGlyphBlock(Identifiers.EXTRACT, SPGlyphTypeRegistry.EXTRACT, ExtractBlock::new);
         registerGlyphBlock(Identifiers.IMPEL, SPGlyphTypeRegistry.IMPEL, ImpelBlock::new);
         registerGlyphBlock(Identifiers.OFFSET, SPGlyphTypeRegistry.OFFSET, OffsetBlock::new);
         registerGlyphBlock(Identifiers.REVITALISE, SPGlyphTypeRegistry.REVITALISE, RevitaliseBlock::new);

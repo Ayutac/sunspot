@@ -15,6 +15,8 @@ public interface Identifiers {
     ResourceLocation COMPOSE_BLOCK = Sunspot.id("compose_block");
     ResourceLocation DISSIPATE = Sunspot.id("dissipate");
     ResourceLocation DISSIPATE_BLOCK = Sunspot.id("dissipate_block");
+    ResourceLocation EXTRACT = Sunspot.id("extract");
+    ResourceLocation EXTRACT_BLOCK = Sunspot.id("extract_block");
     ResourceLocation IMPEL = Sunspot.id("impel");
     ResourceLocation IMPEL_BLOCK = Sunspot.id("impel_block");
     ResourceLocation OFFSET = Sunspot.id("offset");

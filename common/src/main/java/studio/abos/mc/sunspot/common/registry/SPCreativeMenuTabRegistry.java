@@ -34,6 +34,7 @@ public interface SPCreativeMenuTabRegistry {
                     entries.accept(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.COMPOSE).get());
                     entries.accept(SPItemRegistry.COMPOSE_CREATIVE_BLOCK.get());
                     entries.accept(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.DISSIPATE).get());
+                    entries.accept(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.EXTRACT).get());
                     entries.accept(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.IMPEL).get());
                     entries.accept(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.OFFSET).get());
                     entries.accept(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.REVITALISE).get());

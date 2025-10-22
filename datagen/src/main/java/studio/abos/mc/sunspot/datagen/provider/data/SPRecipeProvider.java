@@ -23,6 +23,7 @@ import studio.abos.mc.sunspot.common.GlyphType;
 import studio.abos.mc.sunspot.common.registry.SPItemPreRegistry;
 import studio.abos.mc.sunspot.common.registry.SPItemRegistry;
 import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
+import studio.abos.mc.sunspot.datagen.builder.ExtractRecipeBuilder;
 import studio.abos.mc.sunspot.datagen.builder.SeverRecipeBuilder;
 import studio.abos.mc.sunspot.datagen.builder.WorkbenchRecipeBuilder;
 
@@ -39,6 +40,7 @@ public class SPRecipeProvider extends FabricRecipeProvider {
     public void buildRecipes(final @NotNull RecipeOutput out) {
         buildCraftingTableRecipes(out);
         buildSeverRecipes(out);
+        buildExtractRecipes(out);
         for (var entry : SPItemRegistry.GLYPH_BLOCK_MAP.entrySet()) {
             final GlyphType glyphType = entry.getKey().get();
             new WorkbenchRecipeBuilder(entry.getValue().get())
@@ -353,6 +355,13 @@ public class SPRecipeProvider extends FabricRecipeProvider {
 
     private void severPlanksFromLogs(final @NotNull RecipeOutput out, final @NotNull TagKey<Item> logs, final @NotNull Item planks, final int amount) {
         severTag(out, logs, planks, amount, "logs");
+    }
+
+    private void buildExtractRecipes(final @NotNull RecipeOutput out) {
+        new ExtractRecipeBuilder(Items.FLINT, 2)
+                .requires(Items.GRAVEL)
+                .unlockedBy("has_gravel", getItemCriterion(Items.GRAVEL))
+                .save(out, Sunspot.id("extract/flint"));
     }
 
     private static @NotNull Criterion<InventoryChangeTrigger.TriggerInstance> getItemCriterion(final @NotNull Supplier<Item> item) {

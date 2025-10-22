@@ -12,8 +12,10 @@ import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.Util;
+import studio.abos.mc.sunspot.client.gui.screens.inventory.ExtractScreen;
 import studio.abos.mc.sunspot.client.gui.screens.inventory.SeverScreen;
 import studio.abos.mc.sunspot.client.gui.screens.inventory.WorkbenchScreen;
+import studio.abos.mc.sunspot.client.renderer.block.ExtractBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.block.GlyphBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.block.SeverBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.entity.FlamefallRenderer;
@@ -35,6 +37,7 @@ public class ClientSetupEvent {
         event.registerBlockEntityRenderer(Util.getComposeBET(), GlyphBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(SPBlockEntityTypeRegistry.COMPOSE_CREATIVE.get(), GlyphBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(Util.getDissipateBET(), GlyphBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(Util.getExtractBET(), ExtractBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(Util.getImpelBET(), GlyphBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(Util.getOffsetBET(), GlyphBlockEntityRenderer::new);
         event.registerBlockEntityRenderer(Util.getRevitaliseBET(), GlyphBlockEntityRenderer::new);
@@ -75,6 +78,7 @@ public class ClientSetupEvent {
     @SubscribeEvent
     public static void registerScreens(final @NotNull RegisterMenuScreensEvent event) {
         event.register(SPMenuTypeRegistry.SEVER.get(), SeverScreen::new);
+        event.register(SPMenuTypeRegistry.EXTRACT.get(), ExtractScreen::new);
         event.register(SPMenuTypeRegistry.WORKBENCH.get(), WorkbenchScreen::new);
     }
 }

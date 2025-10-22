@@ -15,8 +15,10 @@ import net.minecraft.world.item.BlockItem;
 import org.jetbrains.annotations.NotNull;
 import studio.abos.mc.sunspot.Util;
 import studio.abos.mc.sunspot.client.SunspotClient;
+import studio.abos.mc.sunspot.client.gui.screens.inventory.ExtractScreen;
 import studio.abos.mc.sunspot.client.gui.screens.inventory.SeverScreen;
 import studio.abos.mc.sunspot.client.gui.screens.inventory.WorkbenchScreen;
+import studio.abos.mc.sunspot.client.renderer.block.ExtractBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.block.GlyphBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.block.SeverBlockEntityRenderer;
 import studio.abos.mc.sunspot.client.renderer.entity.FlamefallRenderer;
@@ -49,6 +51,8 @@ public class SunspotFabricClient implements ClientModInitializer {
         BlockEntityRendererRegistry.register(SPBlockEntityTypeRegistry.COMPOSE_CREATIVE.get(), GlyphBlockEntityRenderer::new);
         registerGlyphBlockTint(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.DISSIPATE));
         BlockEntityRendererRegistry.register(Util.getDissipateBET(), GlyphBlockEntityRenderer::new);
+        registerGlyphBlockTint(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.EXTRACT));
+        BlockEntityRendererRegistry.register(Util.getExtractBET(), ExtractBlockEntityRenderer::new);
         registerGlyphBlockTint(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.IMPEL));
         BlockEntityRendererRegistry.register(Util.getImpelBET(), GlyphBlockEntityRenderer::new);
         registerGlyphBlockTint(SPItemRegistry.GLYPH_BLOCK_MAP.get(SPGlyphTypeRegistry.OFFSET));
@@ -71,8 +75,9 @@ public class SunspotFabricClient implements ClientModInitializer {
         });
         // activate the {OFFSET} block
         ClientJumpEvent.EVENT.register(ClientEvents::jumpOnOffsetBlock);
-        // register the screen
+        // register the screens
         MenuScreens.register(SPMenuTypeRegistry.SEVER.get(), SeverScreen::new);
+        MenuScreens.register(SPMenuTypeRegistry.EXTRACT.get(), ExtractScreen::new);
         MenuScreens.register(SPMenuTypeRegistry.WORKBENCH.get(), WorkbenchScreen::new);
     }
 
