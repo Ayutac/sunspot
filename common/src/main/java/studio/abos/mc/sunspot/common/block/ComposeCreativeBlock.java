@@ -24,7 +24,7 @@ public class ComposeCreativeBlock extends ComposeBlock {
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
+    public @Nullable BlockEntity newBlockEntity(final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
         return new ComposeCreativeBlockEntity(blockPos, blockState);
     }
 

@@ -28,7 +28,7 @@ public class SeverBlock extends GlyphBlock {
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
+    public @Nullable BlockEntity newBlockEntity(final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
         return new SeverBlockEntity(blockPos, blockState);
     }
 

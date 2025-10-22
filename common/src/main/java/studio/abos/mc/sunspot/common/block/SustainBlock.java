@@ -14,12 +14,12 @@ import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
 
 public class SustainBlock extends GlyphBlock {
 
-    public SustainBlock(final Properties properties) {
+    public SustainBlock(final @NotNull Properties properties) {
         super(SPGlyphTypeRegistry.SUSTAIN, properties);
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
+    public @Nullable BlockEntity newBlockEntity(final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
         return new SustainBlockEntity(blockPos, blockState);
     }
 

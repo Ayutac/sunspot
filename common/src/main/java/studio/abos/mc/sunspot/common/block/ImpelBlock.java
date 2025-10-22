@@ -14,12 +14,12 @@ import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
 
 public class ImpelBlock extends GlyphBlock {
 
-    public ImpelBlock(final Properties properties) {
+    public ImpelBlock(final @NotNull Properties properties) {
         super(SPGlyphTypeRegistry.IMPEL, properties);
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
+    public @Nullable BlockEntity newBlockEntity(final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
         return new ImpelBlockEntity(blockPos, blockState);
     }
 

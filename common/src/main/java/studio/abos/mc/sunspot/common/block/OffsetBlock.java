@@ -14,12 +14,12 @@ import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
 
 public class OffsetBlock extends GlyphBlock {
 
-    public OffsetBlock(final Properties properties) {
+    public OffsetBlock(final @NotNull Properties properties) {
         super(SPGlyphTypeRegistry.OFFSET, properties);
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
+    public @Nullable BlockEntity newBlockEntity(final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
         return new OffsetBlockEntity(blockPos, blockState);
     }
 

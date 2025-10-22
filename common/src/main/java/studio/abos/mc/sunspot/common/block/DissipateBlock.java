@@ -14,12 +14,12 @@ import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
 
 public class DissipateBlock extends GlyphBlock {
 
-    public DissipateBlock(final Properties properties) {
+    public DissipateBlock(final @NotNull Properties properties) {
         super(SPGlyphTypeRegistry.DISSIPATE, properties);
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
+    public @Nullable BlockEntity newBlockEntity(final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
         return new DissipateBlockEntity(blockPos, blockState);
     }
 

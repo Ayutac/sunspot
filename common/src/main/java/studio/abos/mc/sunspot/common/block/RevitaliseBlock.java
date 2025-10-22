@@ -14,12 +14,12 @@ import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
 
 public class RevitaliseBlock extends GlyphBlock {
 
-    public RevitaliseBlock(final Properties properties) {
+    public RevitaliseBlock(final @NotNull Properties properties) {
         super(SPGlyphTypeRegistry.REVITALISE, properties);
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
+    public @Nullable BlockEntity newBlockEntity(final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
         return new RevitaliseBlockEntity(blockPos, blockState);
     }
 

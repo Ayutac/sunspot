@@ -14,12 +14,12 @@ import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
 
 public class ComposeBlock extends GlyphBlock {
 
-    public ComposeBlock(final Properties properties) {
+    public ComposeBlock(final @NotNull Properties properties) {
         super(SPGlyphTypeRegistry.COMPOSE, properties);
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
+    public @Nullable BlockEntity newBlockEntity(final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
         return new ComposeBlockEntity(blockPos, blockState);
     }
 

@@ -18,7 +18,7 @@ import studio.abos.mc.sunspot.common.registry.SPTagRegistry;
 
 public class AshBlock extends GlyphBlock {
 
-    public AshBlock(final Properties properties) {
+    public AshBlock(final @NotNull Properties properties) {
         super(SPGlyphTypeRegistry.ASH, properties);
     }
 
@@ -31,7 +31,7 @@ public class AshBlock extends GlyphBlock {
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
+    public @Nullable BlockEntity newBlockEntity(final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
         return new AshBlockEntity(blockPos, blockState);
     }
 

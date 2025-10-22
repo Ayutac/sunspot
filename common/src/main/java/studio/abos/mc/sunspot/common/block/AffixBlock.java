@@ -14,12 +14,12 @@ import studio.abos.mc.sunspot.common.registry.SPGlyphTypeRegistry;
 
 public class AffixBlock extends GlyphBlock {
 
-    public AffixBlock(final Properties properties) {
+    public AffixBlock(final @NotNull Properties properties) {
         super(SPGlyphTypeRegistry.AFFIX, properties);
     }
 
     @Override
-    public @Nullable BlockEntity newBlockEntity(final BlockPos blockPos, final BlockState blockState) {
+    public @Nullable BlockEntity newBlockEntity(final @NotNull BlockPos blockPos, final @NotNull BlockState blockState) {
         return new AffixBlockEntity(blockPos, blockState);
     }
 
