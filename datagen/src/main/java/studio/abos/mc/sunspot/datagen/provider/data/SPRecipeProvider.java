@@ -55,8 +55,8 @@ public class SPRecipeProvider extends FabricRecipeProvider {
                 .pattern(" S ")
                 .pattern("S S")
                 .pattern(" S ")
-                .define('S', SPTagRegistry.SUBSTRATE_MATERIAL)
-                .unlockedBy("has_material",getItemCriterion(SPTagRegistry.SUBSTRATE_MATERIAL))
+                .define('S', SPTagRegistry.SUBSTRATE_MATERIALS)
+                .unlockedBy("has_material",getItemCriterion(SPTagRegistry.SUBSTRATE_MATERIALS))
                 .save(out);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SPItemPreRegistry.SUBSTRATE_3.get())
                 .pattern(" S ")

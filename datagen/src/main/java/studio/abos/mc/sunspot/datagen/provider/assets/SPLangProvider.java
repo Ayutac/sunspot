@@ -37,7 +37,7 @@ public class SPLangProvider extends FabricLanguageProvider {
 
         builder.add(SPEntityTypeRegistry.FLAMEFALL.get(), "Flamefall");
 
-        builder.add(SPTagRegistry.SUBSTRATE_MATERIAL, "Substrate Material");
+        builder.add(SPTagRegistry.SUBSTRATE_MATERIALS, "Substrate Material");
         builder.add(SPTagRegistry.UNAFFECTED_BY_ASH_TRANSFORMATION, "Unaffected by {ASH}");
         builder.add(SPTagRegistry.SEVERED_INTO_COBBLESTONE, "{SEVER}ed into Cobblestone");
         builder.add(SPTagRegistry.SEVERED_INTO_COBBLED_DEEPSLATE, "{SEVER}ed into Cobbled Deepslate");

@@ -23,7 +23,7 @@ public class SPTagProviders {
 
         @Override
         protected void addTags(final @NotNull HolderLookup.Provider lookup) {
-            getOrCreateTagBuilder(SPTagRegistry.SUBSTRATE_MATERIAL).add(Items.BONE_BLOCK);
+            getOrCreateTagBuilder(SPTagRegistry.SUBSTRATE_MATERIALS).add(Items.BONE_BLOCK);
             getOrCreateTagBuilder(SPTagRegistry.UNAFFECTED_BY_ASH_TRANSFORMATION).add(
                     SPItemPreRegistry.ASH_RESIDUE.getId(),
                     SPItemPreRegistry.ASH_RESIDUE_BLOCK.getId()
