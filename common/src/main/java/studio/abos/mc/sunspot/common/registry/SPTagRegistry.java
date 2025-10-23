@@ -10,6 +10,7 @@ import studio.abos.mc.sunspot.Sunspot;
 
 public interface SPTagRegistry {
 
+    TagKey<Item> CHEST_BOATS = TagKey.create(Registries.ITEM, Sunspot.c("chest_boats"));
     TagKey<Item> SUBSTRATE_MATERIALS = TagKey.create(Registries.ITEM, Sunspot.id("substrate_materials"));
     TagKey<Item> UNAFFECTED_BY_ASH_TRANSFORMATION = TagKey.create(Registries.ITEM, Sunspot.id("unaffected_by_ash_transformation"));
     TagKey<Item> SEVERED_INTO_COBBLESTONE = TagKey.create(Registries.ITEM, Sunspot.id("severed_into_cobblestone"));

@@ -23,6 +23,17 @@ public class SPTagProviders {
 
         @Override
         protected void addTags(final @NotNull HolderLookup.Provider lookup) {
+            getOrCreateTagBuilder(SPTagRegistry.CHEST_BOATS).add(
+                    Items.OAK_CHEST_BOAT,
+                    Items.BIRCH_CHEST_BOAT,
+                    Items.SPRUCE_CHEST_BOAT,
+                    Items.DARK_OAK_CHEST_BOAT,
+                    Items.ACACIA_CHEST_BOAT,
+                    Items.JUNGLE_CHEST_BOAT,
+                    Items.MANGROVE_CHEST_BOAT,
+                    Items.CHERRY_CHEST_BOAT,
+                    Items.BAMBOO_CHEST_RAFT
+            );
             getOrCreateTagBuilder(SPTagRegistry.SUBSTRATE_MATERIALS).add(Items.BONE_BLOCK);
             getOrCreateTagBuilder(SPTagRegistry.UNAFFECTED_BY_ASH_TRANSFORMATION).add(
                     SPItemPreRegistry.ASH_RESIDUE.getId(),

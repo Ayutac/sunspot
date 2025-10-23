@@ -58,7 +58,7 @@ public class SPRecipeProvider extends FabricRecipeProvider {
                 .pattern("S S")
                 .pattern(" S ")
                 .define('S', SPTagRegistry.SUBSTRATE_MATERIALS)
-                .unlockedBy("has_material",getItemCriterion(SPTagRegistry.SUBSTRATE_MATERIALS))
+                .unlockedBy("has_material", getItemCriterion(SPTagRegistry.SUBSTRATE_MATERIALS))
                 .save(out);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SPItemPreRegistry.SUBSTRATE_3.get())
                 .pattern(" S ")
@@ -90,7 +90,7 @@ public class SPRecipeProvider extends FabricRecipeProvider {
                 .pattern("PP")
                 .define('P', ItemTags.PLANKS)
                 .define('S', SPItemPreRegistry.SUBSTRATE_2.get())
-                .unlockedBy("has_substrate_2",getItemCriterion(SPItemPreRegistry.SUBSTRATE_2))
+                .unlockedBy("has_substrate_2", getItemCriterion(SPItemPreRegistry.SUBSTRATE_2))
                 .save(out);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, SPItemPreRegistry.MANTLE_BASE_HELMET.get())
                 .pattern("STS")
@@ -143,18 +143,19 @@ public class SPRecipeProvider extends FabricRecipeProvider {
     }
 
     private void buildSeverRecipes(final @NotNull RecipeOutput out) {
-        severTag(out, SPTagRegistry.SEVERED_INTO_COBBLESTONE, Items.COBBLESTONE);
-        severTag(out, SPTagRegistry.SEVERED_INTO_COBBLED_DEEPSLATE, Items.COBBLED_DEEPSLATE);
-        severTag(out, SPTagRegistry.SEVERED_INTO_BLACKSTONE, Items.BLACKSTONE);
-        severTag(out, SPTagRegistry.SEVERED_INTO_GRAVEL, Items.GRAVEL);
-        severTag(out, SPTagRegistry.SEVERED_INTO_SAND, Items.SAND);
-        severTag(out, SPTagRegistry.SEVERED_INTO_RED_SAND, Items.RED_SAND);
-        severTag(out, SPTagRegistry.SEVERED_INTO_DIRT, Items.DIRT);
-        severTag(out, SPTagRegistry.SEVERED_INTO_NETHERRACK, Items.NETHERRACK);
+        severTag(out, SPTagRegistry.SEVERED_INTO_COBBLESTONE, Items.COBBLESTONE, 1);
+        severTag(out, SPTagRegistry.SEVERED_INTO_COBBLED_DEEPSLATE, Items.COBBLED_DEEPSLATE, 1);
+        severTag(out, SPTagRegistry.SEVERED_INTO_BLACKSTONE, Items.BLACKSTONE, 1);
+        severTag(out, SPTagRegistry.SEVERED_INTO_GRAVEL, Items.GRAVEL, 1);
+        severTag(out, SPTagRegistry.SEVERED_INTO_SAND, Items.SAND, 1);
+        severTag(out, SPTagRegistry.SEVERED_INTO_RED_SAND, Items.RED_SAND, 1);
+        severTag(out, SPTagRegistry.SEVERED_INTO_DIRT, Items.DIRT, 1);
+        severTag(out, SPTagRegistry.SEVERED_INTO_NETHERRACK, Items.NETHERRACK, 1);
         severTag(out, SPTagRegistry.SEVERED_INTO_FOUR_NETHER_BRICK, Items.NETHER_BRICK, 4);
         severTag(out, SPTagRegistry.SEVERED_INTO_FOUR_NETHER_QUARTZ, Items.QUARTZ, 4);
-        severTag(out, ItemTags.CANDLES, Items.STRING);
         severTag(out, TagKey.create(Registries.ITEM, Sunspot.c("shulker_boxes")), Items.SHULKER_SHELL, 2);
+        severTag(out, ItemTags.ANVIL, Items.IRON_BLOCK, 3);
+        severTag(out, ItemTags.TRIM_TEMPLATES, Items.DIAMOND, 6, true);
         severPlanksFromLogs(out, ItemTags.OAK_LOGS, Items.OAK_PLANKS);
         severPlanksFromLogs(out, ItemTags.BIRCH_LOGS, Items.BIRCH_PLANKS);
         severPlanksFromLogs(out, ItemTags.SPRUCE_LOGS, Items.SPRUCE_PLANKS);
@@ -188,6 +189,7 @@ public class SPRecipeProvider extends FabricRecipeProvider {
         sever(out, Items.AMETHYST_BLOCK, Items.AMETHYST_SHARD, 4);
         sever(out, Items.DRIPSTONE_BLOCK, Items.POINTED_DRIPSTONE, 4);
         sever(out, Items.GLOWSTONE, Items.GLOWSTONE_DUST, 4);
+        sever(out, Items.CLAY, Items.CLAY_BALL, 4);
         sever(out, Items.RED_MUSHROOM_BLOCK, Items.RED_MUSHROOM, 4);
         sever(out, Items.BROWN_MUSHROOM_BLOCK, Items.BROWN_MUSHROOM, 4);
         sever(out, Items.HONEYCOMB_BLOCK, Items.HONEYCOMB, 4);
@@ -209,6 +211,17 @@ public class SPRecipeProvider extends FabricRecipeProvider {
         sever(out, Items.COMPASS, Items.IRON_INGOT, 3, true);
         sever(out, Items.RECOVERY_COMPASS, Items.ECHO_SHARD, 6);
         sever(out, Items.CHAIN, Items.IRON_NUGGET, 3, true);
+        sever(out, Items.CAULDRON, Items.IRON_INGOT, 6, true);
+        sever(out, Items.LIGHTNING_ROD, Items.COPPER_INGOT, 2, true);
+        sever(out, Items.FLOWER_POT, Items.BRICK, 2, true);
+        sever(out, Items.DECORATED_POT, Items.BRICK, 4, true);
+        sever(out, Items.BELL, Items.GOLD_INGOT, 3, true);
+        sever(out, Items.BOOKSHELF, Items.PAPER, 6, true);
+        sever(out, Items.HOPPER, Items.IRON_INGOT, 4, true);
+        sever(out, Items.MINECART, Items.IRON_INGOT, 4, true);
+        sever(out, Items.BONE, Items.BONE_MEAL, 4, true);
+        sever(out, Items.SADDLE, Items.LEATHER, 3, true);
+        sever(out, Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, Items.DIAMOND, 6, true);
         // wool to carpet
         sever(out, Items.WHITE_WOOL, Items.WHITE_CARPET, 4);
         sever(out, Items.LIGHT_GRAY_WOOL, Items.LIGHT_GRAY_CARPET, 4);
@@ -314,6 +327,14 @@ public class SPRecipeProvider extends FabricRecipeProvider {
         sever(out, Items.DIAMOND_LEGGINGS, Items.DIAMOND, 5, true);
         sever(out, Items.DIAMOND_HORSE_ARMOR, Items.DIAMOND, 5, true);
         sever(out, Items.DIAMOND_CHESTPLATE, Items.DIAMOND, 6, true);
+        sever(out, Items.NETHERITE_SWORD, Items.DIAMOND, 1, true);
+        sever(out, Items.NETHERITE_HOE, Items.DIAMOND, 1, true);
+        sever(out, Items.NETHERITE_AXE, Items.DIAMOND, 2, true);
+        sever(out, Items.NETHERITE_PICKAXE, Items.DIAMOND, 2, true);
+        sever(out, Items.NETHERITE_BOOTS, Items.DIAMOND, 2, true);
+        sever(out, Items.NETHERITE_HELMET, Items.DIAMOND, 3, true);
+        sever(out, Items.NETHERITE_LEGGINGS, Items.DIAMOND, 5, true);
+        sever(out, Items.NETHERITE_CHESTPLATE, Items.DIAMOND, 6, true);
         sever(out, Items.TURTLE_HELMET, Items.TURTLE_SCUTE, 3);
     }
 
@@ -327,26 +348,23 @@ public class SPRecipeProvider extends FabricRecipeProvider {
         new SeverRecipeBuilder(output, amount)
                 .requires(input)
                 .unlockedBy("has_" + inputPath, getItemCriterion(input))
-                .save(out, Sunspot.id("sever/" + outputPath  + (from ? "_from_" + inputPath : "")));
+                .save(out, Sunspot.id("sever/" + outputPath + (from ? "_from_" + inputPath : "")));
     }
 
     private void severStorageItem(final @NotNull RecipeOutput out, final @NotNull TagKey<Item> storage, final @NotNull Item item) {
         severTag(out, storage, item, 9);
     }
 
-    private void severTag(final @NotNull RecipeOutput out, final @NotNull TagKey<Item> tag, final @NotNull Item output) {
-        severTag(out, tag, output, 1);
-    }
-
     private void severTag(final @NotNull RecipeOutput out, final @NotNull TagKey<Item> tag, final @NotNull Item output, final int amount) {
-        severTag(out, tag, output, amount, "material");
+        severTag(out, tag, output, amount, false);
     }
 
-    private void severTag(final @NotNull RecipeOutput out, final @NotNull TagKey<Item> tag, final @NotNull Item output, final int amount, String has) {
+    private void severTag(final @NotNull RecipeOutput out, final @NotNull TagKey<Item> tag, final @NotNull Item output, final int amount, boolean from) {
+        final String inputPath = tag.location().getPath();
         new SeverRecipeBuilder(output, amount)
                 .requires(Ingredient.of(tag))
-                .unlockedBy("has_" + has, getItemCriterion(tag))
-                .save(out, Sunspot.id("sever/" + BuiltInRegistries.ITEM.getKey(output).getPath()));
+                .unlockedBy("has_" + inputPath, getItemCriterion(tag))
+                .save(out, Sunspot.id("sever/" + BuiltInRegistries.ITEM.getKey(output).getPath() + (from ? "_from_" + inputPath : "")));
     }
 
     private void severPlanksFromLogs(final @NotNull RecipeOutput out, final @NotNull TagKey<Item> logs, final @NotNull Item planks) {
@@ -354,14 +372,149 @@ public class SPRecipeProvider extends FabricRecipeProvider {
     }
 
     private void severPlanksFromLogs(final @NotNull RecipeOutput out, final @NotNull TagKey<Item> logs, final @NotNull Item planks, final int amount) {
-        severTag(out, logs, planks, amount, "logs");
+        severTag(out, logs, planks, amount, false);
     }
 
     private void buildExtractRecipes(final @NotNull RecipeOutput out) {
-        new ExtractRecipeBuilder(Items.FLINT, 2)
-                .requires(Items.GRAVEL)
-                .unlockedBy("has_gravel", getItemCriterion(Items.GRAVEL))
-                .save(out, Sunspot.id("extract/flint"));
+        extractTag(out, ItemTags.CANDLES, Items.STRING, 1, true);
+        extractTag(out, ItemTags.WOOL, Items.STRING, 4, true);
+        extractTag(out, ItemTags.WOOL_CARPETS, Items.STRING, 1, true);
+        extractTag(out, SPTagRegistry.CHEST_BOATS, Items.CHEST, 1, true);
+        extract(out, Items.OAK_LOG, Items.STRIPPED_OAK_LOG, 1);
+        extract(out, Items.OAK_WOOD, Items.STRIPPED_OAK_WOOD, 1);
+        extract(out, Items.OAK_LEAVES, Items.OAK_SAPLING, 1);
+        extract(out, Items.BIRCH_LOG, Items.STRIPPED_BIRCH_LOG, 1);
+        extract(out, Items.BIRCH_WOOD, Items.STRIPPED_BIRCH_WOOD, 1);
+        extract(out, Items.BIRCH_LEAVES, Items.BIRCH_SAPLING, 1);
+        extract(out, Items.SPRUCE_LOG, Items.STRIPPED_SPRUCE_LOG, 1);
+        extract(out, Items.SPRUCE_WOOD, Items.STRIPPED_SPRUCE_WOOD, 1);
+        extract(out, Items.SPRUCE_LEAVES, Items.SPRUCE_SAPLING, 1);
+        extract(out, Items.DARK_OAK_LOG, Items.STRIPPED_DARK_OAK_LOG, 1);
+        extract(out, Items.DARK_OAK_WOOD, Items.STRIPPED_DARK_OAK_WOOD, 1);
+        extract(out, Items.DARK_OAK_LEAVES, Items.DARK_OAK_SAPLING, 1);
+        extract(out, Items.JUNGLE_LOG, Items.STRIPPED_JUNGLE_LOG, 1);
+        extract(out, Items.JUNGLE_WOOD, Items.STRIPPED_JUNGLE_WOOD, 1);
+        extract(out, Items.JUNGLE_LEAVES, Items.JUNGLE_SAPLING, 1);
+        extract(out, Items.ACACIA_LOG, Items.STRIPPED_ACACIA_LOG, 1);
+        extract(out, Items.ACACIA_WOOD, Items.STRIPPED_ACACIA_WOOD, 1);
+        extract(out, Items.ACACIA_LEAVES, Items.ACACIA_SAPLING, 1);
+        extract(out, Items.CHERRY_LOG, Items.STRIPPED_CHERRY_LOG, 1);
+        extract(out, Items.CHERRY_WOOD, Items.STRIPPED_CHERRY_WOOD, 1);
+        extract(out, Items.CHERRY_LEAVES, Items.CHERRY_SAPLING, 1);
+        extract(out, Items.MANGROVE_LOG, Items.STRIPPED_MANGROVE_LOG, 1);
+        extract(out, Items.MANGROVE_WOOD, Items.STRIPPED_MANGROVE_WOOD, 1);
+        extract(out, Items.MANGROVE_LEAVES, Items.MANGROVE_PROPAGULE, 1);
+        extract(out, Items.CRIMSON_STEM, Items.STRIPPED_CRIMSON_STEM, 1);
+        extract(out, Items.CRIMSON_HYPHAE, Items.STRIPPED_CRIMSON_HYPHAE, 1);
+        extract(out, Items.NETHER_WART_BLOCK, Items.CRIMSON_FUNGUS, 1, true);
+        extract(out, Items.WARPED_STEM, Items.STRIPPED_WARPED_STEM, 1);
+        extract(out, Items.WARPED_HYPHAE, Items.STRIPPED_WARPED_HYPHAE, 1);
+        extract(out, Items.WARPED_WART_BLOCK, Items.WARPED_FUNGUS, 1, true);
+        extract(out, Items.BAMBOO_BLOCK, Items.STRIPPED_BAMBOO_BLOCK, 1);
+        extract(out, Items.AZALEA_LEAVES, Items.AZALEA, 1);
+        extract(out, Items.FLOWERING_AZALEA_LEAVES, Items.FLOWERING_AZALEA, 1);
+        extract(out, Items.GILDED_BLACKSTONE, Items.GOLD_INGOT, 1);
+        extract(out, Items.GRAVEL, Items.FLINT, 2, true);
+        extract(out, Items.COARSE_DIRT, Items.GRAVEL, 1);
+        extract(out, Items.GRASS_BLOCK, Items.WHEAT_SEEDS, 1, true);
+        extract(out, Items.SHORT_GRASS, Items.WHEAT_SEEDS, 2, true);
+        extract(out, Items.FERN, Items.WHEAT_SEEDS, 2, true);
+        extract(out, Items.CRYING_OBSIDIAN, Items.OBSIDIAN, 1);
+        extract(out, Items.CRIMSON_NYLIUM, Items.CRIMSON_FUNGUS, 1, true);
+        extract(out, Items.WARPED_NYLIUM, Items.WARPED_FUNGUS, 1, true);
+        extract(out, Items.RED_MUSHROOM_BLOCK, Items.RED_MUSHROOM, 1);
+        extract(out, Items.BROWN_MUSHROOM_BLOCK, Items.BROWN_MUSHROOM, 1);
+        extract(out, Items.GLOW_BERRIES, Items.GLOWSTONE_DUST, 1, true);
+        extract(out, Items.GLOW_INK_SAC, Items.GLOWSTONE_DUST, 1, true);
+        extract(out, Items.WET_SPONGE, Items.SPONGE, 1, true);
+        extract(out, Items.MELON, Items.MELON_SEEDS, 9, true);
+        extract(out, Items.PUMPKIN, Items.PUMPKIN_SEEDS, 9);
+        extract(out, Items.HONEYCOMB_BLOCK, Items.HONEY_BLOCK, 1);
+        extract(out, Items.OCHRE_FROGLIGHT, Items.GLOWSTONE_DUST, 3, true);
+        extract(out, Items.VERDANT_FROGLIGHT, Items.GLOWSTONE_DUST, 3, true);
+        extract(out, Items.PEARLESCENT_FROGLIGHT, Items.GLOWSTONE_DUST, 3, true);
+        extract(out, Items.COBWEB, Items.STRING, 5, true);
+        extract(out, Items.SCULK_CATALYST, Items.SCULK, 1);
+        extract(out, Items.STONECUTTER, Items.IRON_INGOT, 1, true);
+        extract(out, Items.CARTOGRAPHY_TABLE, Items.PAPER, 2);
+        extract(out, Items.FLETCHING_TABLE, Items.FLINT, 2, true);
+        extract(out, Items.SMITHING_TABLE, Items.IRON_INGOT, 2, true);
+        extract(out, Items.GRINDSTONE, Items.STONE_SLAB, 1);
+        extract(out, Items.LOOM, Items.STRING, 2, true);
+        extract(out, Items.BLAST_FURNACE, Items.IRON_INGOT, 4, true);
+        extract(out, Items.JUKEBOX, Items.DIAMOND, 1, true);
+        extract(out, Items.ENCHANTING_TABLE, Items.BOOK, 1, true);
+        extract(out, Items.END_CRYSTAL, Items.GHAST_TEAR, 1);
+        extract(out, Items.BREWING_STAND, Items.BLAZE_ROD, 1);
+        extract(out, Items.BEACON, Items.NETHER_STAR, 1);
+        extract(out, Items.CONDUIT, Items.HEART_OF_THE_SEA, 1);
+        extract(out, Items.LODESTONE, Items.NETHERITE_INGOT, 1); // TODO: must be changed in 1.21.5
+        extract(out, Items.LADDER, Items.STICK, 2, true);
+        extract(out, Items.SCAFFOLDING, Items.BAMBOO, 1);
+        extract(out, Items.ARMOR_STAND, Items.SMOOTH_STONE_SLAB, 1);
+        extract(out, Items.PAINTING, Items.STICK, 4, true);
+        extract(out, Items.ITEM_FRAME, Items.STICK, 4, true);
+        extract(out, Items.GLOW_ITEM_FRAME, Items.STICK, 4, true);
+        extract(out, Items.BOOKSHELF, Items.BOOK, 3, true);
+        extract(out, Items.LECTERN, Items.BOOK, 1, true);
+        extract(out, Items.ENDER_EYE, Items.BLAZE_POWDER, 1, true);
+        extract(out, Items.TARGET, Items.HAY_BLOCK, 1);
+        extract(out, Items.CHEST_MINECART, Items.CHEST, 1, true);
+        extract(out, Items.TNT_MINECART, Items.TNT, 1);
+        extract(out, Items.FURNACE_MINECART, Items.FURNACE, 1);
+        extract(out, Items.HOPPER_MINECART, Items.HOPPER, 1);
+        extract(out, Items.BIG_DRIPLEAF, Items.SMALL_DRIPLEAF, 1);
+        extract(out, Items.LEAD, Items.STRING, 2, true);
+        extract(out, Items.FISHING_ROD, Items.STRING, 2, true);
+        extract(out, Items.COMPASS, Items.REDSTONE, 1);
+        extract(out, Items.RECOVERY_COMPASS, Items.COMPASS, 1);
+        extract(out, Items.WRITABLE_BOOK, Items.BOOK, 1);
+        extract(out, Items.CARROT_ON_A_STICK, Items.CARROT, 1);
+        extract(out, Items.WARPED_FUNGUS_ON_A_STICK, Items.WARPED_FUNGUS, 1);
+        extract(out, Items.MELON_SLICE, Items.MELON_SEEDS, 2, true);
+        extract(out, Items.BREAD, Items.WHEAT, 1, true);
+        extract(out, Items.GOLDEN_APPLE, Items.GOLD_INGOT, 6, true);
+        extract(out, Items.ENCHANTED_GOLDEN_APPLE, Items.GOLD_INGOT, 6, true);
+        extract(out, Items.GLISTERING_MELON_SLICE, Items.GOLD_NUGGET, 6, true);
+        extract(out, Items.GOLDEN_CARROT, Items.GOLD_NUGGET, 6, true);
+        // weapons and armor
+        extract(out, Items.MACE, Items.HEAVY_CORE, 1);
+        extract(out, Items.NETHERITE_HELMET, Items.NETHERITE_INGOT, 1, true);
+        extract(out, Items.NETHERITE_CHESTPLATE, Items.NETHERITE_INGOT, 1, true);
+        extract(out, Items.NETHERITE_LEGGINGS, Items.NETHERITE_INGOT, 1, true);
+        extract(out, Items.NETHERITE_BOOTS, Items.NETHERITE_INGOT, 1, true);
+        extract(out, Items.NETHERITE_SWORD, Items.NETHERITE_INGOT, 1, true);
+        extract(out, Items.NETHERITE_PICKAXE, Items.NETHERITE_INGOT, 1, true);
+        extract(out, Items.NETHERITE_AXE, Items.NETHERITE_INGOT, 1, true);
+        extract(out, Items.NETHERITE_HOE, Items.NETHERITE_INGOT, 1, true);
+        extract(out, Items.NETHERITE_SHOVEL, Items.NETHERITE_INGOT, 1, true);
+        extract(out, Items.SPECTRAL_ARROW, Items.ARROW, 1);
+    }
+
+    private void extract(final @NotNull RecipeOutput out, final @NotNull Item input, final @NotNull Item output, final int amount) {
+        extract(out, input, output, amount, false);
+    }
+
+    private void extract(final @NotNull RecipeOutput out, final @NotNull Item input, final @NotNull Item output, final int amount, boolean from) {
+        final String inputPath = BuiltInRegistries.ITEM.getKey(input).getPath();
+        final String outputPath = BuiltInRegistries.ITEM.getKey(output).getPath();
+        new ExtractRecipeBuilder(output, amount)
+                .requires(input)
+                .unlockedBy("has_" + inputPath, getItemCriterion(input))
+                .save(out, Sunspot.id("extract/" + outputPath + (from ? "_from_" + inputPath : "")));
+    }
+
+    private void extractTag(final @NotNull RecipeOutput out, final @NotNull TagKey<Item> tag, final @NotNull Item output, final int amount) {
+        extractTag(out, tag, output, amount, false);
+    }
+
+    private void extractTag(final @NotNull RecipeOutput out, final @NotNull TagKey<Item> tag, final @NotNull Item output, final int amount, final boolean from) {
+        final String inputPath = tag.location().getPath();
+        final String outputPath = BuiltInRegistries.ITEM.getKey(output).getPath();
+        new ExtractRecipeBuilder(output, amount)
+                .requires(Ingredient.of(tag))
+                .unlockedBy("has_" + inputPath, getItemCriterion(tag))
+                .save(out, Sunspot.id("extract/" + outputPath + (from ? "_from_" + inputPath : "")));
     }
 
     private static @NotNull Criterion<InventoryChangeTrigger.TriggerInstance> getItemCriterion(final @NotNull Supplier<Item> item) {
