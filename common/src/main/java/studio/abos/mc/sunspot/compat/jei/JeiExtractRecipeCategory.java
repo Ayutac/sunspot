@@ -61,6 +61,6 @@ public class JeiExtractRecipeCategory implements IRecipeCategory<ExtractRecipe> 
 
     @Override
     public void createRecipeExtras(final @NotNull IRecipeExtrasBuilder builder, final @NotNull ExtractRecipe recipe, final @NotNull IFocusGroup focuses) {
-        builder.addWidget(new JeiSpriteWidget(PROGRESS_SPRITE, 25, 0, 24, 24));
+        builder.addWidget(new JeiSpriteWidget(PROGRESS_SPRITE, 23, 5, 32, 16));
     }
 }

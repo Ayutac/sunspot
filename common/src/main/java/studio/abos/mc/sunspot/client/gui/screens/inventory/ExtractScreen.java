@@ -31,7 +31,7 @@ public class ExtractScreen extends AbstractContainerScreen<ExtractMenu> {
     @Override
     protected void renderBg(final @NotNull GuiGraphics guiGraphics, final float f, final int i, final int j) {
         guiGraphics.blit(BACKGROUND, leftPos, topPos, 0, 0, imageWidth, imageHeight);
-        final int progress = Mth.ceil(menu.getProgress() * 24f);
-        guiGraphics.blitSprite(PROGRESS_SPRITE, 24, 24, 0, 0, leftPos + 79, topPos + 29, progress, 24);
+        final int progress = Mth.ceil(menu.getProgress() * 32f);
+        guiGraphics.blitSprite(PROGRESS_SPRITE, 32, 16, 0, 0, leftPos + 77, topPos + 34, progress, 16);
     }
 }
