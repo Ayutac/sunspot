@@ -7,9 +7,6 @@ architectury {
     neoForge()
 }
 
-repositories {
-}
-
 configurations {
     common {
         canBeResolved = true
@@ -32,12 +29,21 @@ repositories {
         name = 'NeoForged'
         url = 'https://maven.neoforged.net/releases'
     }
+    maven { url = "https://maven.createmod.net" } // Create, Ponder, Flywheel
+    maven { url = "https://maven.ithundxr.dev/snapshots" } // Registrate
 }
 
 dependencies {
     neoForge "net.neoforged:neoforge:$rootProject.neoforge_version"
 
     modImplementation "dev.architectury:architectury-neoforge:$rootProject.architectury_api_version"
+
+    // Create stuff
+    implementation("com.simibubi.create:create-$rootProject.minecraft_version:$rootProject.create_version:slim") { transitive = false }
+    implementation("net.createmod.ponder:Ponder-NeoForge-$rootProject.minecraft_version:$rootProject.ponder_version")
+    compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-$rootProject.minecraft_version:$rootProject.flywheel_version")
+    runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-$rootProject.minecraft_version:$flywheel_version")
+    implementation("com.tterrag.registrate:Registrate:$rootProject.registrate_version")
 
     // at runtime, use the full JEI jar for NeoForge
     runtimeOnly("mezz.jei:jei-$rootProject.minecraft_version-neoforge:$rootProject.jei_version")
