@@ -5,4 +5,64 @@ plugins {
     id 'com.diffplug.spotless' version '6.25.0'
 }
 
-apply from: 'https://raw.githubusercontent.com/JensenJ-Modding/Mod-Resources/refs/heads/main/1.21.1/Gradle/main-build.gradle'
+def buildNumber = project.hasProperty('buildNumber') ? project.buildNumber : 'local'
+
+architectury {
+    minecraft = project.minecraft_version
+}
+
+allprojects {
+    group = rootProject.maven_group
+    version = minecraft_version + "-" + mod_version + "+" + buildNumber
+}
+
+subprojects {
+    apply plugin: 'dev.architectury.loom'
+    apply plugin: 'architectury-plugin'
+    apply plugin: 'maven-publish'
+
+    loom {
+        silentMojangMappingsLicense()
+    }
+
+    repositories {
+        maven {
+            // location of the maven that hosts JEI files since January 2023
+            name = "Jared's maven"
+            url = "https://maven.blamejared.com/"
+        }
+        maven {
+            // location of a maven mirror for JEI files, as a fallback
+            name = "ModMaven"
+            url = "https://modmaven.dev"
+        }
+        maven { url = "https://maven.tterrag.com/" } // Flywheel on both, Create and Registrate on forge
+    }
+
+    dependencies {
+        minecraft "net.minecraft:minecraft:$rootProject.minecraft_version"
+        mappings loom.officialMojangMappings()
+    }
+
+    java {
+        withSourcesJar()
+
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        it.options.release = 21
+    }
+}
+
+spotless {
+    java {
+        target '**/src/**/*.java'
+        trimTrailingWhitespace()
+        palantirJavaFormat()
+        importOrder('java', 'javax', 'net.minecraft', 'org.spongepowered|com.llamalad7', '\\#')
+        removeUnusedImports()
+        formatAnnotations()
+    }
+}
